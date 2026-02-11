@@ -1,0 +1,118 @@
+{
+  "common": {
+    "home": "Ana Sayfa",
+    "tours": "Turlar",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "wishlist": "Favoriler",
+    "contactUs": "Bize Ulaşın",
+    "bookNow": "Hemen Rezervasyon",
+    "learnMore": "Daha Fazla",
+    "viewDetails": "Detayları Gör",
+    "cookiePolicy": "Çerez Politikası",
+    "cookieConsent": "Web sitemizde deneyiminizi geliştirmek, içerikleri kişiselleştirmek ve analiz yapmak için çerezler kullanıyoruz. Devam ederek çerez kullanımını kabul etmiş olursunuz.",
+    "accept": "Kabul Et",
+    "decline": "Reddet"
+  },
+  "home": {
+    "hero": {
+      "title": "Kapadokya'nın Büyüsünü Keşfedin",
+      "subtitle": "Unutulmaz balon turları ve kültür gezileri",
+      "cta": "Turları İncele"
+    },
+    "popularTours": {
+      "title": "Popüler Turlar",
+      "subtitle": "Kapadokya'nın en iyilerini deneyimleyin"
+    },
+    "features": {
+      "badge": "Kalite & Deneyim",
+      "title": "Neden Bizi Seçmelisiniz",
+      "subtitle": "Uzmanlık, yenilik ve özveriyle sizin için en iyi çözümleri sunuyoruz",
+      "professionalGuides": "Profesyonel Rehberler",
+      "professionalGuidesDesc": "Yılların deneyimine sahip uzman rehberler",
+      "bestPrices": "En İyi Fiyatlar",
+      "bestPricesDesc": "Gizli ücret olmadan rekabetçi fiyatlandırma",
+      "safetyFirst": "Güvenlik Önceliğimiz",
+      "safetyFirstDesc": "Güvenliğiniz bizim en önemli önceliğimiz"
+    }
+  },
+  "tours": {
+    "title": "Turlarımız",
+    "subtitle": "Özenle seçilmiş deneyimlerimizden birini seçin",
+    "filter": "Filtrele",
+    "sortBy": "Sırala",
+    "price": "Fiyat",
+    "duration": "Süre",
+    "category": "Kategori"
+  },
+  "tourDetail": {
+    "overview": "Genel Bakış",
+    "highlights": "Öne Çıkanlar",
+    "itinerary": "Program",
+    "included": "Dahil Olanlar",
+    "notIncluded": "Dahil Olmayanlar",
+    "importantInfo": "Önemli Bilgiler",
+    "from": "Başlangıç",
+    "perPerson": "kişi başı"
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Ekibimizle iletişime geçin",
+    "name": "İsim",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "message": "Mesaj",
+    "send": "Mesaj Gönder",
+    "sending": "Gönderiliyor...",
+    "success": "Mesajınız başarıyla gönderildi!",
+    "error": "Bir hata oluştu. Lütfen tekrar deneyin.",
+    "address": "Adres",
+    "addressLine": "Göreme, Nevşehir, Türkiye",
+    "phoneLine": "+90 555 123 4567",
+    "emailLine": "info@cappadocia-tours.com",
+    "workingHours": "Çalışma Saatleri",
+    "workingHoursLine": "Pazartesi - Pazar: 08:00 - 20:00",
+    "placeholderName": "Adınız Soyadınız",
+    "placeholderEmail": "ornek@email.com",
+    "placeholderPhone": "+90 555 123 4567",
+    "placeholderMessage": "Lütfen mesajınızı buraya yazın..."
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "subtitle": "Kapadokya'nın büyüsünü keşfetmenize yardımcı oluyoruz",
+    "ourStory": "Hikayemiz",
+    "ourStoryText": "2010 yılından bu yana Kapadokya'nın eşsiz güzelliklerini dünya ile paylaşıyoruz. Profesyonel ekibimiz ve yılların deneyimi ile misafirlerimize unutulmaz anlar yaşatıyoruz.",
+    "ourMission": "Misyonumuz",
+    "ourMissionText": "Kapadokya'nın doğal ve kültürel mirasını koruyarak, en yüksek kalite standartlarında turlar sunmak ve her misafirimize özel, güvenli ve unutulmaz deneyimler yaşatmaktır.",
+    "whyChooseUs": "Neden Bizi Seçmelisiniz?",
+    "experience": "Yılların Deneyimi",
+    "experienceDesc": "15+ yıllık turizm deneyimi ile Kapadokya'yı en iyi şekilde tanıtıyoruz",
+    "safety": "Güvenlik Önceliğimiz",
+    "safetyDesc": "Tüm turlarımızda en yüksek güvenlik standartlarını uyguluyoruz",
+    "guides": "Profesyonel Rehberler",
+    "guidesDesc": "Alanında uzman, deneyimli ve tutkulu yerel rehberlerimiz",
+    "satisfaction": "Müşteri Memnuniyeti",
+    "satisfactionDesc": "4.9/5 ortalama puan ve binlerce mutlu misafir",
+    "team": "Ekibimiz",
+    "teamText": "Kapadokya'ya tutkuyla bağlı, misafirperverliği seven ve işini en iyi şekilde yapan bir ekibiz.",
+    "cta": "Bizimle İletişime Geçin"
+  },
+  "metadata": {
+    "home": {
+      "title": "Kapadokya Turları | Balon Turları ve Kültür Gezileri",
+      "description": "Balon turları, kültür gezileri ve macera deneyimleri dahil en iyi Kapadokya turlarını keşfedin. Unutulmaz yolculuğunuzu bugün rezerve edin."
+    },
+    "tours": {
+      "title": "Kapadokya'da Turlar | Maceranızı Rezerve Edin",
+      "description": "Kapadokya'daki tüm mevcut turları inceleyin. Balon turlarından yürüyüş turlarına kadar mükemmel deneyiminizi bulun."
+    },
+    "contact": {
+      "title": "İletişim | Kapadokya Turları",
+      "description": "Rezervasyon sorularınız, sorularınız veya özel tur talepleriniz için bizimle iletişime geçin."
+    },
+    "about": {
+      "title": "Hakkımızda | Kapadokya Turları",
+      "description": "2010'dan beri Kapadokya'da unutulmaz tur deneyimleri sunuyoruz. Profesyonel ekibimiz ve güvenli turlarımız hakkında bilgi edinin."
+    }
+  }
+}

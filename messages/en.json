@@ -1,0 +1,118 @@
+{
+  "common": {
+    "home": "Home",
+    "tours": "Tours",
+    "about": "About",
+    "contact": "Contact",
+    "wishlist": "Wishlist",
+    "contactUs": "Contact Us",
+    "bookNow": "Book Now",
+    "learnMore": "Learn More",
+    "viewDetails": "View Details",
+    "cookiePolicy": "Cookie Policy",
+    "cookieConsent": "We use cookies to enhance your experience, personalize content and ads, and analyze traffic to our site. By continuing to use our site, you agree to our use of cookies.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "home": {
+    "hero": {
+      "title": "Discover the Magic of Cappadocia",
+      "subtitle": "Unforgettable hot air balloon rides and cultural tours",
+      "cta": "Explore Tours"
+    },
+    "popularTours": {
+      "title": "Popular Tours",
+      "subtitle": "Experience the best of Cappadocia"
+    },
+    "features": {
+      "badge": "Quality & Experience",
+      "title": "Why Choose Us",
+      "subtitle": "We combine expertise, innovation, and dedication to deliver the best solutions for you",
+      "professionalGuides": "Professional Guides",
+      "professionalGuidesDesc": "Expert local guides with years of experience",
+      "bestPrices": "Best Prices",
+      "bestPricesDesc": "Competitive pricing with no hidden fees",
+      "safetyFirst": "Safety First",
+      "safetyFirstDesc": "Your safety is our top priority"
+    }
+  },
+  "tours": {
+    "title": "Our Tours",
+    "subtitle": "Choose from our carefully curated experiences",
+    "filter": "Filter",
+    "sortBy": "Sort by",
+    "price": "Price",
+    "duration": "Duration",
+    "category": "Category"
+  },
+  "tourDetail": {
+    "overview": "Overview",
+    "highlights": "Highlights",
+    "itinerary": "Itinerary",
+    "included": "What's Included",
+    "notIncluded": "What's Not Included",
+    "importantInfo": "Important Information",
+    "from": "From",
+    "perPerson": "per person"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Your message has been sent successfully!",
+    "error": "An error occurred. Please try again.",
+    "address": "Address",
+    "addressLine": "Göreme, Nevşehir, Turkey",
+    "phoneLine": "+90 555 123 4567",
+    "emailLine": "info@cappadocia-tours.com",
+    "workingHours": "Working Hours",
+    "workingHoursLine": "Monday - Sunday: 08:00 AM - 08:00 PM",
+    "placeholderName": "John Doe",
+    "placeholderEmail": "john@example.com",
+    "placeholderPhone": "+90 555 123 4567",
+    "placeholderMessage": "Tell us about your inquiry..."
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Helping you discover the magic of Cappadocia",
+    "ourStory": "Our Story",
+    "ourStoryText": "Since 2010, we have been sharing the unique beauty of Cappadocia with the world. With our professional team and years of experience, we create unforgettable moments for our guests.",
+    "ourMission": "Our Mission",
+    "ourMissionText": "To provide the highest quality tours while preserving Cappadocia's natural and cultural heritage, and to create special, safe, and unforgettable experiences for every guest.",
+    "whyChooseUs": "Why Choose Us?",
+    "experience": "Years of Experience",
+    "experienceDesc": "15+ years of tourism experience showcasing Cappadocia at its best",
+    "safety": "Safety First",
+    "safetyDesc": "We apply the highest safety standards in all our tours",
+    "guides": "Professional Guides",
+    "guidesDesc": "Expert, experienced, and passionate local guides",
+    "satisfaction": "Customer Satisfaction",
+    "satisfactionDesc": "4.9/5 average rating and thousands of happy guests",
+    "team": "Our Team",
+    "teamText": "We are a team passionate about Cappadocia, who love hospitality and do their work in the best way possible.",
+    "cta": "Get In Touch With Us"
+  },
+  "metadata": {
+    "home": {
+      "title": "Cappadocia Tours | Hot Air Balloon Rides & Cultural Experiences",
+      "description": "Discover the best Cappadocia tours including hot air balloon rides, cultural tours, and adventure experiences. Book your unforgettable journey today."
+    },
+    "tours": {
+      "title": "Tours in Cappadocia | Book Your Adventure",
+      "description": "Browse all available tours in Cappadocia. From hot air balloons to hiking tours, find your perfect experience."
+    },
+    "contact": {
+      "title": "Contact Us | Cappadocia Tours",
+      "description": "Get in touch with us for booking inquiries, questions, or custom tour requests."
+    },
+    "about": {
+      "title": "About Us | Cappadocia Tours",
+      "description": "Providing unforgettable tour experiences in Cappadocia since 2010. Learn about our professional team and safe tours."
+    }
+  }
+}
