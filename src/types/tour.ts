@@ -2,7 +2,7 @@ export type TourCategoryType =
   | 'balloon'
   | 'cultural'
   | 'adventure'
-  | 'hiking'
+  | 'nature'
   | 'photography';
 
 export type TourDifficulty = 'easy' | 'moderate' | 'challenging';
@@ -31,7 +31,7 @@ export interface Tour {
   category: TourCategoryType; // Type olarak kullan
   difficulty: TourDifficulty;
   price: number;
-  originalPrice?: number;
+  originalPrice: number;
   duration: string;
   groupSize: {
     min: number;

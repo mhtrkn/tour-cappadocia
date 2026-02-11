@@ -6,13 +6,13 @@ import { Button } from '../ui/button';
 import LanguageSwitcher from './language-switcher';
 import MobileNav from './mobile-nav';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function Header() {
   const t = useTranslations('common');
   const router = useRouter();
 
   const navItems = [
-    { href: '/', label: t('home') },
     { href: '/tours', label: t('tours') },
     { href: '/about', label: t('about') },
     { href: '/wishlist', label: t('wishlist') },
@@ -24,25 +24,23 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/90 backdrop-blur supports-backdrop-filter:bg-background/75">
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex py-2 items-center justify-between">
           {/* Logo */}
           <I18nLink href="/" className="flex items-center space-x-2">
             <div className="flex items-center">
-              <span className="text-xl font-bold text-primary">
-                Paphlagonia Tour
-              </span>
+              <Image src={"/icons/logo.png"} alt="Paphlagonia Tour Logo" width={96} height={96} className="object-contain mt-1" />
             </div>
           </I18nLink>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8 py-2">
             {navItems.map((item) => (
               <I18nLink
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium transition-colors hover:text-primary"
+                className="font-medium transition-colors hover:text-primary"
               >
                 {item.label}
               </I18nLink>

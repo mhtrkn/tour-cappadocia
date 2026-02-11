@@ -6,6 +6,7 @@ import { getAllTours } from '@/lib/mock-data/helpers';
 import { Button } from '@/components/ui/button';
 import { Clock, Users, Star } from 'lucide-react';
 import BreadcrumbWrapper from '@/components/layout/breadcrumb';
+import { Badge } from '@/components/ui/badge';
 
 export const revalidate = 3600;
 
@@ -48,7 +49,7 @@ export default async function ToursPage({
         ]}
       />
 
-      <div className="py-12">
+      <div className="mb-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -60,7 +61,7 @@ export default async function ToursPage({
           </div>
 
           {/* Tours Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {tours.map((tour) => (
               <Link
                 key={tour.id}
@@ -83,17 +84,17 @@ export default async function ToursPage({
                       </div>
                     )}
                     {/* Category Badge */}
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold capitalize">
+                    <Badge variant={"outline"} className="capitalize absolute top-4 left-4 bg-gray-50">
                       {tour.category}
-                    </div>
+                    </Badge>
                   </div>
 
                   {/* Content */}
                   <div className="p-6">
-                    <h3 className="font-bold text-xl mb-2 group-hover:text-primary transition">
+                    <h3 className="font-bold mb-2 group-hover:text-primary transition h-12 overflow-hidden text-ellipsis line-clamp-2">
                       {tour.translations[locale as 'tr' | 'en'].title}
                     </h3>
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                    <p className="text-sm text-muted-foreground mb-4 h-10 overflow-hidden text-ellipsis line-clamp-2">
                       {tour.translations[locale as 'tr' | 'en'].shortDescription}
                     </p>
 
@@ -101,7 +102,7 @@ export default async function ToursPage({
                     <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                       <div className="flex items-center gap-1">
                         <Clock className="h-4 w-4" />
-                        <span>{tour.duration}</span>
+                        <span>{tour.duration} {commonT('hours')}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <Users className="h-4 w-4" />
@@ -120,13 +121,15 @@ export default async function ToursPage({
                           <span className="text-2xl font-bold text-primary">
                             ${tour.price}
                           </span>
-                          {tour.originalPrice && (
+                          {tour.originalPrice > tour.price && (
                             <span className="text-sm text-muted-foreground line-through">
                               ${tour.originalPrice}
                             </span>
                           )}
                         </div>
-                        <span className="text-xs text-muted-foreground">per person</span>
+                        <span className="text-xs text-muted-foreground lowercase">
+                          {commonT('perPerson')}
+                        </span>
                       </div>
                       <Button variant="outline" size="sm">
                         {commonT('viewDetails')}

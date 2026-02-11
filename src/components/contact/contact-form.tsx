@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Loader2 } from 'lucide-react';
+import { Separator } from '../ui/separator';
 
 export default function ContactForm() {
   const t = useTranslations('contact');
@@ -48,10 +49,11 @@ export default function ContactForm() {
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{t('title')}</CardTitle>
-        <CardDescription>{t('subtitle')}</CardDescription>
+    <Card className='col-span-1 w-full'>
+      <CardHeader className='px-0 pb-2'>
+        <CardTitle className='px-6'>{t('title')}</CardTitle>
+        <CardDescription className='px-6'>{t('subtitle')}</CardDescription>
+        <Separator />
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">

@@ -60,15 +60,29 @@ export default async function HomePage({
 
       <div>
         {/* Hero Section */}
-        <section className="relative bg-linear-to-br from-purple-50-50 via-pink-50 to-purple-50 py-20 md:py-32">
-          <div className="container mx-auto px-4">
+        <section className="relative bg-accent-foreground py-20 md:py-32 overflow-hidden">
+          {/* Background Image */}
+          <Image
+            src="/images/splash.jpg"
+            alt="Cappadocia"
+            fill
+            className="object-cover object-center opacity-50 brightness-50"
+          />
+
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-linear-to-t from-secondary/50 via-primary/25 to-transparent" />
+
+          {/* Content */}
+          <div className="relative z-20 container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-linear-to-r from-secondary to-primary bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 text-secondary">
                 {t('hero.title')}
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8">
+
+              <p className="text-lg md:text-xl text-muted mb-8">
                 {t('hero.subtitle')}
               </p>
+
               <Button size="lg" asChild>
                 <Link href="/tours">
                   {t('hero.cta')}
@@ -79,7 +93,7 @@ export default async function HomePage({
         </section>
 
         {/* Popular Tours */}
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-20 max-w-6xl mx-auto">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -117,10 +131,10 @@ export default async function HomePage({
 
                     {/* Content */}
                     <div className="p-6">
-                      <h3 className="font-bold text-xl mb-2 group-hover:text-primary transition">
+                      <h3 className="font-bold text-xl mb-2 group-hover:text-primary transition h-14 overflow-hidden text-ellipsis line-clamp-2">
                         {tour.translations[locale as 'tr' | 'en'].title}
                       </h3>
-                      <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                      <p className="text-sm text-muted-foreground mb-4 h-10 overflow-hidden text-ellipsis line-clamp-2">
                         {tour.translations[locale as 'tr' | 'en'].shortDescription}
                       </p>
 
@@ -128,7 +142,7 @@ export default async function HomePage({
                       <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                         <div className="flex items-center gap-1">
                           <Clock className="h-4 w-4" />
-                          <span>{tour.duration}</span>
+                          <span>{tour.duration} {commonT('hours')}</span>
                         </div>
                         <div className="flex items-center gap-1">
                           <Users className="h-4 w-4" />
@@ -147,13 +161,15 @@ export default async function HomePage({
                             <span className="text-2xl font-bold text-primary">
                               ${tour.price}
                             </span>
-                            {tour.originalPrice && (
+                            {tour.originalPrice > tour.price && (
                               <span className="text-sm text-muted-foreground line-through">
                                 ${tour.originalPrice}
                               </span>
                             )}
                           </div>
-                          <span className="text-xs text-muted-foreground">per person</span>
+                          <span className="text-xs text-muted-foreground">
+                            {commonT('perPerson')}
+                          </span>
                         </div>
                         <Button variant="outline" size="sm">
                           {commonT('viewDetails')}
@@ -168,7 +184,7 @@ export default async function HomePage({
         </section>
 
         {/* Features */}
-        <section className="relative py-20 md:py-32 overflow-hidden">
+        <section className="relative py-10 md:py-12 overflow-hidden">
           {/* Background Elements */}
           <div className="absolute inset-0 bg-linear-to-b from-background via-muted/30 to-background" />
           <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
@@ -213,16 +229,6 @@ export default async function HomePage({
                   <p className="text-muted-foreground leading-relaxed">
                     {t('features.professionalGuidesDesc')}
                   </p>
-
-                  {/* Decorative Element */}
-                  <div className="mt-6 pt-6 border-t border-border/50">
-                    <div className="flex items-center gap-2 text-sm text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span>Daha fazla bilgi</span>
-                      <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
                 </div>
               </div>
 
@@ -247,16 +253,6 @@ export default async function HomePage({
                   <p className="text-muted-foreground leading-relaxed">
                     {t('features.bestPricesDesc')}
                   </p>
-
-                  {/* Decorative Element */}
-                  <div className="mt-6 pt-6 border-t border-border/50">
-                    <div className="flex items-center gap-2 text-sm text-amber-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span>Fiyatları görüntüle</span>
-                      <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
                 </div>
               </div>
 
@@ -281,22 +277,12 @@ export default async function HomePage({
                   <p className="text-muted-foreground leading-relaxed">
                     {t('features.safetyFirstDesc')}
                   </p>
-
-                  {/* Decorative Element */}
-                  <div className="mt-6 pt-6 border-t border-border/50">
-                    <div className="flex items-center gap-2 text-sm text-emerald-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span>Güvenlik önlemleri</span>
-                      <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
 
             {/* Stats or Trust Indicators */}
-            <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="my-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">10K+</div>
                 <div className="text-sm text-muted-foreground">Mutlu Müşteri</div>

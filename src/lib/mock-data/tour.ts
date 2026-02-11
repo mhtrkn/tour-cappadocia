@@ -3,13 +3,13 @@ import { Tour } from '@/types/tour';
 export const tours: Tour[] = [
   {
     id: '1',
-    slug: 'hot-air-balloon-ride',
-    category: 'balloon',
+    slug: 'cappadocia-red-tour',
+    category: 'cultural',
     difficulty: 'easy',
-    price: 180,
-    originalPrice: 220,
-    duration: '3 hours',
-    groupSize: { min: 2, max: 20 },
+    price: 70,
+    originalPrice: 80,
+    duration: '7.5',
+    groupSize: { min: 1, max: 20 },
     ageRestriction: { min: 6 },
     rating: 4.9,
     reviewCount: 342,
@@ -17,8 +17,8 @@ export const tours: Tour[] = [
     active: true,
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1591825944920-9a51ce5e0f07?w=1200&h=800&fit=crop',
-        alt: 'Hot air balloons over Cappadocia',
+        url: 'https://www.paphlagoniatour.com/assets/upload/turfoto/cappadocia-red-tour16.jpg',
+        alt: 'Cappadocia Red Tour',
         width: 1200,
         height: 800,
       },
@@ -35,396 +35,1051 @@ export const tours: Tour[] = [
         height: 800,
       },
     ],
+
     translations: {
       tr: {
-        title: 'Kapadokya Sıcak Hava Balonu Turu',
-        shortDescription: 'Gün doğumunda Kapadokya\'nın büyüleyici manzarasını kuşbakışı izleyin',
-        description: 'Kapadokya\'nın eşsiz peri bacalarını ve vadilerini sıcak hava balonuyla keşfedin. Gün doğumunda başlayan bu unutulmaz deneyim, size Kapadokya\'nın tüm güzelliğini kuşbakışı sunacak. Profesyonel pilotlarımız eşliğinde güvenli ve konforlu bir yolculuk yapacaksınız.',
+        title: 'Kapadokya Kırmızı Tur (Red Tour)',
+        shortDescription: 'Kapadokya’nın en önemli tarihi ve doğal noktalarını yerel rehber eşliğinde keşfedin',
+        description:
+          'Bu tam günlük Kapadokya Kırmızı Turunda Uçhisar, Paşabağları, Avanos, Göreme Açık Hava Müzesi, Aşk Vadisi ve Devrent Vadisi’ni keşfedeceksiniz. Profesyonel rehber eşliğinde bölgenin Hititlerden Hristiyanlığa uzanan zengin tarihini öğrenecek, peri bacaları arasında keyifli yürüyüşler yapacak ve Kapadokya’nın eşsiz atmosferini yakından deneyimleyeceksiniz.',
+
         highlights: [
-          'Gün doğumunda muhteşem manzara',
-          'Profesyonel ve deneyimli pilotlar',
-          'Şampanya ikramı ve uçuş sertifikası',
-          'Otel transfer hizmeti dahil',
-          'Küçük grup garantisi (Max 20 kişi)',
+          'Uçhisar Kalesi’nden panoramik manzara',
+          'Paşabağları’nda keşiş hücreleri',
+          'Avanos’ta çömlek yapımı gösterisi',
+          'Göreme Açık Hava Müzesi ziyareti',
+          'Aşk Vadisi ve Devrent Vadisi fotoğraf molaları',
         ],
+
         itinerary: [
           {
             title: 'Otel Alımı',
-            description: 'Sabah 04:30-05:00 arası otelinizdeki alım',
-            time: '04:30 - 05:00',
+            description: 'Sabah otelinizden alınış',
+            time: '09:30',
           },
           {
-            title: 'Balon Sahası',
-            description: 'Hafif kahvaltı ve balon hazırlığının izlenmesi',
-            time: '05:30',
+            title: 'Uçhisar Kalesi',
+            description: 'Manzara ve fotoğraf molası',
+            time: '10:00',
           },
           {
-            title: 'Uçuş',
-            description: '45-60 dakikalık muhteşem balon turu',
-            time: '06:00 - 07:00',
+            title: 'Paşabağları',
+            description: 'Peri bacaları ve keşiş hücreleri ziyareti',
+            time: '11:00',
           },
           {
-            title: 'Kutlama',
-            description: 'İniş sonrası şampanya ikramı ve sertifika töreni',
-            time: '07:15',
+            title: 'Avanos',
+            description: 'Çömlek atölyesi ve öğle yemeği',
+            time: '12:30',
+          },
+          {
+            title: 'Göreme Açık Hava Müzesi',
+            description: 'Kilise ve fresklerin keşfi',
+            time: '14:00',
+          },
+          {
+            title: 'Aşk & Devrent Vadisi',
+            description: 'Fotoğraf ve kısa yürüyüş',
+            time: '15:30',
           },
           {
             title: 'Otel Dönüşü',
-            description: 'Kahvaltınız için vaktinde otelinize dönüş',
-            time: '08:00',
+            description: 'Otele transfer',
+            time: '17:00',
           },
         ],
+
         included: [
-          'Otel transfer hizmeti (Göreme, Uçhisar, Avanos bölgesi)',
-          '45-60 dakika balon uçuşu',
-          'Uçuş öncesi hafif kahvaltı',
-          'Uçuş sonrası şampanya ikramı',
-          'Uçuş sertifikası',
-          'Tam sigorta',
+          'Otel alım ve bırakma',
+          'Profesyonel İngilizce rehber',
+          'Müze giriş biletleri',
+          'Öğle yemeği',
+          'Klimalı araç ile ulaşım',
         ],
+
         notIncluded: [
           'Kişisel harcamalar',
-          'Göreme merkezi dışı oteller için ekstra transfer ücreti',
-          'Fotoğraf ve video çekimi (opsiyonel)',
+          'İçecekler',
+          'Bahşişler',
         ],
+
         importantInfo: [
-          'Hava koşullarına bağlı olarak tur iptal edilebilir',
-          'Hamile bayanlara tavsiye edilmez',
-          '6 yaş altı çocuklar kabul edilmemektedir',
-          'Rahat kıyafetler ve spor ayakkabılar giyiniz',
-          'Sabah erken saatlerde hava serin olabilir, yanınıza bir ceket alınız',
+          'Rahat ayakkabı giymeniz önerilir',
+          'Hava koşullarına göre program değişebilir',
+          'Yürüyüş içeren bir turdur',
+          'Şapka ve güneş kremi tavsiye edilir',
+          '6 yaş altı çocuklar için uygun değildir',
         ],
-        metaTitle: 'Kapadokya Sıcak Hava Balonu Turu | %20 İndirim',
-        metaDescription: 'Kapadokya\'da unutulmaz bir balon turu deneyimi. Gün doğumunda peri bacalarını keşfedin. Profesyonel pilotlar, tam sigorta, şampanya ikramı dahil.',
-        metaKeywords: ['kapadokya balon turu', 'sıcak hava balonu', 'kapadokya gezilecek yerler'],
+
+        metaTitle: 'Kapadokya Red Tour | En Popüler Günlük Tur',
+        metaDescription:
+          'Kapadokya Red Tour ile Uçhisar, Göreme, Avanos ve Paşabağları’nı keşfedin. Rehberli, öğle yemekli ve müze girişleri dahil tam günlük tur.',
+        metaKeywords: [
+          'kapadokya red tour',
+          'kapadokya günlük tur',
+          'göreme turu',
+          'uçhisar kalesi',
+        ],
       },
+
       en: {
-        title: 'Cappadocia Hot Air Balloon Ride',
-        shortDescription: 'Experience the magical landscape of Cappadocia from above at sunrise',
-        description: 'Discover the unique fairy chimneys and valleys of Cappadocia by hot air balloon. This unforgettable experience starting at sunrise will offer you a bird\'s eye view of all the beauty of Cappadocia. You will have a safe and comfortable journey with our professional pilots.',
+        title: 'Cappadocia Red Tour',
+        shortDescription: 'Discover the highlights of Cappadocia with a professional local guide',
+        description:
+          'On this full-day Cappadocia Red Tour, you will explore Uçhisar Castle, Paşabağları, Avanos, Göreme Open Air Museum, Love Valley, and Devrent Valley. With a professional guide, you will learn about the region’s rich history from the Hittites to early Christianity and enjoy walking among fairy chimneys and unique landscapes.',
+
         highlights: [
-          'Breathtaking sunrise views',
-          'Professional and experienced pilots',
-          'Champagne toast and flight certificate',
-          'Hotel transfer included',
-          'Small group guarantee (Max 20 people)',
+          'Panoramic views from Uçhisar Castle',
+          'Monk cells in Paşabağları',
+          'Pottery demonstration in Avanos',
+          'Visit to Göreme Open Air Museum',
+          'Photo stops at Love and Devrent Valleys',
         ],
+
         itinerary: [
           {
             title: 'Hotel Pick-up',
-            description: 'Morning pick-up from your hotel between 04:30-05:00',
-            time: '04:30 - 05:00',
+            description: 'Pick-up from your hotel',
+            time: '09:30',
           },
           {
-            title: 'Balloon Site',
-            description: 'Light breakfast and watching balloon preparation',
-            time: '05:30',
+            title: 'Uçhisar Castle',
+            description: 'Panoramic views and photo break',
+            time: '10:00',
           },
           {
-            title: 'Flight',
-            description: '45-60 minutes magnificent balloon tour',
-            time: '06:00 - 07:00',
+            title: 'Paşabağları',
+            description: 'Visit fairy chimneys and monk cells',
+            time: '11:00',
           },
           {
-            title: 'Celebration',
-            description: 'Champagne toast and certificate ceremony after landing',
-            time: '07:15',
+            title: 'Avanos',
+            description: 'Pottery workshop and lunch',
+            time: '12:30',
+          },
+          {
+            title: 'Göreme Open Air Museum',
+            description: 'Explore churches and frescoes',
+            time: '14:00',
+          },
+          {
+            title: 'Love & Devrent Valleys',
+            description: 'Photo stops and short walk',
+            time: '15:30',
           },
           {
             title: 'Hotel Return',
-            description: 'Return to your hotel in time for breakfast',
-            time: '08:00',
+            description: 'Transfer back to hotel',
+            time: '17:00',
           },
         ],
+
         included: [
-          'Hotel transfer service (Göreme, Uçhisar, Avanos area)',
-          '45-60 minute balloon flight',
-          'Light breakfast before flight',
-          'Champagne toast after flight',
-          'Flight certificate',
-          'Full insurance',
+          'Hotel pick-up and drop-off',
+          'Professional English-speaking guide',
+          'Museum entrance tickets',
+          'Lunch',
+          'Transportation with air-conditioned vehicle',
         ],
+
         notIncluded: [
           'Personal expenses',
-          'Extra transfer fee for hotels outside Göreme center',
-          'Photo and video shooting (optional)',
+          'Drinks',
+          'Tips',
         ],
+
         importantInfo: [
-          'Tour may be cancelled due to weather conditions',
-          'Not recommended for pregnant women',
-          'Children under 6 years old are not accepted',
-          'Wear comfortable clothes and sports shoes',
-          'It can be cool in early morning hours, bring a jacket',
+          'Comfortable walking shoes are recommended',
+          'Tour program may change due to weather',
+          'Includes walking activities',
+          'Bring hat and sunscreen',
+          'Not suitable for children under 6',
         ],
-        metaTitle: 'Cappadocia Hot Air Balloon Ride | 20% Discount',
-        metaDescription: 'An unforgettable balloon tour experience in Cappadocia. Discover fairy chimneys at sunrise. Professional pilots, full insurance, champagne toast included.',
-        metaKeywords: ['cappadocia balloon tour', 'hot air balloon', 'things to do in cappadocia'],
+
+        metaTitle: 'Cappadocia Red Tour | Best Daily Tour',
+        metaDescription:
+          'Join the Cappadocia Red Tour and explore Uçhisar, Göreme, Avanos, and Paşabağları. Guided full-day tour with lunch and museum tickets included.',
+        metaKeywords: [
+          'cappadocia red tour',
+          'daily tour cappadocia',
+          'goreme tour',
+          'uchisar castle',
+        ],
       },
     },
   },
   {
     id: '2',
-    slug: 'red-green-valley-tour',
-    category: 'cultural',
+    slug: 'cappadocia-green-tour',
+    category: 'nature',
     difficulty: 'easy',
-    price: 45,
-    duration: 'Full day',
-    groupSize: { min: 4, max: 14 },
+    price: 80,
+    originalPrice: 80,
+    duration: '8',
+    groupSize: { min: 1, max: 15 },
+    ageRestriction: { min: 6 },
     rating: 4.8,
-    reviewCount: 189,
+    reviewCount: 287,
     featured: true,
     active: true,
+
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1541480601022-2308c0f02487?w=1200&h=800&fit=crop',
-        alt: 'Red Valley Cappadocia',
+        url: 'https://images.unsplash.com/photo-1597002741384-66d8c7c2a8c6?w=1200&h=800&fit=crop',
+        alt: 'Ihlara Valley Cappadocia',
         width: 1200,
         height: 800,
       },
       {
-        url: 'https://images.unsplash.com/photo-1570939274717-7eda259b50ed?w=1200&h=800&fit=crop',
-        alt: 'Underground city',
+        url: 'https://images.unsplash.com/photo-1600962815726-457c46eb3f6f?w=1200&h=800&fit=crop',
+        alt: 'Derinkuyu Underground City',
+        width: 1200,
+        height: 800,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1580136607993-baa37cfd7bd8?w=1200&h=800&fit=crop',
+        alt: 'Selime Monastery Cappadocia',
         width: 1200,
         height: 800,
       },
     ],
+
     translations: {
       tr: {
-        title: 'Kızıl ve Yeşil Vadi Turu',
-        shortDescription: 'Kapadokya\'nın en güzel vadilerini ve yeraltı şehirlerini keşfedin',
-        description: 'Kapadokya\'nın tarih kokan vadilerinde unutulmaz bir gün geçirin. Derinkuyu Yeraltı Şehri, Ihlara Vadisi ve Selime Katedrali gibi muhteşem yerleri ziyaret edin.',
+        title: 'Kapadokya Yeşil Tur (Green Tour) – Küçük Grup & Alışverişsiz',
+        shortDescription:
+          'Ihlara Vadisi, Derinkuyu Yeraltı Şehri ve Selime Manastırı’nı kapsayan doğa ve tarih dolu tam günlük tur',
+
+        description:
+          'Kapadokya Yeşil Tur ile bölgenin en etkileyici doğal ve tarihi alanlarını keşfedin. Göreme Panorama, Derinkuyu Yeraltı Şehri, Ihlara Vadisi yürüyüşü, Melendiz Nehri kıyısında öğle yemeği ve Selime Manastırı ziyaretleri ile unutulmaz bir deneyim yaşayacaksınız. Küçük grup ve alışverişsiz konsepti sayesinde daha konforlu ve kaliteli bir tur sunulmaktadır.',
+
         highlights: [
-          'Derinkuyu Yeraltı Şehri gezisi',
-          'Ihlara Vadisi yürüyüşü (4 km)',
-          'Selime Manastırı ziyareti',
-          'Yerel restoranda öğle yemeği',
-          'Küçük grup turu',
+          'Göreme Panorama’dan eşsiz manzara',
+          'Derinkuyu Yeraltı Şehri keşfi',
+          'Ihlara Vadisi’nde doğa yürüyüşü',
+          'Nehir kenarında öğle yemeği',
+          'Selime Kaya Manastırı ziyareti',
+          'Yerel ürünler ve kahve tadımı',
         ],
+
         itinerary: [
           {
             title: 'Otel Alımı',
-            description: 'Sabah 09:30 otel alımı',
+            description: 'Sabah otelinizden alınış',
+            time: '09:00',
+          },
+          {
+            title: 'Göreme Panorama',
+            description: 'Bölge manzarası ve bilgilendirme',
             time: '09:30',
           },
           {
             title: 'Derinkuyu Yeraltı Şehri',
-            description: '8 katlı yeraltı şehrini keşfedin',
-            time: '10:30 - 11:30',
+            description: 'Yeraltı şehri ziyareti',
+            time: '10:30',
           },
           {
             title: 'Ihlara Vadisi',
-            description: 'Nehir kenarında yürüyüş ve doğa',
-            time: '12:00 - 14:00',
+            description: '3,5 km doğa yürüyüşü',
+            time: '12:00',
           },
           {
             title: 'Öğle Yemeği',
-            description: 'Vadi kenarında yerel lezzetler',
-            time: '14:00 - 15:00',
+            description: 'Melendiz Nehri kıyısında yemek',
+            time: '13:30',
           },
           {
             title: 'Selime Manastırı',
-            description: 'Kaya oyma manastır kompleksi',
-            time: '15:30 - 16:30',
+            description: 'Kaya manastırı gezisi',
+            time: '14:30',
+          },
+          {
+            title: 'Yerel Pazar & Kahve Molası',
+            description: 'Yöresel ürünler ve tadım',
+            time: '15:30',
           },
           {
             title: 'Otel Dönüşü',
-            description: 'Göreme\'ye dönüş',
-            time: '18:00',
+            description: 'Otele transfer',
+            time: '17:30',
           },
         ],
+
         included: [
-          'Profesyonel rehber',
-          'Klimalı araç transferi',
+          'Otel alım ve bırakma',
+          'Profesyonel İngilizce rehber',
+          'Klimalı araç ile ulaşım',
           'Öğle yemeği',
-          'Müze giriş ücretleri',
+          'Yerel ürün tadımı',
         ],
+
         notIncluded: [
-          'İçecekler',
+          'Müze giriş ücretleri',
           'Kişisel harcamalar',
+          'İçecekler',
+          'Bahşişler',
         ],
+
         importantInfo: [
-          'Rahat yürüyüş ayakkabıları giyin',
-          'Su ve şapka yanınıza alın',
-          'Orta seviye fitness gerektirir',
+          'Uzun yürüyüş için rahat ayakkabı giyiniz',
+          'Yeraltı şehri klostrofobisi olanlar için uygun değildir',
+          'Hava koşullarına göre program değişebilir',
+          'Şapka ve güneş kremi önerilir',
+          '6 yaş altı çocuklar için uygun değildir',
         ],
-        metaTitle: 'Kızıl ve Yeşil Vadi Turu | Kapadokya',
-        metaDescription: 'Kapadokya\'nın en güzel vadilerini keşfedin. Yeraltı şehri, Ihlara Vadisi ve daha fazlası.',
+
+        metaTitle:
+          'Kapadokya Green Tour | Ihlara Vadisi & Derinkuyu Yeraltı Şehri',
+
+        metaDescription:
+          'Kapadokya Green Tour ile Ihlara Vadisi, Derinkuyu Yeraltı Şehri ve Selime Manastırı’nı keşfedin. Küçük grup, rehberli ve öğle yemekli tam günlük tur.',
+
+        metaKeywords: [
+          'kapadokya green tour',
+          'ıhlara vadisi turu',
+          'derinkuyu yeraltı şehri',
+          'kapadokya doğa turu',
+          'kapadokya günlük tur',
+        ],
       },
+
       en: {
-        title: 'Red and Green Valley Tour',
-        shortDescription: 'Explore the most beautiful valleys and underground cities of Cappadocia',
-        description: 'Spend an unforgettable day in the historical valleys of Cappadocia. Visit magnificent places like Derinkuyu Underground City, Ihlara Valley and Selime Cathedral.',
+        title: 'Cappadocia Green Tour – Small Group & No Shopping',
+        shortDescription:
+          'Explore Ihlara Valley, Derinkuyu Underground City and Selime Monastery in one full-day tour',
+
+        description:
+          'Join the Cappadocia Green Tour and discover the most impressive natural and historical sites of the region. Visit Göreme Panorama, explore Derinkuyu Underground City, walk through Ihlara Valley, enjoy lunch by the Melendiz River and explore Selime Rock Monastery. This small-group, no-shopping tour offers a comfortable and authentic experience.',
+
         highlights: [
-          'Derinkuyu Underground City tour',
-          'Ihlara Valley hiking (4 km)',
-          'Selime Monastery visit',
-          'Lunch at local restaurant',
-          'Small group tour',
+          'Panoramic views from Göreme View Point',
+          'Explore Derinkuyu Underground City',
+          'Hiking in Ihlara Valley',
+          'Lunch by the Melendiz River',
+          'Visit Selime Rock Monastery',
+          'Local products and coffee tasting',
         ],
+
         itinerary: [
           {
             title: 'Hotel Pick-up',
-            description: 'Morning pick-up at 09:30',
+            description: 'Pick-up from your hotel',
+            time: '09:00',
+          },
+          {
+            title: 'Göreme Panorama',
+            description: 'Panoramic views and briefing',
             time: '09:30',
           },
           {
             title: 'Derinkuyu Underground City',
-            description: 'Explore the 8-level underground city',
-            time: '10:30 - 11:30',
+            description: 'Explore underground tunnels and rooms',
+            time: '10:30',
           },
           {
             title: 'Ihlara Valley',
-            description: 'Riverside walk and nature',
-            time: '12:00 - 14:00',
+            description: '3.5 km hiking tour',
+            time: '12:00',
           },
           {
             title: 'Lunch',
-            description: 'Local cuisine by the valley',
-            time: '14:00 - 15:00',
+            description: 'Lunch by Melendiz River',
+            time: '13:30',
           },
           {
             title: 'Selime Monastery',
-            description: 'Rock-carved monastery complex',
-            time: '15:30 - 16:30',
+            description: 'Visit rock-cut monastery',
+            time: '14:30',
+          },
+          {
+            title: 'Local Market & Coffee Break',
+            description: 'Taste local products',
+            time: '15:30',
           },
           {
             title: 'Hotel Return',
-            description: 'Return to Göreme',
-            time: '18:00',
+            description: 'Transfer back to hotel',
+            time: '17:30',
           },
         ],
+
         included: [
-          'Professional guide',
-          'Air-conditioned vehicle transfer',
+          'Hotel pick-up and drop-off',
+          'Professional English-speaking guide',
+          'Transportation with air-conditioned vehicle',
           'Lunch',
-          'Museum entrance fees',
+          'Local tasting experience',
         ],
+
         notIncluded: [
-          'Drinks',
+          'Entrance fees',
           'Personal expenses',
+          'Drinks',
+          'Tips',
         ],
+
         importantInfo: [
           'Wear comfortable walking shoes',
-          'Bring water and hat',
-          'Requires moderate fitness level',
+          'Not suitable for people with claustrophobia',
+          'Tour schedule may change due to weather',
+          'Bring sunscreen and hat',
+          'Not suitable for children under 6',
         ],
-        metaTitle: 'Red and Green Valley Tour | Cappadocia',
-        metaDescription: 'Discover the most beautiful valleys of Cappadocia. Underground city, Ihlara Valley and more.',
+
+        metaTitle:
+          'Cappadocia Green Tour | Ihlara Valley & Derinkuyu Underground City',
+
+        metaDescription:
+          'Discover Ihlara Valley, Derinkuyu Underground City and Selime Monastery on the Cappadocia Green Tour. Small group, guided full-day tour with lunch included.',
+
+        metaKeywords: [
+          'cappadocia green tour',
+          'ihlára valley tour',
+          'derinkuyu underground city',
+          'cappadocia nature tour',
+          'daily tour cappadocia',
+        ],
       },
     },
   },
   {
     id: '3',
-    slug: 'atv-sunset-tour',
+    slug: 'cappadocia-hot-air-balloon-tour-goreme',
     category: 'adventure',
-    difficulty: 'moderate',
-    price: 65,
-    duration: '2 hours',
-    groupSize: { min: 2, max: 10 },
-    ageRestriction: { min: 16 },
-    rating: 4.7,
-    reviewCount: 156,
+    difficulty: 'easy',
+    price: 350,
+    originalPrice: 350,
+    duration: '3',
+    groupSize: { min: 1, max: 20 },
+    ageRestriction: { min: 6 },
+    rating: 4.9,
+    reviewCount: 512,
     featured: true,
     active: true,
+
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop',
-        alt: 'ATV tour in Cappadocia',
+        url: 'https://images.unsplash.com/photo-1608211805656-f46ee1a39729?w=1200&h=800&fit=crop',
+        alt: 'Cappadocia Hot Air Balloon Sunrise',
+        width: 1200,
+        height: 800,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1565008576549-57569a49371d?w=1200&h=800&fit=crop',
+        alt: 'Cappadocia Balloons Over Fairy Chimneys',
+        width: 1200,
+        height: 800,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1504274066651-8d31a536b11a?w=1200&h=800&fit=crop',
+        alt: 'Hot Air Balloons in Goreme',
         width: 1200,
         height: 800,
       },
     ],
+
     translations: {
       tr: {
-        title: 'ATV ile Gün Batımı Turu',
-        shortDescription: 'Gün batımında ATV ile vadilerde heyecan dolu bir macera',
-        description: 'ATV ile Kapadokya\'nın çarpıcı manzaralarını keşfedin. Gün batımı sırasında kızıl kayalıklar arasında unutulmaz bir deneyim yaşayın.',
+        title: 'Kapadokya Sıcak Hava Balon Turu – Göreme Peri Bacaları Üzerinde Uçuş',
+
+        shortDescription:
+          'Gün doğumunda Göreme semalarında Kapadokya’nın eşsiz manzarasını balonla keşfedin',
+
+        description:
+          'Kapadokya Sıcak Hava Balon Turu ile gün doğumunda peri bacalarının üzerinde süzülmenin keyfini çıkarın. Sabah erken saatlerde otelinizden alınır, balonların hazırlanışını izler ve yaklaşık 1 saatlik unutulmaz bir uçuş deneyimi yaşarsınız. Profesyonel pilotlar eşliğinde güvenli ve konforlu bir şekilde Kapadokya’nın büyüleyici manzarasını kuşbakışı izleyebilirsiniz.',
+
         highlights: [
-          'Profesyonel ATV eğitimi',
-          'Güvenlik ekipmanları dahil',
-          'Gün batımı manzarası',
-          'Fotoğraf molaları',
+          'Gün doğumunda balon uçuşu deneyimi',
+          'Peri bacaları üzerinde panoramik manzara',
+          'Profesyonel ve lisanslı pilotlar',
+          'Uçuş sertifikası veya madalya',
+          'Otel transfer hizmeti dahil',
         ],
+
         itinerary: [
           {
-            title: 'Buluşma ve Eğitim',
-            description: 'ATV kullanım eğitimi',
-            time: '16:30',
+            title: 'Otel Alımı',
+            description: 'Sabah erken saatlerde otelden alınış',
+            time: '05:00',
           },
           {
-            title: 'Vadi Turu',
-            description: 'Kızılçukur ve Güvercinlik vadileri',
-            time: '17:00 - 18:30',
+            title: 'Kalkış Alanı',
+            description: 'Balonların hazırlanışının izlenmesi',
+            time: '05:30',
           },
           {
-            title: 'Gün Batımı',
-            description: 'Panoramik gün batımı noktası',
-            time: '18:30 - 19:00',
+            title: 'Uçuş',
+            description: 'Yaklaşık 1 saatlik balon uçuşu',
+            time: '06:00 - 07:00',
+          },
+          {
+            title: 'İniş & Sertifika',
+            description: 'İniş sonrası sertifika veya madalya töreni',
+            time: '07:15',
+          },
+          {
+            title: 'Otel Dönüşü',
+            description: 'Otele transfer',
+            time: '08:00',
           },
         ],
+
         included: [
-          'ATV kirası',
-          'Kask ve gözlük',
-          'Profesyonel rehber',
-          'Sigorta',
+          'Otel alım ve bırakma',
+          'Yaklaşık 1 saat balon uçuşu',
+          'Profesyonel pilot',
+          'Uçuş sertifikası veya madalya',
+          'Tam sigorta',
         ],
+
         notIncluded: [
-          'Otel transferi',
+          'Fotoğraf ve video paketi',
+          'Yiyecek ve içecek',
           'Kişisel harcamalar',
         ],
+
         importantInfo: [
-          'Sürücü belgesi gereklidir',
-          '16 yaş altı kabul edilmez',
-          'Tozlu ortam olduğu için uygun kıyafet giyin',
+          'Hava koşullarına bağlı olarak uçuş iptal edilebilir',
+          'Sivil Havacılık iznine bağlıdır',
+          'Hamileler için önerilmez',
+          'Rahat kıyafetler giyilmelidir',
+          'Erken saatlerde hava serin olabilir',
         ],
-        metaTitle: 'ATV Gün Batımı Turu | Kapadokya',
-        metaDescription: 'ATV ile Kapadokya vadilerinde gün batımı macerası. Profesyonel eğitim ve ekipman dahil.',
+
+        metaTitle:
+          'Kapadokya Balon Turu | Göreme Sıcak Hava Balonu Uçuşu',
+
+        metaDescription:
+          'Kapadokya’da gün doğumunda sıcak hava balon turu deneyimi. Göreme’de peri bacaları üzerinde uçuş, otel transferi ve sertifika dahil.',
+
+        metaKeywords: [
+          'kapadokya balon turu',
+          'göreme sıcak hava balonu',
+          'kapadokya balloon flight',
+          'peri bacaları balon turu',
+          'cappadocia balloon ride',
+        ],
       },
+
       en: {
-        title: 'ATV Sunset Tour',
-        shortDescription: 'An exciting adventure through valleys on ATV at sunset',
-        description: 'Discover the striking landscapes of Cappadocia on ATV. Experience an unforgettable adventure among red rocks during sunset.',
+        title: 'Cappadocia Hot Air Balloon Flight Over Fairy Chimneys in Göreme',
+
+        shortDescription:
+          'Enjoy a magical sunrise balloon flight over Cappadocia’s fairy chimneys',
+
+        description:
+          'Experience the best hot air balloon flight in Cappadocia at sunrise. You will be picked up early from your hotel, watch the balloon preparation, and enjoy an unforgettable one-hour flight over fairy chimneys and valleys. Fly safely with professional pilots and admire Cappadocia from a unique perspective.',
+
         highlights: [
-          'Professional ATV training',
-          'Safety equipment included',
-          'Sunset view',
-          'Photo stops',
+          'Sunrise hot air balloon flight',
+          'Panoramic views over fairy chimneys',
+          'Professional licensed pilots',
+          'Flight certificate or medal',
+          'Hotel transfers included',
         ],
+
         itinerary: [
           {
-            title: 'Meeting and Training',
-            description: 'ATV usage training',
-            time: '16:30',
+            title: 'Hotel Pick-up',
+            description: 'Early morning hotel pick-up',
+            time: '05:00',
           },
           {
-            title: 'Valley Tour',
-            description: 'Red and Rose valleys',
-            time: '17:00 - 18:30',
+            title: 'Take-off Area',
+            description: 'Watching balloon inflation',
+            time: '05:30',
           },
           {
-            title: 'Sunset',
-            description: 'Panoramic sunset point',
-            time: '18:30 - 19:00',
+            title: 'Flight',
+            description: 'Approximately 1-hour balloon flight',
+            time: '06:00 - 07:00',
+          },
+          {
+            title: 'Landing & Certificate',
+            description: 'Certificate or medal ceremony',
+            time: '07:15',
+          },
+          {
+            title: 'Hotel Return',
+            description: 'Transfer back to hotel',
+            time: '08:00',
           },
         ],
+
         included: [
-          'ATV rental',
-          'Helmet and goggles',
-          'Professional guide',
-          'Insurance',
+          'Hotel pick-up and drop-off',
+          'Approx. 1-hour balloon flight',
+          'Professional pilot',
+          'Flight certificate or medal',
+          'Full insurance',
         ],
+
         notIncluded: [
-          'Hotel transfer',
+          'Photo and video package',
+          'Food and drinks',
           'Personal expenses',
         ],
+
         importantInfo: [
-          'Driver\'s license required',
-          'Under 16 not accepted',
-          'Wear appropriate clothes for dusty environment',
+          'Flights depend on weather conditions',
+          'Subject to Civil Aviation approval',
+          'Not recommended for pregnant women',
+          'Wear comfortable clothes',
+          'Early morning can be cold',
         ],
-        metaTitle: 'ATV Sunset Tour | Cappadocia',
-        metaDescription: 'Sunset adventure in Cappadocia valleys on ATV. Professional training and equipment included.',
+
+        metaTitle:
+          'Cappadocia Hot Air Balloon Ride | Göreme Sunrise Flight',
+
+        metaDescription:
+          'Join the best Cappadocia hot air balloon ride over fairy chimneys in Göreme. Sunrise flight, hotel transfer and certificate included.',
+
+        metaKeywords: [
+          'cappadocia balloon ride',
+          'hot air balloon goreme',
+          'cappadocia sunrise flight',
+          'fairy chimneys balloon',
+          'balloon tour cappadocia',
+        ],
       },
     },
   },
+  {
+    id: '4',
+    slug: 'cappadocia-balloon-watching-tour-goreme',
+    category: 'photography',
+    difficulty: 'easy',
+    price: 50,
+    originalPrice: 70,
+    duration: '2.5',
+    groupSize: { min: 1, max: 15 },
+    ageRestriction: { min: 6 },
+    rating: 4.7,
+    reviewCount: 198,
+    featured: false,
+    active: true,
+
+    images: [
+      {
+        url: 'https://images.unsplash.com/photo-1565008576549-57569a49371d?w=1200&h=800&fit=crop',
+        alt: 'Cappadocia Balloon Watching Sunrise',
+        width: 1200,
+        height: 800,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1608211805656-f46ee1a39729?w=1200&h=800&fit=crop',
+        alt: 'Hot Air Balloons Over Goreme Valleys',
+        width: 1200,
+        height: 800,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1504274066651-8d31a536b11a?w=1200&h=800&fit=crop',
+        alt: 'Cappadocia Sunrise Balloon Viewpoint',
+        width: 1200,
+        height: 800,
+      },
+    ],
+
+    translations: {
+      tr: {
+        title: 'Kapadokya Balon İzleme Turu – Göreme Vadileri Gün Doğumu',
+
+        shortDescription:
+          'Göreme vadilerinde gün doğumunda yüzlerce balonu izleyip eşsiz fotoğraflar çekin',
+
+        description:
+          'Kapadokya Balon İzleme Turu ile gün doğumunda Göreme vadilerinde havalanan yüzlerce balonu yakından izleyin. Profesyonel transfer ile en iyi noktalara ulaştırılır, yaklaşık 2 saat boyunca farklı açılardan fotoğraf çekme imkânı sunulur. Sosyal medya ve anı koleksiyonunuz için unutulmaz kareler yakalayabilirsiniz.',
+
+        highlights: [
+          'Gün doğumunda balon izleme deneyimi',
+          'En iyi fotoğraf noktalarına ulaşım',
+          'Profesyonel transfer hizmeti',
+          '2 saatlik fotoğraf çekimi süresi',
+          'Sosyal medya için ideal manzaralar',
+        ],
+
+        itinerary: [
+          {
+            title: 'Otel Alımı',
+            description: 'Sabah erken saatlerde otelden alınış',
+            time: '05:30',
+          },
+          {
+            title: 'İzleme Noktaları',
+            description: 'Farklı açılardan balon fotoğraf çekimi',
+            time: '06:00 - 08:00',
+          },
+          {
+            title: 'Otel Dönüşü',
+            description: 'Otele transfer',
+            time: '08:15',
+          },
+        ],
+
+        included: [
+          'Otel alım ve bırakma',
+          'Minivan ile ulaşım',
+          'Profesyonel sürücü',
+          'Fotoğraf noktalarına transfer',
+        ],
+
+        notIncluded: [
+          'Profesyonel fotoğrafçı hizmeti',
+          'Drone çekimi',
+          'Yiyecek ve içecek',
+          'Kişisel harcamalar',
+        ],
+
+        importantInfo: [
+          'Hava koşullarına bağlı olarak program değişebilir',
+          'Erken saatlerde hava soğuk olabilir',
+          'Tripod getirmeniz önerilir',
+          'Rahat kıyafetler tercih edilmelidir',
+          'Balon uçuşu garanti edilemez',
+        ],
+
+        metaTitle:
+          'Kapadokya Balon İzleme Turu | Göreme Gün Doğumu Fotoğraf Deneyimi',
+
+        metaDescription:
+          'Kapadokya’da balon izleme turu ile Göreme vadilerinde gün doğumunda yüzlerce balonu izleyin ve unutulmaz fotoğraflar çekin.',
+
+        metaKeywords: [
+          'kapadokya balon izleme turu',
+          'göreme balon manzarası',
+          'kapadokya fotoğraf turu',
+          'balon izleme cappadocia',
+          'sunrise balloon watching',
+        ],
+      },
+
+      en: {
+        title: 'Cappadocia Balloon Watching Tour – Sunrise in Göreme Valleys',
+
+        shortDescription:
+          'Watch hundreds of balloons at sunrise and capture stunning photos in Göreme valleys',
+
+        description:
+          'Join the Cappadocia Balloon Watching Tour and experience the magical sunrise over Göreme valleys filled with hundreds of hot air balloons. You will be transferred to the best viewpoints and spend around 2 hours taking unforgettable photos from different angles.',
+
+        highlights: [
+          'Sunrise balloon watching experience',
+          'Access to best photo spots',
+          'Comfortable minivan transfers',
+          '2 hours of shooting time',
+          'Perfect for social media content',
+        ],
+
+        itinerary: [
+          {
+            title: 'Hotel Pick-up',
+            description: 'Early morning hotel pick-up',
+            time: '05:30',
+          },
+          {
+            title: 'Viewing Points',
+            description: 'Balloon photography from different angles',
+            time: '06:00 - 08:00',
+          },
+          {
+            title: 'Hotel Return',
+            description: 'Transfer back to hotel',
+            time: '08:15',
+          },
+        ],
+
+        included: [
+          'Hotel pick-up and drop-off',
+          'Transportation by minivan',
+          'Professional driver',
+          'Transfers to viewing points',
+        ],
+
+        notIncluded: [
+          'Professional photographer service',
+          'Drone shooting',
+          'Food and drinks',
+          'Personal expenses',
+        ],
+
+        importantInfo: [
+          'Program depends on weather conditions',
+          'Early mornings can be cold',
+          'Bringing a tripod is recommended',
+          'Wear comfortable clothes',
+          'Balloon flights are not guaranteed',
+        ],
+
+        metaTitle:
+          'Cappadocia Balloon Watching Tour | Göreme Sunrise Photography',
+
+        metaDescription:
+          'Watch hundreds of balloons at sunrise in Göreme valleys. Join Cappadocia balloon watching tour with hotel transfers and best viewpoints.',
+
+        metaKeywords: [
+          'cappadocia balloon watching',
+          'goreme sunrise balloons',
+          'balloon photography tour',
+          'cappadocia sunrise view',
+          'hot air balloon watching',
+        ],
+      },
+    },
+  },
+  {
+    id: '5',
+    slug: 'daily-cappadocia-tour-from-kayseri',
+    category: 'cultural',
+    difficulty: 'easy',
+    price: 80,
+    originalPrice: 90,
+    duration: '10',
+    groupSize: { min: 1, max: 15 },
+    ageRestriction: { min: 6 },
+    rating: 4.8,
+    reviewCount: 164,
+    featured: false,
+    active: true,
+
+    images: [
+      {
+        url: 'https://images.unsplash.com/photo-1565008576549-57569a49371d?w=1200&h=800&fit=crop',
+        alt: 'Cappadocia Landscape From Kayseri Tour',
+        width: 1200,
+        height: 800,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1608211805656-f46ee1a39729?w=1200&h=800&fit=crop',
+        alt: 'Goreme Hot Air Balloons',
+        width: 1200,
+        height: 800,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1580136607993-baa37cfd7bd8?w=1200&h=800&fit=crop',
+        alt: 'Uchisar Castle View',
+        width: 1200,
+        height: 800,
+      },
+    ],
+
+    translations: {
+      tr: {
+        title: 'Kayseri Çıkışlı Günlük Kapadokya Turu – Minivan ile',
+
+        shortDescription:
+          'Kayseri’den hareketle Göreme ve Kapadokya’nın en önemli noktalarını keşfedin',
+
+        description:
+          'Kayseri çıkışlı günlük Kapadokya turu ile Uçhisar Kalesi, Göreme Açık Hava Müzesi, Aşk Vadisi ve Paşabağları’nı keşfedin. Konforlu minivan ulaşımı, profesyonel rehberlik ve Avanos’ta öğle yemeği ile keyifli ve dolu dolu bir gün geçireceksiniz.',
+
+        highlights: [
+          'Kayseri’den konforlu transfer',
+          'Uçhisar Kalesi panoraması',
+          'Göreme Açık Hava Müzesi ziyareti',
+          'Aşk Vadisi fotoğraf molası',
+          'Paşabağları peri bacaları',
+          'Avanos’ta seramik atölyesi',
+        ],
+
+        itinerary: [
+          {
+            title: 'Kayseri Otel Alımı',
+            description: 'Kayseri’deki otelinizden alınış',
+            time: '08:30',
+          },
+          {
+            title: 'Göreme Varış',
+            description: 'Tur başlangıcı',
+            time: '10:00',
+          },
+          {
+            title: 'Uçhisar Kalesi',
+            description: 'Manzara ve fotoğraf molası',
+            time: '10:30',
+          },
+          {
+            title: 'Göreme Açık Hava Müzesi',
+            description: 'Kilise ve fresklerin keşfi',
+            time: '11:30',
+          },
+          {
+            title: 'Aşk Vadisi',
+            description: 'Fotoğraf ve kısa yürüyüş',
+            time: '12:45',
+          },
+          {
+            title: 'Paşabağları',
+            description: 'Peri bacaları ziyareti',
+            time: '13:30',
+          },
+          {
+            title: 'Avanos Öğle Yemeği',
+            description: 'Nehir kenarında öğle yemeği',
+            time: '14:30',
+          },
+          {
+            title: 'Seramik Atölyesi',
+            description: 'Çömlek yapımı gösterisi',
+            time: '15:30',
+          },
+          {
+            title: 'Tur Bitişi',
+            description: 'Göreme’den Kayseri’ye dönüş',
+            time: '18:00',
+          },
+          {
+            title: 'Kayseri Otel Dönüşü',
+            description: 'Otele bırakma',
+            time: '19:00 - 19:30',
+          },
+        ],
+
+        included: [
+          'Kayseri’den gidiş-dönüş transfer',
+          'Minivan ile ulaşım',
+          'Profesyonel rehber',
+          'Öğle yemeği',
+          'Seramik atölyesi ziyareti',
+        ],
+
+        notIncluded: [
+          'Müze giriş ücretleri',
+          'İçecekler',
+          'Kişisel harcamalar',
+          'Bahşişler',
+        ],
+
+        importantInfo: [
+          'Uzun süren bir turdur',
+          'Rahat ayakkabı giymeniz önerilir',
+          'Program trafik ve hava durumuna göre değişebilir',
+          'Sabah erken kalkış vardır',
+          '6 yaş altı çocuklar için uygun değildir',
+        ],
+
+        metaTitle:
+          'Kayseri Çıkışlı Kapadokya Turu | Günlük Göreme & Uçhisar Gezisi',
+
+        metaDescription:
+          'Kayseri çıkışlı günlük Kapadokya turu ile Göreme, Uçhisar, Paşabağları ve Avanos’u keşfedin. Rehberli, transferli ve öğle yemekli tur.',
+
+        metaKeywords: [
+          'kayseri çıkışlı kapadokya turu',
+          'kayseri göreme turu',
+          'kapadokya günlük tur kayseri',
+          'uçhisar kalesi turu',
+          'avanos seramik turu',
+        ],
+      },
+
+      en: {
+        title: 'Daily Cappadocia Tour from Kayseri by Minivan',
+
+        shortDescription:
+          'Discover the highlights of Cappadocia with a comfortable transfer from Kayseri',
+
+        description:
+          'Join the daily Cappadocia tour from Kayseri and explore Uçhisar Castle, Göreme Open Air Museum, Love Valley and Paşabağları. Enjoy a comfortable minivan transfer, professional guiding and lunch in Avanos for a complete Cappadocia experience.',
+
+        highlights: [
+          'Round-trip transfer from Kayseri',
+          'Panoramic views at Uçhisar Castle',
+          'Visit Göreme Open Air Museum',
+          'Photo stop at Love Valley',
+          'Explore Paşabağları',
+          'Ceramic workshop in Avanos',
+        ],
+
+        itinerary: [
+          {
+            title: 'Kayseri Hotel Pick-up',
+            description: 'Pick-up from your hotel in Kayseri',
+            time: '08:30',
+          },
+          {
+            title: 'Arrival in Göreme',
+            description: 'Tour starts',
+            time: '10:00',
+          },
+          {
+            title: 'Uçhisar Castle',
+            description: 'Panoramic views and photos',
+            time: '10:30',
+          },
+          {
+            title: 'Göreme Open Air Museum',
+            description: 'Explore churches and frescoes',
+            time: '11:30',
+          },
+          {
+            title: 'Love Valley',
+            description: 'Photo break and short walk',
+            time: '12:45',
+          },
+          {
+            title: 'Paşabağları',
+            description: 'Visit fairy chimneys',
+            time: '13:30',
+          },
+          {
+            title: 'Lunch in Avanos',
+            description: 'Lunch by the river',
+            time: '14:30',
+          },
+          {
+            title: 'Ceramic Workshop',
+            description: 'Pottery demonstration',
+            time: '15:30',
+          },
+          {
+            title: 'End of Tour',
+            description: 'Return to Kayseri',
+            time: '18:00',
+          },
+          {
+            title: 'Hotel Drop-off',
+            description: 'Drop-off at your hotel',
+            time: '19:00 - 19:30',
+          },
+        ],
+
+        included: [
+          'Round-trip transfer from Kayseri',
+          'Transportation by minivan',
+          'Professional tour guide',
+          'Lunch',
+          'Ceramic workshop visit',
+        ],
+
+        notIncluded: [
+          'Museum entrance fees',
+          'Drinks',
+          'Personal expenses',
+          'Tips',
+        ],
+
+        importantInfo: [
+          'This is a long full-day tour',
+          'Wear comfortable walking shoes',
+          'Schedule may change due to traffic and weather',
+          'Early morning departure',
+          'Not suitable for children under 6',
+        ],
+
+        metaTitle:
+          'Daily Cappadocia Tour from Kayseri | Göreme & Uçhisar Trip',
+
+        metaDescription:
+          'Join the daily Cappadocia tour from Kayseri and explore Göreme, Uçhisar, Paşabağları and Avanos. Guided tour with transfers and lunch included.',
+
+        metaKeywords: [
+          'daily cappadocia tour from kayseri',
+          'kayseri to cappadocia tour',
+          'goreme tour from kayseri',
+          'cappadocia day trip kayseri',
+          'avanos pottery tour',
+        ],
+      },
+    },
+  }
 ];

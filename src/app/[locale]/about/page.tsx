@@ -61,9 +61,9 @@ export default async function AboutPage({
   ];
 
   return (
-    <div className="py-12">
+    <div>
       {/* Hero Section */}
-      <section className="bg-linear-to-br from-orange-50 via-red-50 to-orange-50 py-16">
+      <section className="py-12">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             {t('title')}
@@ -74,16 +74,16 @@ export default async function AboutPage({
         </div>
       </section>
 
-      <div className="container mx-auto px-4">
+      <div className="container max-w-6xl relative mx-auto px-4">
         {/* Our Story */}
         <section className="py-16">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-1 gap-6 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-6">{t('ourStory')}</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 {t('ourStoryText')}
               </p>
-              <div className="flex gap-8">
+              <div className="flex gap-12 my-6">
                 <div>
                   <div className="text-4xl font-bold text-primary mb-2">15+</div>
                   <div className="text-sm text-muted-foreground">
@@ -104,9 +104,9 @@ export default async function AboutPage({
                 </div>
               </div>
             </div>
-            <div className="relative h-100 rounded-xl overflow-hidden">
+            <div className="relative h-100 rounded-4xl overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1591825944920-9a51ce5e0f07?w=800&h=600&fit=crop"
+                src="/images/our-story.jpg"
                 alt="Cappadocia"
                 fill
                 className="object-cover"
@@ -157,12 +157,12 @@ export default async function AboutPage({
         {/* Team Section */}
         <section className="py-16">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-100 rounded-xl overflow-hidden order-2 md:order-1">
+            <div className="relative h-72 rounded-xl overflow-hidden order-2 md:order-1">
               <Image
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
                 alt="Our Team"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -190,7 +190,7 @@ export default async function AboutPage({
 
         {/* CTA Section */}
         <section className="py-16 text-center">
-          <div className="max-w-2xl mx-auto bg-linear-to-br from-orange-50 to-red-50 rounded-xl p-8 md:p-12">
+          <div className="w-full mx-auto bg-linear-to-br from-orange-50 to-red-50 rounded-xl p-8 md:p-12">
             <h2 className="text-3xl font-bold mb-4">
               {locale === 'tr' ? 'Harika bir deneyim için hazır mısınız?' : 'Ready for an amazing experience?'}
             </h2>

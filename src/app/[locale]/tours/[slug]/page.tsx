@@ -82,7 +82,7 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
   const translation = tour.translations[locale as 'tr' | 'en'];
 
   return (
-    <>
+    <div className='max-w-7xl mx-auto'>
       <BreadcrumbWrapper
         items={[
           {
@@ -94,7 +94,7 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
           }
         ]}
       />
-      <div className="py-8 md:py-4">
+      <div className="py-8 md:py-4 md:mb-20">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Left Column - Main Content */}
@@ -102,7 +102,7 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
               {/* Header */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <Badge variant="secondary" className="capitalize">
+                  <Badge variant="secondary" className="capitalize border border-primary bg-secondary/50 text-secondary-foreground">
                     {tour.category}
                   </Badge>
                   <Badge variant="outline" className="capitalize">
@@ -118,15 +118,15 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                     <span className="font-semibold">{tour.rating}</span>
-                    <span>({tour.reviewCount} reviews)</span>
+                    <span>({tour.reviewCount} {t('reviews')})</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="h-4 w-4" />
-                    <span>{tour.duration}</span>
+                    <span>{tour.duration} {t('hours')}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Users className="h-4 w-4" />
-                    <span>Max {tour.groupSize.max} people</span>
+                    <span>Max {tour.groupSize.max} {t('people')}</span>
                   </div>
                 </div>
               </div>
@@ -243,6 +243,7 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
             {/* Right Column - Booking Card */}
             <div className="lg:col-span-1">
               <BookingCard
+                tourId={tour.id}
                 price={tour.price}
                 originalPrice={tour.originalPrice}
                 duration={tour.duration}
@@ -253,6 +254,6 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

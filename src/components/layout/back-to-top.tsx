@@ -43,7 +43,7 @@ export default function BackToTopButton() {
           <Button
             onClick={scrollToTop}
             size="icon"
-            className="h-12 w-12 rounded-full shadow-md shadow-secondary"
+            className="h-12 w-12 rounded-full shadow-xl cursor-pointer"
           >
             <ArrowUp className="h-5! w-5!" />
           </Button>

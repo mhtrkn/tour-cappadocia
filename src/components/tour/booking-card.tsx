@@ -6,21 +6,23 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Clock, Users, Calendar as CalendarIcon, Minus, Plus } from 'lucide-react';
+import { Clock, Users, Calendar as CalendarIcon, Minus, Plus, HeartIcon } from 'lucide-react';
 import { format } from 'date-fns';
 import { tr, enUS } from 'date-fns/locale';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 
 interface BookingCardProps {
+  tourId: string;
   price: number;
-  originalPrice?: number;
+  originalPrice: number;
   duration: string;
   groupSize: { min: number; max: number };
   locale: string;
 }
 
 export default function BookingCard({
+  tourId,
   price,
   originalPrice,
   duration,
@@ -29,6 +31,7 @@ export default function BookingCard({
 }: BookingCardProps) {
   const [date, setDate] = useState<Date>();
   const [adults, setAdults] = useState(groupSize.min);
+  const [isLiked, setLiked] = useState(localStorage.getItem(tourId) || false);
 
   const dateLocale = locale === 'tr' ? tr : enUS;
 
@@ -39,8 +42,19 @@ export default function BookingCard({
     }
   };
 
+  const toggleLike = () => {
+    const newValue = !isLiked;
+
+    setLiked(newValue);
+
+    if (newValue) {
+      localStorage.setItem(tourId, "true");
+    } else {
+      localStorage.removeItem(tourId);
+    }
+  };
+
   const totalPrice = price * adults;
-  const totalDiscount = originalPrice ? (originalPrice - price) * adults : 0;
 
   const handleBooking = () => {
     if (!date) {
@@ -65,15 +79,26 @@ export default function BookingCard({
   };
 
   return (
-    <Card className="sticky top-20">
+    <Card className="sticky top-28">
       <CardHeader>
-        <div className="flex items-baseline gap-2">
-          <span className="text-3xl font-bold text-primary">${price}</span>
-          {originalPrice && (
-            <span className="text-lg text-muted-foreground line-through">
-              ${originalPrice}
-            </span>
-          )}
+        <div className='flex items-center justify-between'>
+          <div className="flex items-baseline gap-2">
+            <span className="text-3xl font-bold text-primary">${price}</span>
+            {originalPrice > price && (
+              <span className="text-lg text-muted-foreground line-through">
+                ${originalPrice}
+              </span>
+            )}
+          </div>
+
+          <Button onClick={toggleLike} variant="ghost" size="sm">
+            <HeartIcon
+              className={`h-5! w-5! transition-all ${isLiked
+                ? "fill-primary text-primary scale-105"
+                : "text-primary"
+                }`}
+            />
+          </Button>
         </div>
         <p className="text-sm text-muted-foreground">
           {locale === 'tr' ? 'kişi başı' : 'per person'}

@@ -30,7 +30,7 @@ export default async function ContactPage({
 
   return (
     <div className="py-12">
-      <div className="container mx-auto px-4">
+      <div className="container max-w-5xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -42,33 +42,26 @@ export default async function ContactPage({
         </div>
 
         {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Left: Contact Form */}
-          <div>
-            <ContactForm />
-          </div>
+        <ContactInfo />
+        <div className='grid grid-cols-2 gap-6 mt-6 place-items-center'>
+          <ContactForm />
 
-          {/* Right: Contact Info */}
-          <div>
-            <ContactInfo />
-
-            {/* Map */}
-            <div className="mt-8 rounded-xl overflow-hidden border h-75">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d98584.85165906094!2d34.755762!3d38.643611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152a6ba8e46c45a9%3A0x9c5d2ddf47368dc8!2sG%C3%B6reme%2C%20Nev%C5%9Fehir!5e0!3m2!1sen!2str!4v1234567890"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
+          {/* Map */}
+          <div className="col-span-1 w-full rounded-xl h-full overflow-hidden border">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d98584.85165906094!2d34.755762!3d38.643611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152a6ba8e46c45a9%3A0x9c5d2ddf47368dc8!2sG%C3%B6reme%2C%20Nev%C5%9Fehir!5e0!3m2!1sen!2str!4v1234567890"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
 
         {/* FAQ or Additional Info (Optional) */}
-        <div className="mt-16 max-w-4xl mx-auto">
+        <div className="mt-16 max-w-5xl mx-auto">
           <div className="bg-muted/40 rounded-xl p-8 text-center">
             <h2 className="text-2xl font-bold mb-4">
               {locale === 'tr' ? 'Hızlı İletişim' : 'Quick Contact'}
@@ -79,7 +72,7 @@ export default async function ContactPage({
                 : 'You can also reach us via WhatsApp'}
             </p>
             <Link
-              href="https://wa.me/905551234567"
+              href="https://wa.me/905330138025"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
@@ -92,6 +85,6 @@ export default async function ContactPage({
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

@@ -31,7 +31,7 @@ export default function BreadcrumbWrapper({
   const homeLabel = locale === 'tr' ? 'Ana Sayfa' : 'Home';
 
   return (
-    <div className="container mx-auto px-4 py-4">
+    <div className="container mx-auto px-4 py-4 pb-2">
       <Breadcrumb>
         <BreadcrumbList>
           {showHome && (
