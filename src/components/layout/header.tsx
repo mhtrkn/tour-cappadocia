@@ -45,8 +45,8 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center justify-end gap-2">
-            <CurrencySwitcher paramsLocale={locale} />
-            <LanguageSwitcher locale={locale} />
+            <CurrencySwitcher paramsLocale={locale} mobileHiding />
+            <LanguageSwitcher locale={locale} mobileHiding />
             <Link href="/contact" className="hidden md:inline-flex rounded-md bg-primary text-white border border-primary px-3 h-8 items-center justify-center text-sm">
               {t('contactUs')}
             </Link>

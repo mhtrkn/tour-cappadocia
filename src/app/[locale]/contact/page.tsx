@@ -30,11 +30,11 @@ export default async function ContactPage({
 
   return (
     <div>
-      <div className="container max-w-5xl mx-auto">
+      <div className="container max-w-5xl mx-auto px-4 md:px-0">
         <PageTitle title={t('title')} subtitle={t('subtitle')} withBreadCrumb />
 
         {/* Content Grid */}
-        <div className='grid grid-cols-2 gap-8 mt-6 items-center justify-center'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-6 items-center justify-center'>
           <div className="col-span-1 w-full rounded-xl min-h-72 h-full overflow-hidden border">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3116.232568111968!2d34.82410947644325!3d38.64353246164256!2m3!1f0!2f0!3f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152a6879a9478f99%3A0x73471fbf797607b4!2zQXlkxLFubMSxIE9ydGEgTWFoLCBLYXLFn8SxIEJ1Y2FrIENkLiAzMC9CLCA1MDE4MCBHw7ZyZW1lL05ldsWfZWhpciBNZXJrZXovTmV2xZ9laGly!5e0!3m2!1str!2str!4v1770910034296!5m2!1str!2str"

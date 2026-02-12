@@ -9,12 +9,12 @@ function PageTitle({ title, subtitle, withBreadCrumb = false, items }: { title: 
           items={items || [{ label: title }]}
         />
       )}
-      <section className="py-8">
+      <section className="py-2 md:py-8">
         <div className="px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-5xl font-bold mb-0 md:mb-4">
             {title}
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm md:text-lg text-muted-foreground max-w-2xl mx-auto">
             {subtitle}
           </p>
         </div>

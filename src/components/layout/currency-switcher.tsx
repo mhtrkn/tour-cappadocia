@@ -8,7 +8,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { useMediaQuery } from '@/hooks/use-media-query';
 import { Euro, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -57,10 +56,9 @@ const exchangeRates = {
   TRY: 51.9
 };
 
-export default function CurrencySwitcher({ paramsLocale }: { paramsLocale: string }) {
+export default function CurrencySwitcher({ paramsLocale, mobileHiding }: { paramsLocale: string, mobileHiding?: boolean }) {
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>('EUR');
   const [locale, setLocale] = useState(paramsLocale);
-  const isMobile = useMediaQuery('(max-width: 768px)');
 
   useEffect(() => {
     const path = window.location.pathname;
@@ -95,9 +93,9 @@ export default function CurrencySwitcher({ paramsLocale }: { paramsLocale: strin
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          variant={isMobile ? "ghost" : "outline"}
+          variant="outline"
           size="sm"
-          className="gap-2 mr-0 min-w-20"
+          className={`gap-2 mr-0 min-w-20 ${mobileHiding ? 'hidden' : 'flex-1'}`}
         >
           <span className="font-semibold text-base">
             {currentCurrency.symbol}

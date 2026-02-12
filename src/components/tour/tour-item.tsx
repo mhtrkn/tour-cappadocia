@@ -1,5 +1,5 @@
 import { Tour } from '@/types/tour';
-import { Clock, Star, Users } from 'lucide-react';
+import { ArrowRight, Clock, Star, Users } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { PriceDisplay } from '../layout/price-display';
@@ -19,7 +19,7 @@ function TourItem({ tour }: { tour: Tour }) {
     >
       <div className="border rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 h-full bg-white">
         {/* Image */}
-        <div className="relative w-full h-64 overflow-hidden">
+        <div className="relative w-full h-44 md:h-64 overflow-hidden">
           <Image
             src={tour.images[0].url}
             alt={tour.images[0].alt}
@@ -28,17 +28,17 @@ function TourItem({ tour }: { tour: Tour }) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           {tour.originalPrice > tour.price && (
-            <div className="absolute top-4 right-4 bg-red-500 text-white px-2 py-0.5 rounded-full text-xs font-semibold">
+            <div className="absolute top-9 md:top-4 left-2 md:right-4 bg-red-500 text-white px-2 py-0.5 rounded-full text-xs font-semibold">
               {commonT('save')} <PriceDisplay amount={tour.originalPrice - tour.price} />
             </div>
           )}
           {/* Category Badge */}
-          <Badge variant={"outline"} className="capitalize absolute top-4 left-4 bg-gray-50">
+          <Badge variant={"outline"} className="capitalize absolute top-2 md:top-4 left-2 md:left-4 bg-gray-50">
             {tour.category}
           </Badge>
           {tour.rating && (
             <div className="absolute bottom-3 left-3">
-              <div className="flex items-center gap-1 px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-full shadow-lg">
+              <div className="flex items-center gap-1 px-2 md:px-3 py-1 md:py-1.5 bg-white/95 backdrop-blur-sm rounded-full shadow-lg">
                 <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
                 <span className="text-sm font-semibold">{tour.rating}</span>
                 <span className="text-xs text-muted-foreground">({tour.reviewCount})</span>
@@ -48,11 +48,11 @@ function TourItem({ tour }: { tour: Tour }) {
         </div>
 
         {/* Content */}
-        <div className="p-6">
-          <h3 className="font-bold mb-2 group-hover:text-primary transition h-12 overflow-hidden text-ellipsis line-clamp-2">
+        <div className="p-3 md:p-6">
+          <h3 className="font-bold text-sm md:text-base mb-2 group-hover:text-primary transition md:h-12 overflow-hidden text-ellipsis line-clamp-2">
             {tour.translations[locale as 'tr' | 'en'].title}
           </h3>
-          <p className="text-sm text-muted-foreground mb-4 h-10 overflow-hidden text-ellipsis line-clamp-2">
+          <p className="hidden md:block text-sm text-muted-foreground mb-4 h-10 overflow-hidden text-ellipsis line-clamp-2">
             {tour.translations[locale as 'tr' | 'en'].shortDescription}
           </p>
 
@@ -60,23 +60,24 @@ function TourItem({ tour }: { tour: Tour }) {
           <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
             <div className="flex items-center gap-1">
               <Clock className="h-4 w-4" />
-              <span>{tour.duration} {commonT('hours')}</span>
+              <span className='whitespace-nowrap'>{tour.duration} {commonT('hours')}</span>
             </div>
             <div className="flex items-center gap-1">
               <Users className="h-4 w-4" />
-              <span>Max {tour.groupSize.max}</span>
+              <span className='block md:hidden'>{tour.groupSize.max}</span>
+              <span className='hidden md:block whitespace-nowrap'>Max {tour.groupSize.max}</span>
             </div>
           </div>
 
           {/* Price */}
           <div className="flex items-center justify-between">
             <div className='relative pb-4'>
-              <div className="flex flex-col items-baseline">
-                <span className="text-2xl font-bold text-primary">
+              <div className="flex flex-row gap-1.5 md:gap-0 md:flex-col items-baseline">
+                <span className="text-base md:text-2xl font-bold text-primary">
                   <PriceDisplay amount={tour.price} />
                 </span>
                 {tour.originalPrice > tour.price && (
-                  <span className="text-sm text-muted-foreground line-through">
+                  <span className="text-xs md:text-sm text-muted-foreground line-through">
                     <PriceDisplay amount={tour.originalPrice} />
                   </span>
                 )}
@@ -85,8 +86,11 @@ function TourItem({ tour }: { tour: Tour }) {
                 {commonT('perPerson')}
               </span>
             </div>
-            <Button variant="outline" size="sm">
+            <Button className='hidden md:flex' variant="outline" size="sm">
               {commonT('viewDetails')}
+            </Button>
+            <Button className='w-8! h-8! flex items-center justify-center rounded-full md:hidden' size="sm" variant="outline">
+              <ArrowRight />
             </Button>
           </div>
         </div>

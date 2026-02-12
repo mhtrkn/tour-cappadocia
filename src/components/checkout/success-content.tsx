@@ -70,10 +70,10 @@ export default function SuccessContent() {
             <div className="inline-flex items-center justify-center w-24 h-24 bg-green-500/10 rounded-full mb-6">
               <CheckCircle2 className="w-16 h-16 text-green-500" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-2xl md:text-5xl font-bold mb-4">
               {t('title')}
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
               {t('subtitle')}
             </p>
           </div>
@@ -104,7 +104,7 @@ export default function SuccessContent() {
           <Card className="mb-8">
             <CardContent className="space-y-6">
               <div>
-                <h2 className="text-2xl font-bold mb-4">{t('details.title')}</h2>
+                <h2 className="text-lg md:text-2xl font-bold mb-4">{t('details.title')}</h2>
 
                 <div className="space-y-4">
                   <div className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">

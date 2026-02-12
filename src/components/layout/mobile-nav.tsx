@@ -2,7 +2,8 @@
 
 import { Link } from '@/i18n/routing';
 import { TextAlignEnd, X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { useState } from 'react';
 import { Button } from '../ui/button';
 import {
@@ -10,6 +11,8 @@ import {
   SheetContent,
   SheetTrigger,
 } from '../ui/sheet';
+import CurrencySwitcher from './currency-switcher';
+import LanguageSwitcher from './language-switcher';
 
 interface NavItem {
   href: string;
@@ -23,35 +26,37 @@ interface MobileNavProps {
 export default function MobileNav({ navItems }: MobileNavProps) {
   const [open, setOpen] = useState(false);
   const t = useTranslations('common');
+  const locale = useLocale();
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild>
+      <SheetTrigger>
         <Button variant="ghost" size="icon" className="md:hidden">
-          <TextAlignEnd className="h-6 w-6" />
+          <TextAlignEnd className="h-6! w-6!" />
         </Button>
       </SheetTrigger>
       <SheetContent showCloseButton={false} side="right" className="w-full sm:w-80 p-0">
-        {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b">
-          <div className="flex items-center">
-            <span className="text-xl font-bold text-primary">
-              Paphlagonia Tour
-            </span>
-          </div>
+        <div className="flex items-center justify-between px-4 border-b">
+          <Link href={'/'} className="flex items-center" onClick={() => setOpen(false)}>
+            <Image
+              src="/icons/logo.png"
+              alt="Paphlagonia Tour Logo"
+              width={80}
+              height={80}
+              className="object-contain mt-1 w-20 h-20"
+            />
+          </Link>
           <Button
             variant="ghost"
             size="icon"
             onClick={() => setOpen(false)}
             className="h-9 w-9"
           >
-            <X className="h-5 w-5" />
-            <span className="sr-only">Close</span>
+            <X className="h-5! w-5!" />
           </Button>
         </div>
 
-        {/* Navigation */}
-        <nav className="flex flex-col p-6 space-y-1">
+        <nav className="flex grow flex-col space-y-1">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -64,14 +69,15 @@ export default function MobileNav({ navItems }: MobileNavProps) {
           ))}
         </nav>
 
-        {/* CTA Button - Bottom */}
+        <div className='flex grow justify-between items-end pb-28 gap-4 px-4'>
+          <CurrencySwitcher paramsLocale={locale} mobileHiding={false} />
+          <LanguageSwitcher locale={locale} mobileHiding={false} />
+        </div>
+
         <div className="absolute bottom-0 left-0 right-0 p-6 border-t bg-background">
-          <Button className="w-full h-12 text-base" size="lg">
+          <Link href={'/tours'} onClick={() => setOpen(false)} className="rounded-lg text-white bg-primary flex flex-1 items-center justify-center h-11 text-base">
             {t('bookNow')}
-          </Button>
-          <p className="text-xs text-center text-muted-foreground mt-3">
-            {t('bookNow')} {/* veya başka bir tagline */}
-          </p>
+          </Link>
         </div>
       </SheetContent>
     </Sheet>

@@ -28,7 +28,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="flex w-full items-center justify-center flex-col md:items-start md:justify-start space-y-4">
             <Image
               src="/icons/logo.png"
               alt="Paphlagonia Tour Logo"
@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
 
           {/* Popular Tours */}
-          <div className="text-right space-y-4">
+          <div className="text-center md:text-right space-y-4">
             <h3 className="font-semibold">
               {t('footer.popularTours')}
             </h3>

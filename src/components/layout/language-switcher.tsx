@@ -1,17 +1,14 @@
 'use client';
 
-import { useLocale } from 'next-intl';
-import { usePathname, useRouter } from '@/i18n/routing';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
+import { usePathname, useRouter } from '@/i18n/routing';
 import Image from 'next/image';
-import { useMediaQuery } from '@/hooks/use-media-query';
-import { useEffect, useState } from 'react';
 
 const languages = {
   en: {
@@ -30,10 +27,9 @@ const languages = {
   }
 };
 
-export default function LanguageSwitcher({ locale }: { locale: string }) {
+export default function LanguageSwitcher({ locale, mobileHiding }: { locale: string, mobileHiding?: boolean }) {
   const router = useRouter();
   const pathname = usePathname();
-  const isMobile = useMediaQuery('(max-width: 768px)');
 
   const handleLanguageChange = (newLocale: 'en' | 'tr') => {
     router.replace(pathname, { locale: newLocale });
@@ -44,7 +40,7 @@ export default function LanguageSwitcher({ locale }: { locale: string }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant={isMobile ? "ghost" : "outline"} size="sm" className="gap-2 mr-0">
+        <Button variant="outline" size="sm" className={`gap-2 mr-0 ${mobileHiding ? 'hidden' : 'flex-1'}`}>
           <Image
             src={currentLanguage.flag}
             alt={currentLanguage.names[locale as 'tr' | 'en']}
@@ -52,7 +48,7 @@ export default function LanguageSwitcher({ locale }: { locale: string }) {
             height={16}
             className='w-5 h-4 rounded'
           />
-          <span className="hidden sm:inline text-sm">
+          <span className="sm:inline text-sm">
             {currentLanguage.names[locale as 'tr' | 'en']}
           </span>
         </Button>

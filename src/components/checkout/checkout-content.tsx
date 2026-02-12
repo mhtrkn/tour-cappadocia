@@ -147,7 +147,7 @@ export default function CheckoutContent() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="grid lg:grid-cols-3 gap-8">
+      <div className="grid lg:grid-cols-3 gap-8 px-4 md:px-0 mt-8 md:mt-0">
         {/* Left Column - Form */}
         <div className="lg:col-span-2 space-y-6">
           {/* Tour Preview */}
@@ -155,7 +155,7 @@ export default function CheckoutContent() {
             <CardContent>
               <div className="flex flex-col md:flex-row gap-6 items-center">
                 {/* Tour Image */}
-                <div className="w-full md:w-48 h-32 md:h-40 relative rounded-xl overflow-hidden shrink-0 border-2 border-border">
+                <div className="w-full md:w-48 h-40 relative rounded-xl overflow-hidden shrink-0 border-2 border-border">
                   <Image
                     src={tour.images[0].url}
                     alt={tour.images[0].alt}
@@ -211,6 +211,7 @@ export default function CheckoutContent() {
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
+                    className='text-sm md:text-base'
                     placeholder={locale === 'tr' ? 'Adınız' : 'Your first name'}
                   />
                 </div>
@@ -224,6 +225,7 @@ export default function CheckoutContent() {
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
+                    className='text-sm md:text-base'
                     placeholder={locale === 'tr' ? 'Soyadınız' : 'Your last name'}
                   />
                 </div>
@@ -242,6 +244,7 @@ export default function CheckoutContent() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
+                    className='text-sm md:text-base'
                     placeholder={locale === 'tr' ? 'ornek@email.com' : 'example@email.com'}
                   />
                 </div>
@@ -258,6 +261,7 @@ export default function CheckoutContent() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
+                    className='text-sm md:text-base'
                     placeholder="+90 555 555 55 55"
                   />
                 </div>
@@ -275,6 +279,7 @@ export default function CheckoutContent() {
                   value={formData.country}
                   onChange={handleInputChange}
                   required
+                  className='text-sm md:text-base'
                   placeholder={locale === 'tr' ? 'Ülke' : 'Country'}
                 />
               </div>
@@ -299,6 +304,7 @@ export default function CheckoutContent() {
                   name="hotelName"
                   value={formData.hotelName}
                   onChange={handleInputChange}
+                  className='text-sm md:text-base'
                   placeholder={locale === 'tr' ? 'Otel adı' : 'Hotel name'}
                 />
                 <p className="text-xs text-muted-foreground mt-1">
@@ -318,6 +324,7 @@ export default function CheckoutContent() {
                   name="pickupLocation"
                   value={formData.pickupLocation}
                   onChange={handleInputChange}
+                  className='text-sm md:text-base'
                   placeholder={locale === 'tr' ? 'Alınma noktası veya buluşma yeri' : 'Pickup point or meeting location'}
                 />
                 <p className="text-xs text-muted-foreground mt-1">
@@ -341,7 +348,7 @@ export default function CheckoutContent() {
                 name="specialRequests"
                 value={formData.specialRequests}
                 onChange={handleInputChange}
-                className='min-h-30'
+                className='min-h-30 text-sm md:text-base'
                 rows={4}
                 placeholder={t('specialRequests.label')}
               />
@@ -349,7 +356,7 @@ export default function CheckoutContent() {
           </Card>
 
           {/* Terms & Conditions */}
-          <div className="flex items-end gap-3">
+          <div className="hidden md:flex items-end gap-3">
             <input
               type="checkbox"
               id="agreeToTerms"
@@ -382,6 +389,29 @@ export default function CheckoutContent() {
                   </Link>.
                 </>
               )}
+            </Label>
+          </div>
+          <div className="flex md:hidden items-center gap-3">
+            <input
+              type="checkbox"
+              id="agreeToTerms"
+              checked={formData.agreeToTerms}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  agreeToTerms: e.target.checked,
+                }))
+              }
+              className="w-4 h-4"
+              required
+            />
+            <Label
+              htmlFor="agreeToTerms"
+              className="cursor-pointer text-xs"
+            >
+              {locale === 'tr'
+                ? 'Kullanım Koşulları ve Gizlilik Politikasını okudum ve kabul ediyorum.'
+                : 'I have read and agree to the Terms & Conditions and Privacy Policy.'}
             </Label>
           </div>
         </div>

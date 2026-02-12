@@ -63,7 +63,7 @@ export default function ContactInfo() {
 
         return (
           <div key={index}>
-            <div className="flex items-start gap-4 px-4 py-2">
+            <div className="flex items-center md:items-start gap-4 px-4 py-2">
               <div
                 className={`shrink-0 w-12 h-12 rounded-2xl bg-linear-to-br ${item.gradient} flex items-center justify-center shadow-sm`}
               >

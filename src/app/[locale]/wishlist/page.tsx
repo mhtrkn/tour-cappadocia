@@ -48,7 +48,7 @@ export default async function WishlistPage({
       <div className="container mx-auto">
         <PageTitle title={t('title')} subtitle={t('subtitle')} withBreadCrumb />
 
-        <div className='pt-10 pb-20'>
+        <div className='pt-10 pb-20 px-4 md:px-0'>
           <WishlistContent />
         </div>
       </div>

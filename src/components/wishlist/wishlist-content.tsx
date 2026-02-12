@@ -26,26 +26,20 @@ import {
 
 export default function WishlistContent() {
   const [wishlistTours, setWishlistTours] = useState<Tour[]>([]);
-  const [loading, setLoading] = useState(true);
   const locale = useLocale() as 'en' | 'tr';
   const t = useTranslations('wishlist');
 
-  // Fetch tours - artık senkron
   const fetchWishlistTours = () => {
-    setLoading(true);
     try {
       const slugs = getWishlistSlugs();
 
       if (slugs.length === 0) {
         setWishlistTours([]);
-        setLoading(false);
         return;
       }
 
-      // Senkron fonksiyon kullan
       const tours = getToursBySlugsSync(slugs);
 
-      // Sort by wishlist order (most recent first)
       const sortedTours = tours.sort((a, b) => {
         const indexA = slugs.indexOf(a.slug);
         const indexB = slugs.indexOf(b.slug);
@@ -58,8 +52,6 @@ export default function WishlistContent() {
       toast.error(
         locale === 'tr' ? 'Favoriler yüklenemedi' : 'Failed to load wishlist'
       );
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -92,8 +84,8 @@ export default function WishlistContent() {
   if (wishlistTours.length === 0) {
     return (
       <div className="text-center">
-        <div className="w-28 h-28 mx-auto mb-6 bg-primary/10 border border-primary/50 rounded-full flex items-center justify-center">
-          <FolderHeart className="w-16! h-16! text-primary" />
+        <div className="w-20 md:w-28 h-20 md:h-28 mx-auto mb-6 bg-primary/10 border border-primary/50 rounded-full flex items-center justify-center">
+          <FolderHeart className="w-10! md:w-16! h-10! md:h-16! text-primary" />
         </div>
         <h2 className="text-2xl font-bold mb-4">{t('empty.title')}</h2>
         <p className="text-muted-foreground mb-8 max-w-md mx-auto">
