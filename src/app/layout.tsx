@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cappadocia-tours.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://www.paphlagoniatour.com'),
   title: {
-    default: 'Cappadocia Tours | Hot Air Balloon Rides & Cultural Experiences',
-    template: '%s | Cappadocia Tours',
+    default: 'Paphlagonia Tour | Hot Air Balloon Rides & Cultural Experiences',
+    template: '%s | Paphlagonia Tour',
   },
   description: 'Discover the best Cappadocia tours including hot air balloon rides, cultural tours, and adventure experiences. Book your unforgettable journey today.',
   keywords: ['cappadocia', 'tours', 'hot air balloon', 'turkey', 'travel', 'goreme'],
-  authors: [{ name: 'Cappadocia Tours' }],
-  creator: 'Cappadocia Tours',
-  publisher: 'Cappadocia Tours',
+  authors: [{ name: 'Paphlagonia Tour' }],
+  creator: 'Paphlagonia Tour',
+  publisher: 'Paphlagonia Tour',
   formatDetection: {
     email: false,
     address: false,
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     alternateLocale: ['tr_TR'],
-    url: 'https://cappadocia-tours.com',
-    siteName: 'Cappadocia Tours',
-    title: 'Cappadocia Tours | Hot Air Balloon Rides & Cultural Experiences',
+    url: 'https://www.paphlagoniatour.com',
+    siteName: 'Paphlagonia Tour',
+    title: 'Paphlagonia Tour | Hot Air Balloon Rides & Cultural Experiences',
     description: 'Discover the best Cappadocia tours including hot air balloon rides, cultural tours, and adventure experiences.',
     images: [
       {
@@ -36,10 +36,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cappadocia Tours',
-    description: 'Discover the best Cappadocia tours',
+    title: 'Paphlagonia Tours',
+    description: 'Discover the best Paphlagonia tours',
     images: ['/og-image.jpg'],
-    creator: '@cappadociatours',
+    creator: '@paphlagoniatours',
   },
   robots: {
     index: true,

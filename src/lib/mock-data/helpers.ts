@@ -14,6 +14,29 @@ export const getAllTours = unstable_cache(
   }
 );
 
+export function getToursBySlugsSync(slugs: string[]): Tour[] {
+  if (!slugs || slugs.length === 0) return [];
+
+  return tours.filter(tour =>
+    slugs.includes(tour.slug) && tour.active
+  );
+}
+
+export const getToursBySlugs = unstable_cache(
+  async (slugs: string[]): Promise<Tour[]> => {
+    if (!slugs || slugs.length === 0) return [];
+
+    return tours.filter(tour =>
+      slugs.includes(tour.slug) && tour.active
+    );
+  },
+  ['tours-by-slugs'],
+  {
+    revalidate: 3600,
+    tags: ['tours'],
+  }
+);
+
 export const getTourBySlug = unstable_cache(
   async (slug: string): Promise<Tour | undefined> => {
     return tours.find(tour => tour.slug === slug && tour.active);

@@ -7,6 +7,7 @@
     "wishlist": "Wishlist",
     "contactUs": "Contact Us",
     "bookNow": "Book Now",
+    "save": "Save",
     "learnMore": "Learn More",
     "viewDetails": "View Details",
     "cookiePolicy": "Cookie Policy",
@@ -166,6 +167,8 @@
     }
   },
   "metadata": {
+    "title": "Paphlagonia Tour | Red Tour, Green Tour, Private Tour, Hot Air Balloon Rides & Cultural Experiences",
+    "description": "Discover the best Cappadocia tours including hot air balloon rides, cultural tours, and adventure experiences. Book your unforgettable journey today.",
     "home": {
       "title": "Cappadocia Tours | Hot Air Balloon Rides & Cultural Experiences",
       "description": "Discover the best Cappadocia tours including hot air balloon rides, cultural tours, and adventure experiences. Book your unforgettable journey today."
@@ -181,6 +184,74 @@
     "about": {
       "title": "About Us | Cappadocia Tours",
       "description": "Providing unforgettable tour experiences in Cappadocia since 2010. Learn about our professional team and safe tours."
+    },
+    "wishlist": {
+      "title": "My Wishlist | Paphlagonia Tour",
+      "description": "View and manage your saved tours and experiences"
+    }
+  },
+  "wishlist": {
+    "badge": "My Favorites",
+    "breadcrumb": {
+      "home": "Home",
+      "wishlist": "Wishlist"
+    },
+    "title": "My Wishlist",
+    "subtitle": "Keep track of your favorite tours and book them when you're ready",
+    "stats": {
+      "tourSingular": "tour saved",
+      "tourPlural": "tours saved"
+    },
+    "actions": {
+      "shareAll": "Share List",
+      "clearAll": "Clear All"
+    },
+    "card": {
+      "from": "From",
+      "viewTour": "View Tour"
+    },
+    "empty": {
+      "title": "Your Wishlist is Empty",
+      "description": "Start adding tours to your wishlist to save them for later",
+      "browseButton": "Browse Tours"
+    },
+    "cta": {
+      "title": "Ready to Book?",
+      "description": "Contact us to create a custom itinerary based on your favorite tours",
+      "browseButton": "Browse More Tours",
+      "contactButton": "Contact Us"
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "How Can We Help You?",
+    "description": "You can find answers here.",
+    "search": "Type your question here...",
+    "noResult": "No results found.",
+    "categories": {
+      "all": "All",
+      "genel": "General",
+      "rezervasyon": "Booking",
+      "odeme": "Payment",
+      "iptal": "Cancelation"
+    },
+    "items": {
+      "1": {
+        "question": "How does TourGuide work?",
+        "answer": "It connects travelers with local guides."
+      },
+      "4": {
+        "question": "How early should I book?",
+        "answer": "Usually 24-48 hours in advance."
+      },
+      "7": {
+        "question": "Which payment methods are supported?",
+        "answer": "Credit card, debit card, and online payments."
+      },
+      "13": {
+        "question": "Can I cancel?",
+        "answer": "You can cancel for free up to 48 hours before."
+      }
     }
   }
 }

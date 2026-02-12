@@ -1,19 +1,22 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 'use client';
 
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Calendar } from '@/components/ui/calendar';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
-import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Clock, Users, Calendar as CalendarIcon, Minus, Plus, HeartIcon } from 'lucide-react';
-import { format } from 'date-fns';
-import { tr, enUS } from 'date-fns/locale';
 import { cn } from '@/lib/utils';
+import { addToWishlist, isInWishlist, removeFromWishlist } from '@/lib/wishlist';
+import { format } from 'date-fns';
+import { enUS, tr } from 'date-fns/locale';
+import { Calendar as CalendarIcon, Clock, Heart, Minus, Plus, Users } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
+import { PriceDisplay } from '../layout/price-display';
 
 interface BookingCardProps {
-  tourId: string;
+  tourSlug: string;
   price: number;
   originalPrice: number;
   duration: string;
@@ -22,7 +25,7 @@ interface BookingCardProps {
 }
 
 export default function BookingCard({
-  tourId,
+  tourSlug,
   price,
   originalPrice,
   duration,
@@ -31,9 +34,26 @@ export default function BookingCard({
 }: BookingCardProps) {
   const [date, setDate] = useState<Date>();
   const [adults, setAdults] = useState(groupSize.min);
-  const [isLiked, setLiked] = useState(localStorage.getItem(tourId) || false);
+  const [isLiked, setLiked] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const dateLocale = locale === 'tr' ? tr : enUS;
+
+  useEffect(() => {
+    setMounted(true);
+    setLiked(isInWishlist(tourSlug));
+
+    const handleWishlistChange = (event: CustomEvent) => {
+      if (event.detail.slug === tourSlug) {
+        setLiked(isInWishlist(tourSlug));
+      }
+    };
+
+    window.addEventListener('wishlistChange', handleWishlistChange as EventListener);
+    return () => {
+      window.removeEventListener('wishlistChange', handleWishlistChange as EventListener);
+    };
+  }, [tourSlug]);
 
   const handleAdultsChange = (increment: number) => {
     const newValue = adults + increment;
@@ -44,13 +64,23 @@ export default function BookingCard({
 
   const toggleLike = () => {
     const newValue = !isLiked;
-
     setLiked(newValue);
 
     if (newValue) {
-      localStorage.setItem(tourId, "true");
+      addToWishlist(tourSlug);
+      toast.success(
+        locale === 'tr' ? 'Favorilere eklendi!' : 'Added to wishlist!',
+        {
+          description: locale === 'tr'
+            ? 'Turu favorilerinizden görebilirsiniz.'
+            : 'You can view this tour in your wishlist.',
+        }
+      );
     } else {
-      localStorage.removeItem(tourId);
+      removeFromWishlist(tourSlug);
+      toast.info(
+        locale === 'tr' ? 'Favorilerden çıkarıldı' : 'Removed from wishlist'
+      );
     }
   };
 
@@ -58,51 +88,78 @@ export default function BookingCard({
 
   const handleBooking = () => {
     if (!date) {
-      toast.info(locale === 'tr' ? 'Lütfen bir tarih seçin' : 'Please select a date', {
-        description: locale === 'tr' ? 'Rezervasyon yapmak için bir tarih seçmelisiniz.' : 'You need to select a date to make a booking.',
-      });
+      toast.info(
+        locale === 'tr' ? 'Lütfen bir tarih seçin' : 'Please select a date',
+        {
+          description: locale === 'tr'
+            ? 'Rezervasyon yapmak için bir tarih seçmelisiniz.'
+            : 'You need to select a date to make a booking.',
+        }
+      );
       return;
     }
 
-    // Mock booking - gerçek implementasyonda API call yapılır
     console.log('Booking:', {
+      tourSlug,
       date: format(date, 'PPP', { locale: dateLocale }),
       adults,
       totalPrice,
     });
 
-    alert(
-      locale === 'tr'
-        ? `Rezervasyon başarılı! Tarih: ${format(date, 'PPP', { locale: dateLocale })}, Kişi: ${adults}, Toplam: $${totalPrice}`
-        : `Booking successful! Date: ${format(date, 'PPP', { locale: dateLocale })}, Adults: ${adults}, Total: $${totalPrice}`
+    toast.success(
+      locale === 'tr' ? 'Rezervasyon başarılı!' : 'Booking successful!',
+      {
+        description: locale === 'tr'
+          ? `Tarih: ${format(date, 'PPP', { locale: dateLocale })}, Kişi: ${adults}, Toplam: ${totalPrice}`
+          : `Date: ${format(date, 'PPP', { locale: dateLocale })}, Adults: ${adults}, Total: ${totalPrice}`,
+      }
     );
   };
+
+  // Prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <Card className="sticky top-28">
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <div className="flex items-baseline gap-2">
+              <span className="text-3xl font-bold text-primary">
+                <PriceDisplay amount={price} />
+              </span>
+            </div>
+            <Button variant="ghost" size="sm" disabled>
+              <Heart className="h-5 w-5 text-primary" />
+            </Button>
+          </div>
+        </CardHeader>
+      </Card>
+    );
+  }
 
   return (
     <Card className="sticky top-28">
       <CardHeader>
-        <div className='flex items-center justify-between'>
+        <div className="flex items-center justify-between">
           <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-primary">${price}</span>
-            {originalPrice > price && (
+            <span className="text-3xl font-bold text-primary">
+              <PriceDisplay amount={price} />
+            </span>
+            {originalPrice && originalPrice > price && (
               <span className="text-lg text-muted-foreground line-through">
-                ${originalPrice}
+                <PriceDisplay amount={originalPrice} />
               </span>
             )}
           </div>
 
           <Button onClick={toggleLike} variant="ghost" size="sm">
-            <HeartIcon
-              className={`h-5! w-5! transition-all ${isLiked
-                ? "fill-primary text-primary scale-105"
-                : "text-primary"
+            <Heart
+              className={`h-5 w-5 transition-all duration-300 ${isLiked
+                ? 'fill-primary text-primary scale-110'
+                : 'text-primary hover:scale-110'
                 }`}
             />
           </Button>
         </div>
-        <p className="text-sm text-muted-foreground">
-          {locale === 'tr' ? 'kişi başı' : 'per person'}
-        </p>
       </CardHeader>
 
       <CardContent className="space-y-4">
@@ -110,7 +167,7 @@ export default function BookingCard({
         <div className="space-y-3 pb-4 border-b">
           <div className="flex items-center gap-3 text-sm">
             <Clock className="h-5 w-5 text-muted-foreground" />
-            <span>{duration}</span>
+            <span>{duration} {locale === 'tr' ? 'saat' : 'hours'}</span>
           </div>
           <div className="flex items-center gap-3 text-sm">
             <Users className="h-5 w-5 text-muted-foreground" />
@@ -132,7 +189,7 @@ export default function BookingCard({
               <Button
                 variant="outline"
                 className={cn(
-                  'w-full flex items-center justify-start text-left font-normal h-11!',
+                  'w-full flex items-center justify-start text-left font-normal h-11! bg-transparent!',
                   !date && 'text-muted-foreground'
                 )}
               >
@@ -187,28 +244,6 @@ export default function BookingCard({
               : `Min: ${groupSize.min}, Max: ${groupSize.max}`}
           </p>
         </div>
-
-        {/* Price Summary */}
-        {/* <div className="space-y-2 pt-4 border-t">
-          <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">
-              ${price} x {adults} {locale === 'tr' ? 'kişi' : 'person'}
-            </span>
-            <span className="font-semibold">${price * adults}</span>
-          </div>
-          {totalDiscount > 0 && (
-            <div className="flex justify-between text-sm text-green-600">
-              <span>{locale === 'tr' ? 'İndirim' : 'Discount'}</span>
-              <span>-${totalDiscount}</span>
-            </div>
-          )}
-          <div className="flex justify-between text-lg font-bold pt-2 border-t">
-            <span>{locale === 'tr' ? 'Toplam' : 'Total'}</span>
-            <span className="text-primary">${totalPrice}</span>
-          </div>
-        </div> */}
-
-        {/* Book Button */}
         <Button
           className="w-full"
           size="lg"

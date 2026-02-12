@@ -243,7 +243,7 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
             {/* Right Column - Booking Card */}
             <div className="lg:col-span-1">
               <BookingCard
-                tourId={tour.id}
+                tourSlug={tour.slug}
                 price={tour.price}
                 originalPrice={tour.originalPrice}
                 duration={tour.duration}

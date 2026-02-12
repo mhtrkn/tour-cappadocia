@@ -9,6 +9,7 @@
     "bookNow": "Hemen Rezervasyon",
     "learnMore": "Daha Fazla",
     "viewDetails": "Detayları Gör",
+    "save": "İndirim",
     "cookiePolicy": "Çerez Politikası",
     "cookieConsent": "Web sitemizde deneyiminizi geliştirmek, içerikleri kişiselleştirmek ve analiz yapmak için çerezler kullanıyoruz. Devam ederek çerez kullanımını kabul etmiş olursunuz.",
     "accept": "Kabul Et",
@@ -166,6 +167,8 @@
     }
   },
   "metadata": {
+    "title": "Paphlagonia Tour | Kırmızı Tur, Yeşil Tur, Özel Tur, Sıcak Hava Balonu Turları ve Kültürel Deneyimler",
+    "description": "Kapadokya'nın en iyi turlarını keşfedin: sıcak hava balonu turları, kültürel turlar ve macera deneyimleri. Unutulmaz yolculuğunuzu bugün rezerve edin.",
     "home": {
       "title": "Kapadokya Turları | Balon Turları ve Kültür Gezileri",
       "description": "Balon turları, kültür gezileri ve macera deneyimleri dahil en iyi Kapadokya turlarını keşfedin. Unutulmaz yolculuğunuzu bugün rezerve edin."
@@ -181,6 +184,74 @@
     "about": {
       "title": "Hakkımızda | Kapadokya Turları",
       "description": "2010'dan beri Kapadokya'da unutulmaz tur deneyimleri sunuyoruz. Profesyonel ekibimiz ve güvenli turlarımız hakkında bilgi edinin."
+    },
+    "wishlist": {
+      "title": "Favorilerim | Paphlagonia Tour",
+      "description": "Kaydettiğiniz turları görüntüleyin ve yönetin"
+    }
+  },
+  "wishlist": {
+    "badge": "Favorilerim",
+    "breadcrumb": {
+      "home": "Ana Sayfa",
+      "wishlist": "Favoriler"
+    },
+    "title": "Favorilerim",
+    "subtitle": "Favori turlarınızı takip edin ve hazır olduğunuzda rezervasyon yapın",
+    "stats": {
+      "tourSingular": "tur kaydedildi",
+      "tourPlural": "tur kaydedildi"
+    },
+    "actions": {
+      "shareAll": "Listeyi Paylaş",
+      "clearAll": "Tümünü Temizle"
+    },
+    "card": {
+      "from": "Başlangıç",
+      "viewTour": "Turu Gör"
+    },
+    "empty": {
+      "title": "Favori Listeniz Boş",
+      "description": "Daha sonra için turları favorilerinize eklemeye başlayın",
+      "browseButton": "Turları İncele"
+    },
+    "cta": {
+      "title": "Rezervasyon Yapmaya Hazır mısınız?",
+      "description": "Favori turlarınıza göre özel bir program oluşturmak için bizimle iletişime geçin",
+      "browseButton": "Daha Fazla Tur İncele",
+      "contactButton": "İletişime Geç"
+    }
+  },
+  "faq": {
+    "badge": "SSS",
+    "title": "Size Nasıl Yardımcı Olabiliriz?",
+    "description": "Merak ettiklerinizi burada bulabilirsiniz.",
+    "search": "Sorunuzu buraya yazın...",
+    "noResult": "Sonuç bulunamadı.",
+    "categories": {
+      "all": "Tümü",
+      "genel": "Genel",
+      "rezervasyon": "Rezervasyon",
+      "odeme": "Ödeme",
+      "iptal": "İptal"
+    },
+    "items": {
+      "1": {
+        "question": "TourGuide platformu nasıl çalışır?",
+        "answer": "Yerel rehberlerle gezginleri buluşturan bir platformdur. Online rezervasyon yaparak tura katılabilirsiniz."
+      },
+      "4": {
+        "question": "Ne kadar önceden rezervasyon yapmalıyım?",
+        "answer": "Genelde 24-48 saat önce yeterlidir. Yoğun sezonda erken rezervasyon önerilir."
+      },
+      "7": {
+        "question": "Hangi ödeme yöntemleri var?",
+        "answer": "Kredi kartı, banka kartı ve online ödeme sistemleri desteklenmektedir."
+      },
+      "13": {
+        "question": "İptal edebilir miyim?",
+        "answer": "48 saat öncesine kadar ücretsiz iptal edebilirsiniz."
+      }
     }
   }
 }

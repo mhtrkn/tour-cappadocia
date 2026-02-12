@@ -38,7 +38,7 @@ export const tours: Tour[] = [
 
     translations: {
       tr: {
-        title: 'Kapadokya Kırmızı Tur (Red Tour)',
+        title: 'Kırmızı Tur Kapadokya',
         shortDescription: 'Kapadokya’nın en önemli tarihi ve doğal noktalarını yerel rehber eşliğinde keşfedin',
         description:
           'Bu tam günlük Kapadokya Kırmızı Turunda Uçhisar, Paşabağları, Avanos, Göreme Açık Hava Müzesi, Aşk Vadisi ve Devrent Vadisi’ni keşfedeceksiniz. Profesyonel rehber eşliğinde bölgenin Hititlerden Hristiyanlığa uzanan zengin tarihini öğrenecek, peri bacaları arasında keyifli yürüyüşler yapacak ve Kapadokya’nın eşsiz atmosferini yakından deneyimleyeceksiniz.',
@@ -123,7 +123,7 @@ export const tours: Tour[] = [
       },
 
       en: {
-        title: 'Cappadocia Red Tour',
+        title: 'Red Tour Cappadocia',
         shortDescription: 'Discover the highlights of Cappadocia with a professional local guide',
         description:
           'On this full-day Cappadocia Red Tour, you will explore Uçhisar Castle, Paşabağları, Avanos, Göreme Open Air Museum, Love Valley, and Devrent Valley. With a professional guide, you will learn about the region’s rich history from the Hittites to early Christianity and enjoy walking among fairy chimneys and unique landscapes.',
@@ -225,7 +225,7 @@ export const tours: Tour[] = [
 
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1597002741384-66d8c7c2a8c6?w=1200&h=800&fit=crop',
+        url: 'https://acenta360.fra1.cdn.digitaloceanspaces.com/67f4db51743a9.jpg',
         alt: 'Ihlara Valley Cappadocia',
         width: 1200,
         height: 800,
@@ -246,7 +246,7 @@ export const tours: Tour[] = [
 
     translations: {
       tr: {
-        title: 'Kapadokya Yeşil Tur (Green Tour) – Küçük Grup & Alışverişsiz',
+        title: 'Yeşil Tur Kapadokya - Küçük Grup & Alışverişsiz',
         shortDescription:
           'Ihlara Vadisi, Derinkuyu Yeraltı Şehri ve Selime Manastırı’nı kapsayan doğa ve tarih dolu tam günlük tur',
 
@@ -344,7 +344,7 @@ export const tours: Tour[] = [
       },
 
       en: {
-        title: 'Cappadocia Green Tour – Small Group & No Shopping',
+        title: 'Green Tour Cappadocia – Small Group & No Shopping',
         shortDescription:
           'Explore Ihlara Valley, Derinkuyu Underground City and Selime Monastery in one full-day tour',
 
@@ -459,7 +459,7 @@ export const tours: Tour[] = [
 
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1608211805656-f46ee1a39729?w=1200&h=800&fit=crop',
+        url: 'https://acenta360.fra1.cdn.digitaloceanspaces.com/64c54ee1a02ad.png',
         alt: 'Cappadocia Hot Air Balloon Sunrise',
         width: 1200,
         height: 800,

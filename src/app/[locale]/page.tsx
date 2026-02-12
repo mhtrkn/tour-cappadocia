@@ -1,12 +1,14 @@
 import JsonLd from '@/components/seo/JsonLd';
 
-import { getTranslations } from 'next-intl/server';
-import { Metadata } from 'next';
-import Image from 'next/image';
+import FAQSection from '@/components/faq/faq-section';
+import TourItem from '@/components/tour/tour-item';
+import { Button } from '@/components/ui/button';
 import { Link } from '@/i18n/routing';
 import { getFeaturedTours } from '@/lib/mock-data/helpers';
-import { Button } from '@/components/ui/button';
-import { Clock, Users, Star } from 'lucide-react';
+import { Users } from 'lucide-react';
+import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import Image from 'next/image';
 
 export const revalidate = 1800;
 
@@ -31,7 +33,6 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'home' });
-  const commonT = await getTranslations({ locale, namespace: 'common' });
   const featuredTours = await getFeaturedTours(6);
 
   const jsonLd = {
@@ -105,80 +106,8 @@ export default async function HomePage({
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredTours.map((tour, index) => (
-                <Link
-                  key={tour.id}
-                  href={`/tours/${tour.slug}`}
-                  className="group"
-                >
-                  <div className="border rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 h-full bg-white">
-                    {/* Image */}
-                    <div className="relative w-full h-64 overflow-hidden">
-                      <Image
-                        src={tour.images[0].url}
-                        alt={tour.images[0].alt}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-300"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        priority={index === 0} // İlk image için priority
-                      />
-                      {tour.originalPrice && (
-                        <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                          Save ${tour.originalPrice - tour.price}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6">
-                      <h3 className="font-bold text-xl mb-2 group-hover:text-primary transition h-14 overflow-hidden text-ellipsis line-clamp-2">
-                        {tour.translations[locale as 'tr' | 'en'].title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mb-4 h-10 overflow-hidden text-ellipsis line-clamp-2">
-                        {tour.translations[locale as 'tr' | 'en'].shortDescription}
-                      </p>
-
-                      {/* Meta Info */}
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                        <div className="flex items-center gap-1">
-                          <Clock className="h-4 w-4" />
-                          <span>{tour.duration} {commonT('hours')}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Users className="h-4 w-4" />
-                          <span>Max {tour.groupSize.max}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          <span>{tour.rating}</span>
-                        </div>
-                      </div>
-
-                      {/* Price */}
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="flex items-baseline gap-2">
-                            <span className="text-2xl font-bold text-primary">
-                              ${tour.price}
-                            </span>
-                            {tour.originalPrice > tour.price && (
-                              <span className="text-sm text-muted-foreground line-through">
-                                ${tour.originalPrice}
-                              </span>
-                            )}
-                          </div>
-                          <span className="text-xs text-muted-foreground">
-                            {commonT('perPerson')}
-                          </span>
-                        </div>
-                        <Button variant="outline" size="sm">
-                          {commonT('viewDetails')}
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+              {featuredTours.map((tour) => <TourItem key={tour.id} tour={tour} />
+              )}
             </div>
           </div>
         </section>
@@ -282,7 +211,7 @@ export default async function HomePage({
             </div>
 
             {/* Stats or Trust Indicators */}
-            <div className="my-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="mt-20 mb-10 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">10K+</div>
                 <div className="text-sm text-muted-foreground">Mutlu Müşteri</div>
@@ -302,6 +231,8 @@ export default async function HomePage({
             </div>
           </div>
         </section>
+
+        <FAQSection />
       </div>
     </>
   );

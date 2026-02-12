@@ -17,8 +17,14 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
       {
+        protocol: "https",
+        hostname: "acenta360.fra1.cdn.digitaloceanspaces.com",
+        pathname: "/**",
+      },
+      {
         protocol: 'https',
         hostname: 'flagcdn.com',
+        pathname: "/**",
       },
     ],
     formats: ['image/avif', 'image/webp'],

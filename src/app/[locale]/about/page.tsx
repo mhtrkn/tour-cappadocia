@@ -1,10 +1,11 @@
-import { getTranslations } from 'next-intl/server';
-import { Metadata } from 'next';
-import Image from 'next/image';
-import { Link } from '@/i18n/routing';
+import PageTitle from '@/components/layout/page-title';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Shield, Users, Award, Heart, CheckCircle2 } from 'lucide-react';
+import { Link } from '@/i18n/routing';
+import { Award, CheckCircle2, Heart, Shield, Users } from 'lucide-react';
+import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import Image from 'next/image';
 
 export const revalidate = false;
 
@@ -61,22 +62,12 @@ export default async function AboutPage({
   ];
 
   return (
-    <div>
+    <div className='container mx-auto'>
       {/* Hero Section */}
-      <section className="py-12">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            {t('title')}
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t('subtitle')}
-          </p>
-        </div>
-      </section>
-
-      <div className="container max-w-6xl relative mx-auto px-4">
+      <PageTitle title={t('title')} subtitle={t('subtitle')} withBreadCrumb />
+      <div className="max-w-5xl relative mx-auto px-4">
         {/* Our Story */}
-        <section className="py-16">
+        <section className="py-10">
           <div className="grid md:grid-cols-1 gap-6 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-6">{t('ourStory')}</h2>

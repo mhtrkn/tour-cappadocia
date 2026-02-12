@@ -4,84 +4,125 @@ import Image from 'next/image';
 
 export default function Footer() {
   const t = useTranslations('common');
+  const year = new Date().getFullYear();
 
   return (
-    <footer className='w-full relative bg-accent-foreground/75 text-white border-t'>
-      <Image src={"/images/bottom-splash.jpg"} alt="Cappadocia" fill className="object-center object-cover brightness-50" />
+    <footer className="relative w-full bg-accent-foreground/75 text-white border-t overflow-hidden">
 
+      {/* Background Image */}
+      <Image
+        src="/images/bottom-splash.jpg"
+        alt="Cappadocia landscape"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center brightness-50"
+      />
+
+      {/* Overlay */}
       <div className="absolute inset-0 bg-linear-to-t from-accent-foreground to-accent-foreground/20" />
 
-      <div className="max-w-6xl mx-auto z-10 relative">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="space-y-4">
-              <div className="flex items-center">
-                <Image src={"/icons/logo.png"} alt="Paphlagonia Tour Logo" width={120} height={120} className="drop-shadow-lg object-contain" />
-              </div>
-              <p className="text-sm text-muted">
-                {t('footer.description')}
-              </p>
-            </div>
+      {/* Content */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 py-12">
 
-            <div className='text-center'>
-              <h3 className="font-semibold mb-4">{t('footer.quickLinks')}</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/tours" className="text-sm text-muted hover:text-primary transition">
-                    {t('tours')}
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="text-sm text-muted hover:text-primary transition">
-                    {t('about')}
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="text-sm text-muted hover:text-primary transition">
-                    {t('contact')}
-                  </Link>
-                </li>
-              </ul>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-            <div className='text-right'>
-              <h3 className="font-semibold mb-4">{t('footer.popularTours')}</h3>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="text-sm text-muted hover:text-primary transition">
-                    {t('footer.redTour')}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-sm text-muted hover:text-primary transition">
-                    {t('footer.greenTour')}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-sm text-muted hover:text-primary transition">
-                    {t('footer.privateTour')}
-                  </a>
-                </li>
-              </ul>
-            </div>
+          {/* Brand */}
+          <div className="space-y-4">
+            <Image
+              src="/icons/logo.png"
+              alt="Paphlagonia Tour Logo"
+              width={120}
+              height={120}
+              priority
+              className="object-contain drop-shadow-lg w-auto h-auto"
+            />
+
+            <p className="text-sm text-100 font-medium">
+              {t('footer.description')}
+            </p>
           </div>
 
-          <div className="mt-12 pt-12 border-t border-gray-200/50">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-sm text-muted">
-                &copy; {new Date().getFullYear()} Paphlagonia Tour. {t('footer.allRightsReserved')}
-              </p>
-              <div className="flex space-x-12">
-                <Link href="/privacy-and-policy" className="text-sm text-muted hover:text-primary transition">
-                  {t('footer.privacyPolicy')}
-                </Link>
-                <Link href="/kvkk" className="text-sm text-muted hover:text-primary transition">
-                  {t('footer.termsOfService')}
-                </Link>
-              </div>
-            </div>
+          {/* Quick Links */}
+          <div className="text-center space-y-4">
+            <h3 className="font-semibold">
+              {t('footer.quickLinks')}
+            </h3>
+
+            <ul className="space-y-2">
+              {[
+                { href: '/about', label: t('about') },
+                { href: '/tours', label: t('tours') },
+                { href: '/favorites', label: t('wishlist') },
+                { href: '/contact', label: t('contact') },
+              ].map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-sm text-gray-100/50 hover:text-primary transition-colors"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
+
+          {/* Popular Tours */}
+          <div className="text-right space-y-4">
+            <h3 className="font-semibold">
+              {t('footer.popularTours')}
+            </h3>
+
+            <ul className="space-y-2">
+              {[
+                t('footer.redTour'),
+                t('footer.greenTour'),
+                t('footer.privateTour'),
+              ].map((tour) => (
+                <li key={tour}>
+                  <a
+                    href="#"
+                    className="text-sm text-gray-100/50 hover:text-primary transition-colors"
+                  >
+                    {tour}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
+
+        {/* Bottom */}
+        <div className="mt-12 pt-8 border-t border-gray-200/40">
+
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+
+            <p className="text-sm text-muted">
+              &copy; {year} Paphlagonia Tour. {t('footer.allRightsReserved')}
+            </p>
+
+            <div className="flex gap-8">
+              <Link
+                href="/privacy-and-policy"
+                className="text-sm text-muted hover:text-primary transition-colors"
+              >
+                {t('footer.privacyPolicy')}
+              </Link>
+
+              <Link
+                href="/kvkk"
+                className="text-sm text-muted hover:text-primary transition-colors"
+              >
+                {t('footer.termsOfService')}
+              </Link>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
     </footer>
   );

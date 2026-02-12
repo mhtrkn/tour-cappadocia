@@ -9,7 +9,6 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Link } from '@/i18n/routing';
-import { Home } from 'lucide-react';
 import { useLocale } from 'next-intl';
 import { Fragment } from 'react';
 
@@ -31,7 +30,7 @@ export default function BreadcrumbWrapper({
   const homeLabel = locale === 'tr' ? 'Ana Sayfa' : 'Home';
 
   return (
-    <div className="container mx-auto px-4 py-4 pb-2">
+    <div className="container mx-auto px-4 py-4">
       <Breadcrumb>
         <BreadcrumbList>
           {showHome && (
