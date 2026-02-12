@@ -43,7 +43,7 @@ export default async function ToursPage({
           <PageTitle title={t('title')} subtitle={t('subtitle')} withBreadCrumb />
 
           {/* Tours Grid */}
-          <div className="max-w-5xl pt-10 mx-auto grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-8 px-2 md:px-0">
+          <div className="max-w-5xl pt-10 mx-auto grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-8 px-2 xl:px-0">
             {tours.map((tour) => (
               <TourItem key={tour.id} tour={tour} />
             ))}

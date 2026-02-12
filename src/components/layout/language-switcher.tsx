@@ -40,7 +40,7 @@ export default function LanguageSwitcher({ locale, mobileHiding }: { locale: str
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm" className={`gap-2 mr-0 ${mobileHiding ? 'hidden' : 'flex-1'}`}>
+        <Button variant="outline" size="sm" className={`gap-2 mr-0 ${mobileHiding ? 'hidden md:flex' : 'flex flex-1'}`}>
           <Image
             src={currentLanguage.flag}
             alt={currentLanguage.names[locale as 'tr' | 'en']}

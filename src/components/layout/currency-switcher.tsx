@@ -95,7 +95,7 @@ export default function CurrencySwitcher({ paramsLocale, mobileHiding }: { param
         <Button
           variant="outline"
           size="sm"
-          className={`gap-2 mr-0 min-w-20 ${mobileHiding ? 'hidden' : 'flex-1'}`}
+          className={`gap-2 mr-0 min-w-20 ${mobileHiding ? 'hidden md:flex' : 'flex flex-1'}`}
         >
           <span className="font-semibold text-base">
             {currentCurrency.symbol}

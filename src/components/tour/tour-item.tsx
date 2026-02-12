@@ -28,7 +28,7 @@ function TourItem({ tour }: { tour: Tour }) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           {tour.originalPrice > tour.price && (
-            <div className="absolute top-9 md:top-4 left-2 md:right-4 bg-red-500 text-white px-2 py-0.5 rounded-full text-xs font-semibold">
+            <div className="absolute left-2 top-8 w-fit md:top-4 md:left-auto md:right-4 bg-red-500 text-white px-2 py-0.5 rounded-full text-xs font-semibold">
               {commonT('save')} <PriceDisplay amount={tour.originalPrice - tour.price} />
             </div>
           )}
