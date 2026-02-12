@@ -13,6 +13,10 @@ export const getAllTours = unstable_cache(
   }
 );
 
+export function getTourBySlugSync(slug: string): Tour | undefined {
+  return tours.find(tour => tour.slug === slug && tour.active);
+}
+
 export function getToursBySlugsSync(slugs: string[]): Tour[] {
   if (!slugs || slugs.length === 0) return [];
 

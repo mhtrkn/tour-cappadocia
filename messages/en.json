@@ -188,6 +188,14 @@
     "wishlist": {
       "title": "My Wishlist | Paphlagonia Tour",
       "description": "View and manage your saved tours and experiences"
+    },
+    "checkout": {
+      "title": "Checkout | Paphlagonia Tour",
+      "description": "Complete your tour booking"
+    },
+    "success": {
+      "title": "Booking Confirmed | Paphlagonia Tour",
+      "description": "Your booking has been confirmed"
     }
   },
   "wishlist": {
@@ -252,6 +260,56 @@
         "question": "Can I cancel?",
         "answer": "You can cancel for free up to 48 hours before."
       }
+    }
+  },
+  "checkout": {
+    "breadcrumb": {
+      "home": "Home",
+      "checkout": "Checkout"
+    },
+    "title": "Complete Your Booking",
+    "subtitle": "Fill in your details to confirm your reservation",
+    "contactInfo": {
+      "title": "Contact Information",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "country": "Country"
+    },
+    "accommodation": {
+      "title": "Accommodation & Pickup",
+      "hotelName": "Hotel Name",
+      "pickupLocation": "Pickup Location"
+    },
+    "specialRequests": {
+      "title": "Reservation Notes",
+      "label": "Your special requests, allergies or notes..."
+    },
+    "summary": {
+      "title": "Booking Summary",
+      "total": "Total",
+      "confirmButton": "Confirm & Finish"
+    }
+  },
+  "success": {
+    "title": "Booking Confirmed!",
+    "subtitle": "Thank you for your reservation. We've sent a confirmation email to your inbox.",
+    "referenceLabel": "Your Booking Reference",
+    "details": {
+      "title": "Booking Details",
+      "tour": "Tour",
+      "date": "Date",
+      "guests": "Guests",
+      "email": "Email",
+      "phone": "Phone",
+      "total": "Total Amount"
+    },
+    "nextSteps": {
+      "title": "What's Next?",
+      "step1": "Check your email for booking confirmation and details",
+      "step2": "Our team will contact you 24 hours before the tour",
+      "step3": "Prepare for an unforgettable experience!"
     }
   }
 }

@@ -188,6 +188,14 @@
     "wishlist": {
       "title": "Favorilerim | Paphlagonia Tour",
       "description": "Kaydettiğiniz turları görüntüleyin ve yönetin"
+    },
+    "checkout": {
+      "title": "Ödeme | Paphlagonia Tour",
+      "description": "Tur rezervasyonunuzu tamamlayın"
+    },
+    "success": {
+      "title": "Rezervasyon Onaylandı | Paphlagonia Tour",
+      "description": "Rezervasyonunuz onaylanmıştır"
     }
   },
   "wishlist": {
@@ -252,6 +260,56 @@
         "question": "İptal edebilir miyim?",
         "answer": "48 saat öncesine kadar ücretsiz iptal edebilirsiniz."
       }
+    }
+  },
+  "checkout": {
+    "breadcrumb": {
+      "home": "Ana Sayfa",
+      "checkout": "Ödeme"
+    },
+    "title": "Rezervasyonunuzu Tamamlayın",
+    "subtitle": "Rezervasyonunuzu onaylamak için bilgilerinizi doldurun",
+    "contactInfo": {
+      "title": "İletişim Bilgileri",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "email": "E-posta Adresi",
+      "phone": "Telefon Numarası",
+      "country": "Ülke"
+    },
+    "accommodation": {
+      "title": "Konaklama & Alınma Noktası",
+      "hotelName": "Otel Adı",
+      "pickupLocation": "Alınma Noktası"
+    },
+    "specialRequests": {
+      "title": "Rezervasyon Notları",
+      "label": "Özel istekleriniz, alerjileriniz veya notlarınız..."
+    },
+    "summary": {
+      "title": "Rezervasyon Özeti",
+      "total": "Toplam",
+      "confirmButton": "Onayla ve Bitir"
+    }
+  },
+  "success": {
+    "title": "Rezervasyon Onaylandı!",
+    "subtitle": "Rezervasyonunuz için teşekkür ederiz. E-posta adresinize onay mesajı gönderdik.",
+    "referenceLabel": "Rezervasyon Kodunuz",
+    "details": {
+      "title": "Rezervasyon Detayları",
+      "tour": "Tur",
+      "date": "Tarih",
+      "guests": "Misafir",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "total": "Toplam Tutar"
+    },
+    "nextSteps": {
+      "title": "Sırada Ne Var?",
+      "step1": "E-postanızı kontrol edin, rezervasyon onayı ve detayları gönderildi",
+      "step2": "Ekibimiz turdan 24 saat önce sizinle iletişime geçecek",
+      "step3": "Unutulmaz bir deneyime hazır olun!"
     }
   }
 }

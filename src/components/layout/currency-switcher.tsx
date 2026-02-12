@@ -1,19 +1,19 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
-import { DollarSign, Euro, TrendingUp } from 'lucide-react';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import { Euro, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
-type Currency = 'USD' | 'EUR' | 'TRY';
+type Currency = 'EUR' | 'TRY';
 
 interface CurrencyInfo {
   code: Currency;
@@ -28,17 +28,6 @@ interface CurrencyInfo {
 }
 
 const currencies: Record<Currency, CurrencyInfo> = {
-  USD: {
-    code: 'USD',
-    symbol: '$',
-    icon: <DollarSign className="w-4 h-4" />,
-    flag: 'https://flagcdn.com/w40/us.png',
-    flag2x: 'https://flagcdn.com/w80/us.png',
-    names: {
-      tr: 'Amerikan Doları',
-      en: 'US Dollar'
-    }
-  },
   EUR: {
     code: 'EUR',
     symbol: '€',
@@ -64,9 +53,8 @@ const currencies: Record<Currency, CurrencyInfo> = {
 };
 
 const exchangeRates = {
-  USD: 1,
-  EUR: 0.92 * (51.83 / 43.63),
-  TRY: 43.63
+  EUR: 1,
+  TRY: 51.9
 };
 
 export default function CurrencySwitcher({ paramsLocale }: { paramsLocale: string }) {
@@ -168,10 +156,9 @@ export default function CurrencySwitcher({ paramsLocale }: { paramsLocale: strin
 export function useCurrency() {
   const [currency, setCurrency] = useState<Currency>('EUR');
   const [symbol, setSymbol] = useState('€');
-  const [rate, setRate] = useState(0.92);
+  const [rate, setRate] = useState(1);
 
   useEffect(() => {
-    // Check localStorage first, default to EUR if not found
     const savedCurrency = (localStorage.getItem('preferredCurrency') as Currency) || 'EUR';
 
     if (!localStorage.getItem('preferredCurrency')) {
@@ -201,7 +188,7 @@ export function useCurrency() {
       return `${symbol}${convertedPrice}`;
     }
 
-    const formatted = convertedPrice.toFixed(2).replace(/\.?0+$/, '');
+    const formatted = convertedPrice.toFixed(1).replace(/\.?0+$/, '');
     return `${symbol}${formatted}`;
   };
 

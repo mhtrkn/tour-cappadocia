@@ -10,13 +10,15 @@ import { cn } from '@/lib/utils';
 import { addToWishlist, isInWishlist, removeFromWishlist } from '@/lib/wishlist';
 import { format } from 'date-fns';
 import { enUS, tr } from 'date-fns/locale';
-import { Calendar as CalendarIcon, Clock, Heart, Minus, Plus, Users } from 'lucide-react';
+import { Calendar as CalendarIcon, Clock, Heart, Info, Minus, Plus, Users } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { PriceDisplay } from '../layout/price-display';
+import { useRouter } from '@/i18n/routing';
 
 interface BookingCardProps {
   tourSlug: string;
+  tourTitle?: string;
   price: number;
   originalPrice: number;
   duration: string;
@@ -26,6 +28,7 @@ interface BookingCardProps {
 
 export default function BookingCard({
   tourSlug,
+  tourTitle,
   price,
   originalPrice,
   duration,
@@ -35,12 +38,11 @@ export default function BookingCard({
   const [date, setDate] = useState<Date>();
   const [adults, setAdults] = useState(groupSize.min);
   const [isLiked, setLiked] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const router = useRouter();
 
   const dateLocale = locale === 'tr' ? tr : enUS;
 
   useEffect(() => {
-    setMounted(true);
     setLiked(isInWishlist(tourSlug));
 
     const handleWishlistChange = (event: CustomEvent) => {
@@ -79,12 +81,15 @@ export default function BookingCard({
     } else {
       removeFromWishlist(tourSlug);
       toast.info(
-        locale === 'tr' ? 'Favorilerden çıkarıldı' : 'Removed from wishlist'
+        locale === 'tr' ? 'Favorilerden çıkarıldı!' : 'Removed from wishlist!',
+        {
+          description: locale === 'tr'
+            ? 'Seçmiş olduğunuz tur, favorilerinizden başarı ile kaldırıldı.'
+            : 'You selected tour has been successfully removed from your favorites.',
+        }
       );
     }
   };
-
-  const totalPrice = price * adults;
 
   const handleBooking = () => {
     if (!date) {
@@ -99,41 +104,22 @@ export default function BookingCard({
       return;
     }
 
-    console.log('Booking:', {
+    const bookingData = {
       tourSlug,
-      date: format(date, 'PPP', { locale: dateLocale }),
+      tourTitle,
+      price,
+      originalPrice,
+      duration,
+      groupSize,
+      locale,
       adults,
-      totalPrice,
-    });
+      date: date.toISOString(),
+    };
 
-    toast.success(
-      locale === 'tr' ? 'Rezervasyon başarılı!' : 'Booking successful!',
-      {
-        description: locale === 'tr'
-          ? `Tarih: ${format(date, 'PPP', { locale: dateLocale })}, Kişi: ${adults}, Toplam: ${totalPrice}`
-          : `Date: ${format(date, 'PPP', { locale: dateLocale })}, Adults: ${adults}, Total: ${totalPrice}`,
-      }
-    );
+    localStorage.setItem('pendingBooking', JSON.stringify(bookingData));
+
+    router.push('/checkout');
   };
-
-  if (!mounted) {
-    return (
-      <Card className="sticky top-28">
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <div className="flex items-baseline gap-2">
-              <span className="text-3xl font-bold text-primary">
-                <PriceDisplay amount={price} />
-              </span>
-            </div>
-            <Button variant="ghost" size="sm" disabled>
-              <Heart className="h-5! w-5! text-primary" />
-            </Button>
-          </div>
-        </CardHeader>
-      </Card>
-    );
-  }
 
   return (
     <Card className="sticky top-28">
@@ -237,25 +223,24 @@ export default function BookingCard({
               <Plus className="h-4 w-4" />
             </Button>
           </div>
-          <p className="text-xs text-muted-foreground text-center">
-            {locale === 'tr'
-              ? `Min: ${groupSize.min}, Max: ${groupSize.max}`
-              : `Min: ${groupSize.min}, Max: ${groupSize.max}`}
-          </p>
         </div>
         <Button
-          className="w-full"
+          className="w-full h-11 flex items-center justify-center"
           size="lg"
           onClick={handleBooking}
         >
           {locale === 'tr' ? 'Rezervasyon Yap' : 'Book Now'}
         </Button>
 
-        <p className="text-xs text-center text-muted-foreground">
-          {locale === 'tr'
-            ? 'Ücretsiz iptal 24 saat öncesine kadar'
-            : 'Free cancellation up to 24 hours before'}
-        </p>
+        <div className="flex items-start gap-2 p-3 bg-muted/50 rounded-lg">
+          <Info className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
+          <p className="text-xs text-muted-foreground">
+            {locale === 'tr'
+              ? 'Rezervasyonunuzu onaylamadan ücret alınmaz.'
+              : "No charge until confirmation."
+            }
+          </p>
+        </div>
       </CardContent>
     </Card>
   );

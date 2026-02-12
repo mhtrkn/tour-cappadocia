@@ -12,6 +12,8 @@ interface PriceDisplayProps {
 export function PriceDisplay({ amount, className = '', showCode = false }: PriceDisplayProps) {
   const { formatPrice, currency } = useCurrency();
 
+  if (!amount) return null;
+
   return (
     <span className={className}>
       {formatPrice(amount)}

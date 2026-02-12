@@ -136,17 +136,17 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
 
               {/* Overview */}
               <div>
-                <h2 className="text-2xl font-bold mb-4">{t('overview')}</h2>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-2xl font-bold mb-4">{t('overview')}</p>
+                <h2 className="text-muted-foreground leading-relaxed">
                   {translation.description}
-                </p>
+                </h2>
               </div>
 
               <Separator />
 
               {/* Highlights */}
               <div>
-                <h2 className="text-2xl font-bold mb-4">{t('highlights')}</h2>
+                <h3 className="text-2xl font-bold mb-4">{t('highlights')}</h3>
                 <ul className="grid md:grid-cols-2 gap-3">
                   {translation.highlights.map((highlight, index) => (
                     <li key={index} className="flex items-start gap-2">
@@ -166,7 +166,7 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
                   {translation.itinerary.map((item, index) => (
                     <div key={index} className="flex gap-4">
                       <div className="shrink-0">
-                        <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">
+                        <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary text-primary flex items-center justify-center font-semibold">
                           {index + 1}
                         </div>
                       </div>
@@ -244,6 +244,7 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
             <div className="lg:col-span-1">
               <BookingCard
                 tourSlug={tour.slug}
+                tourTitle={tour.translations[locale as 'tr' | 'en'].title}
                 price={tour.price}
                 originalPrice={tour.originalPrice}
                 duration={tour.duration}
