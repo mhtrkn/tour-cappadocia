@@ -4,8 +4,8 @@ import { routing } from '@/i18n/routing';
 
 const baseUrl = 'https://cappadocia-tours.com';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const tours = getAllTours();
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const tours = await getAllTours();
   const locales = routing.locales;
 
   const staticPages: MetadataRoute.Sitemap = [];

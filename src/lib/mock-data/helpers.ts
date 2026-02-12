@@ -2,14 +2,13 @@ import { Tour } from '@/types/tour';
 import { unstable_cache } from 'next/cache';
 import { tours } from './tour';
 
-// Cache wrapper
 export const getAllTours = unstable_cache(
   async (): Promise<Tour[]> => {
     return tours.filter(tour => tour.active);
   },
   ['all-tours'],
   {
-    revalidate: 3600, // 1 hour
+    revalidate: 3600,
     tags: ['tours'],
   }
 );

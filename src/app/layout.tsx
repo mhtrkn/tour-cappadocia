@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: '%s | Paphlagonia Tour',
   },
   description: 'Discover the best Cappadocia tours including hot air balloon rides, cultural tours, and adventure experiences. Book your unforgettable journey today.',
-  keywords: ['cappadocia', 'tours', 'hot air balloon', 'turkey', 'travel', 'goreme'],
+  keywords: ['cappadocia', 'cappadocia tour', 'kapadokya', 'kapadokya tur', 'tours', 'hot air balloon', 'turkey', 'travel', 'goreme'],
   authors: [{ name: 'Paphlagonia Tour' }],
   creator: 'Paphlagonia Tour',
   publisher: 'Paphlagonia Tour',
