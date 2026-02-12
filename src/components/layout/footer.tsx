@@ -53,7 +53,7 @@ export default function Footer() {
               {[
                 { href: '/about', label: t('about') },
                 { href: '/tours', label: t('tours') },
-                { href: '/favorites', label: t('wishlist') },
+                { href: '/wishlist', label: t('wishlist') },
                 { href: '/contact', label: t('contact') },
               ].map(({ href, label }) => (
                 <li key={href}>
@@ -81,12 +81,12 @@ export default function Footer() {
                 t('footer.privateTour'),
               ].map((tour) => (
                 <li key={tour}>
-                  <a
-                    href="#"
+                  <Link
+                    href="/tours"
                     className="text-sm text-gray-100/50 hover:text-primary transition-colors"
                   >
                     {tour}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

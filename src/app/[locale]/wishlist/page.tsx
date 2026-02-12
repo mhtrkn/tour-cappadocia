@@ -4,7 +4,7 @@ import WishlistContent from '@/components/wishlist/wishlist-content';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
-export const revalidate = false;
+export const revalidate = 3600;
 
 export async function generateMetadata({
   params,

@@ -7,11 +7,22 @@ import { Link } from '@/i18n/routing';
 import { getToursBySlugsSync } from '@/lib/mock-data/helpers';
 import { clearWishlist, getWishlistSlugs } from '@/lib/wishlist';
 import { Tour } from '@/types/tour';
-import { Calendar, FolderHeart, Loader2, X } from 'lucide-react';
+import { Calendar, FolderHeart, X } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import TourItem from '../tour/tour-item';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 
 export default function WishlistContent() {
   const [wishlistTours, setWishlistTours] = useState<Tour[]>([]);
@@ -71,29 +82,12 @@ export default function WishlistContent() {
   }, []);
 
   const handleClearAll = () => {
-    if (window.confirm(
-      locale === 'tr'
-        ? 'Tüm favorileri temizlemek istediğinize emin misiniz?'
-        : 'Are you sure you want to clear all favorites?'
-    )) {
-      clearWishlist();
-      setWishlistTours([]);
-      toast.success(
-        locale === 'tr' ? 'Tüm favoriler temizlendi' : 'All favorites cleared'
-      );
-    }
-  };
-
-  if (loading) {
-    return (
-      <div className="text-center">
-        <Loader2 className="w-12 h-12 mx-auto mb-4 animate-spin text-primary" />
-        <p className="text-muted-foreground">
-          {locale === 'tr' ? 'Favoriler yükleniyor...' : 'Loading wishlist...'}
-        </p>
-      </div>
+    clearWishlist();
+    setWishlistTours([]);
+    toast.success(
+      locale === 'tr' ? 'Tüm favoriler temizlendi' : 'All favorites cleared'
     );
-  }
+  };
 
   if (wishlistTours.length === 0) {
     return (
@@ -118,7 +112,7 @@ export default function WishlistContent() {
   }
 
   return (
-    <div>
+    <div className='max-w-5xl mx-auto'>
       {/* Stats */}
       <div className="mb-8 flex items-center justify-between flex-wrap gap-4">
         <div>
@@ -127,27 +121,53 @@ export default function WishlistContent() {
           </p>
         </div>
         <div className="flex gap-3">
-          <Button
-            variant="outline"
-            size="sm"
-            className="gap-2 text-destructive hover:text-destructive"
-            onClick={handleClearAll}
-          >
-            <X className="w-4 h-4" />
-            {t('actions.clearAll')}
-          </Button>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button
+                variant="outline"
+                size="sm"
+                className="gap-2 text-destructive hover:text-destructive"
+              >
+                {t('actions.clearAll')}
+                <X className="w-4 h-4" />
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>
+                  {locale === 'tr' ? 'Emin misiniz?' : 'Are you sure?'}
+                </AlertDialogTitle>
+                <AlertDialogDescription>
+                  {locale === 'tr'
+                    ? 'Tüm favorileri temizlemek istediğinize emin misiniz? Bu işlem geri alınamaz.'
+                    : `Are you sure you want to clear all favorites? This action cannot be undone.`}
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>
+                  {locale === 'tr' ? 'İptal' : 'Cancel'}
+                </AlertDialogCancel>
+                <AlertDialogAction
+                  onClick={handleClearAll}
+                  className="bg-destructive hover:bg-destructive/90"
+                >
+                  {locale === 'tr' ? 'Temizle' : 'Clear All'}
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {wishlistTours.map((tour) => {
           return <TourItem key={tour.id} tour={tour} />;
         })}
       </div>
 
       {/* Bottom CTA */}
-      <div className="mt-16 max-w-4xl mx-auto">
+      <div className="mt-16">
         <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-primary/10 via-primary/5 to-transparent border-2 border-primary/20 p-8 md:p-12">
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-32 translate-x-32" />
 

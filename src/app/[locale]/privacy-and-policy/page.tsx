@@ -1,22 +1,19 @@
+import PageTitle from "@/components/layout/page-title";
 import { useTranslations } from "next-intl";
 
 function PrivacyAndPolicy() {
   const t = useTranslations("about");
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 text-gray-800">
-      <div className="text-center mb-20">
-        <h1 className="text-3xl md:text-4xl font-bold mb-3">
-          {t("privacyPolicy.title")}
-        </h1>
-
-        <p className="text-gray-600">
-          {t("privacyPolicy.subtitle")}
-        </p>
-      </div>
+    <div className="container max-w-5xl mx-auto">
+      <PageTitle
+        withBreadCrumb
+        title={t("privacyPolicy.title")}
+        subtitle={t("privacyPolicy.subtitle")}
+      />
 
       {/* Membership Section */}
-      <section className=" mb-10">
+      <section className="my-10">
         <h2 className="text-2xl font-semibold mb-4">
           {t("privacyPolicy.membershipTitle")}
         </h2>

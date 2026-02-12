@@ -19,8 +19,8 @@
     "footer": {
       "quickLinks": "Quick Links",
       "popularTours": "Popular Tours",
-      "redTour": "CappadociaRed Tour",
-      "greenTour": "CappadociaRed Green Tour",
+      "redTour": "Cappadocia Red Tour",
+      "greenTour": "Cappadocia Green Tour",
       "privateTour": "Hot Air Balloon Tour",
       "allRightsReserved": "All rights reserved.",
       "privacyPolicy": "Privacy Policy",
@@ -168,21 +168,21 @@
   },
   "metadata": {
     "title": "Paphlagonia Tour | Red Tour, Green Tour, Private Tour, Hot Air Balloon Rides & Cultural Experiences",
-    "description": "Discover the best Cappadocia tours including hot air balloon rides, cultural tours, and adventure experiences. Book your unforgettable journey today.",
+    "description": "Discover the best Paphlagonia Tour including hot air balloon rides, cultural tours, and adventure experiences. Book your unforgettable journey today.",
     "home": {
-      "title": "Cappadocia Tours | Hot Air Balloon Rides & Cultural Experiences",
-      "description": "Discover the best Cappadocia tours including hot air balloon rides, cultural tours, and adventure experiences. Book your unforgettable journey today."
+      "title": "Paphlagonia Tour | Hot Air Balloon Rides & Cultural Experiences",
+      "description": "Discover the best Paphlagonia Tour including hot air balloon rides, cultural tours, and adventure experiences. Book your unforgettable journey today."
     },
     "tours": {
       "title": "Tours in Cappadocia | Book Your Adventure",
       "description": "Browse all available tours in Cappadocia. From hot air balloons to hiking tours, find your perfect experience."
     },
     "contact": {
-      "title": "Contact Us | Cappadocia Tours",
+      "title": "Contact Us | Paphlagonia Tour",
       "description": "Get in touch with us for booking inquiries, questions, or custom tour requests."
     },
     "about": {
-      "title": "About Us | Cappadocia Tours",
+      "title": "About Us | Paphlagonia Tour",
       "description": "Providing unforgettable tour experiences in Cappadocia since 2010. Learn about our professional team and safe tours."
     },
     "wishlist": {

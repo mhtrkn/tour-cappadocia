@@ -2,10 +2,10 @@ import { Tour } from '@/types/tour';
 import { Clock, Star, Users } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
 import { PriceDisplay } from '../layout/price-display';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
+import { Link } from '@/i18n/routing';
 
 function TourItem({ tour }: { tour: Tour }) {
   const commonT = useTranslations('common');
@@ -81,7 +81,7 @@ function TourItem({ tour }: { tour: Tour }) {
                   </span>
                 )}
               </div>
-              <span className="absolute bottom-0 left-0 text-xs text-muted-foreground lowercase">
+              <span className="absolute bottom-0 left-0 text-xs text-muted-foreground lowercase whitespace-nowrap">
                 {commonT('perPerson')}
               </span>
             </div>

@@ -1,23 +1,19 @@
+import PageTitle from "@/components/layout/page-title";
 import { useTranslations } from "next-intl";
 
 function Kvkk() {
   const t = useTranslations("about");
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 text-gray-800">
-      {/* Header */}
-      <div className="text-center mb-20">
-        <h1 className="text-3xl md:text-4xl font-bold mb-3">
-          {t("kvkk.title")}
-        </h1>
+    <div className="container max-w-5xl mx-auto">
+      <PageTitle
+        withBreadCrumb
+        title={t("kvkk.title")}
+        subtitle={t("kvkk.subtitle")}
+      />
 
-        <p className="text-gray-600">
-          {t("kvkk.subtitle")}
-        </p>
-      </div>
-
-      {/* Section 1 */}
-      <section className="mb-10">
+      {/* Membership Section */}
+      <section className="my-10">
         <h2 className="text-2xl font-semibold mb-4">
           {t("kvkk.section1Title")}
         </h2>

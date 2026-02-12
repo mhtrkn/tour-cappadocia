@@ -1,7 +1,7 @@
-import { getTranslations } from 'next-intl/server';
-import { Metadata } from 'next';
-import ContactForm from '@/components/contact/contact-form';
 import ContactInfo from '@/components/contact/contact-info';
+import PageTitle from '@/components/layout/page-title';
+import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 
 export const revalidate = false;
@@ -29,27 +29,15 @@ export default async function ContactPage({
   const t = await getTranslations({ locale, namespace: 'contact' });
 
   return (
-    <div className="py-12">
-      <div className="container max-w-5xl mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            {t('title')}
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t('subtitle')}
-          </p>
-        </div>
+    <div>
+      <div className="container max-w-5xl mx-auto">
+        <PageTitle title={t('title')} subtitle={t('subtitle')} withBreadCrumb />
 
         {/* Content Grid */}
-        <ContactInfo />
-        <div className='grid grid-cols-2 gap-6 mt-6 place-items-center'>
-          <ContactForm />
-
-          {/* Map */}
-          <div className="col-span-1 w-full rounded-xl h-full overflow-hidden border">
+        <div className='grid grid-cols-2 gap-8 mt-6 items-center justify-center'>
+          <div className="col-span-1 w-full rounded-xl min-h-72 h-full overflow-hidden border">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d98584.85165906094!2d34.755762!3d38.643611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152a6ba8e46c45a9%3A0x9c5d2ddf47368dc8!2sG%C3%B6reme%2C%20Nev%C5%9Fehir!5e0!3m2!1sen!2str!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3116.232568111968!2d34.82410947644325!3d38.64353246164256!2m3!1f0!2f0!3f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152a6879a9478f99%3A0x73471fbf797607b4!2zQXlkxLFubMSxIE9ydGEgTWFoLCBLYXLFn8SxIEJ1Y2FrIENkLiAzMC9CLCA1MDE4MCBHw7ZyZW1lL05ldsWfZWhpciBNZXJrZXovTmV2xZ9laGly!5e0!3m2!1str!2str!4v1770910034296!5m2!1str!2str"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -58,10 +46,11 @@ export default async function ContactPage({
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
+          <ContactInfo />
         </div>
 
         {/* FAQ or Additional Info (Optional) */}
-        <div className="mt-16 max-w-5xl mx-auto">
+        <div className="my-16">
           <div className="bg-muted/40 rounded-xl p-8 text-center">
             <h2 className="text-2xl font-bold mb-4">
               {locale === 'tr' ? 'Hızlı İletişim' : 'Quick Contact'}

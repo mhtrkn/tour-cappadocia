@@ -116,7 +116,6 @@ export default function BookingCard({
     );
   };
 
-  // Prevent hydration mismatch
   if (!mounted) {
     return (
       <Card className="sticky top-28">
@@ -128,7 +127,7 @@ export default function BookingCard({
               </span>
             </div>
             <Button variant="ghost" size="sm" disabled>
-              <Heart className="h-5 w-5 text-primary" />
+              <Heart className="h-5! w-5! text-primary" />
             </Button>
           </div>
         </CardHeader>
@@ -153,7 +152,7 @@ export default function BookingCard({
 
           <Button onClick={toggleLike} variant="ghost" size="sm">
             <Heart
-              className={`h-5 w-5 transition-all duration-300 ${isLiked
+              className={`h-5! w-5! transition-all duration-300 ${isLiked
                 ? 'fill-primary text-primary scale-110'
                 : 'text-primary hover:scale-110'
                 }`}

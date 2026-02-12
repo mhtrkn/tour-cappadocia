@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/90 backdrop-blur supports-backdrop-filter:bg-background/75">
       <div className="container mx-auto px-4">
-        <div className="flex py-2 items-center justify-between">
+        <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <div className="flex items-center">
               <Image
