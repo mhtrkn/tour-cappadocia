@@ -18,6 +18,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { useCurrency } from '../layout/currency-switcher';
+import { sendTelegramNotification } from '@/actions/telegram';
 
 interface BookingData {
   tourSlug: string;
@@ -101,13 +102,10 @@ export default function CheckoutContent() {
     setLoading(true);
 
     try {
-      // Mock API call - gerçek implementasyonda backend'e gönderilir
       await new Promise(resolve => setTimeout(resolve, 2000));
 
-      // Generate booking reference
       const bookingReference = `PT${Date.now().toString().slice(-8)}`;
 
-      // Save booking details
       const completeBooking = {
         ...bookingData,
         ...formData,
@@ -118,7 +116,32 @@ export default function CheckoutContent() {
       localStorage.setItem('completedBooking', JSON.stringify(completeBooking));
       localStorage.removeItem('pendingBooking');
 
-      // Redirect to success page
+      try {
+        const telegramResult = await sendTelegramNotification({
+          tourTitle: bookingData!.tourTitle,
+          date: format(new Date(bookingData!.date), 'dd MMMM yyyy', { locale: dateLocale }),
+          adults: bookingData!.adults,
+          totalPrice: formatPrice(bookingData!.price * bookingData!.adults),
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          country: formData.country,
+          hotelName: formData.hotelName,
+          pickupLocation: formData.pickupLocation,
+          specialRequests: formData.specialRequests,
+          bookingReference,
+        });
+
+        if (telegramResult.success) {
+          console.log('✅ Telegram bildirimi gönderildi!');
+        } else {
+          console.warn('⚠️ Telegram bildirimi gönderilemedi:', telegramResult.error);
+        }
+      } catch (telegramError) {
+        console.error('⚠️ Telegram hatası:', telegramError);
+      }
+
       router.push(`/checkout/success?ref=${bookingReference}`);
     } catch (error) {
       console.error('Booking error:', error);
