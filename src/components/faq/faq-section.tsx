@@ -10,14 +10,8 @@ import {
   MessageCircle,
   Search
 } from 'lucide-react';
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-
-import { Button } from '../ui/button';
-
-/* ---------------------------------- */
-/* Types */
-/* ---------------------------------- */
+import { useState } from 'react';
 
 interface FAQItem {
   id: string;
@@ -34,9 +28,6 @@ type Category =
   | 'odeme'
   | 'iptal';
 
-/* ---------------------------------- */
-/* Color Map (Tailwind Safe) */
-/* ---------------------------------- */
 
 const categoryStyles: Record<Category, string> = {
   genel: 'text-blue-600 border-blue-200 bg-blue-50/50',
@@ -45,9 +36,6 @@ const categoryStyles: Record<Category, string> = {
   iptal: 'text-red-600 border-red-200 bg-red-50/50',
 };
 
-/* ---------------------------------- */
-/* Component */
-/* ---------------------------------- */
 
 export default function FAQSection() {
   const t = useTranslations('faq');

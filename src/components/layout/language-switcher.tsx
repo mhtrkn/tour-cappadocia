@@ -43,7 +43,7 @@ export default function LanguageSwitcher({ locale, mobileHiding }: { locale: str
         <Button variant="outline" size="sm" className={`gap-2 mr-0 ${mobileHiding ? 'hidden md:flex' : 'flex flex-1'}`}>
           <Image
             src={currentLanguage.flag}
-            alt={currentLanguage.names[locale as 'tr' | 'en']}
+            alt={locale == 'tr' ? 'Dil değiştirme seçeneği - Türkçe' : 'Language switch - English'}
             width={20}
             height={16}
             className='w-5 h-4 rounded'
@@ -65,7 +65,7 @@ export default function LanguageSwitcher({ locale, mobileHiding }: { locale: str
           >
             <Image
               src={flag}
-              alt={names[locale as 'tr' | 'en']}
+              alt={locale == 'tr' ? 'Dil değiştirme seçeneği - Türkçe' : 'Language switch - English'}
               width={20}
               height={16}
               className='w-5 h-4 rounded'

@@ -17,10 +17,12 @@ interface TourDetailPageProps {
 }
 
 export const revalidate = 3600;
+const SITE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.paphlagoniatour.com/';
 
 export async function generateMetadata({
   params
 }: TourDetailPageProps): Promise<Metadata> {
+
   const { locale, slug } = await params;
   const tour = await getTourBySlug(slug);
 
@@ -32,13 +34,26 @@ export async function generateMetadata({
 
   const translation = tour.translations[locale as 'tr' | 'en'];
 
+  const canonicalUrl = `${SITE_URL}/${locale}/tours/${slug}`;
+
   return {
     title: translation.metaTitle,
     description: translation.metaDescription,
     keywords: translation.metaKeywords,
+
+    alternates: {
+      canonical: canonicalUrl,
+
+      languages: {
+        tr: `${SITE_URL}/tr/tours/${slug}`,
+        en: `${SITE_URL}/en/tours/${slug}`,
+      },
+    },
+
     openGraph: {
       title: translation.metaTitle,
       description: translation.metaDescription,
+      url: canonicalUrl,
       images: [
         {
           url: tour.images[0].url,
@@ -47,7 +62,7 @@ export async function generateMetadata({
           alt: tour.images[0].alt,
         },
       ],
-      locale: locale,
+      locale,
     },
   };
 }

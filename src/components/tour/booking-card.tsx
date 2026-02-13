@@ -233,7 +233,7 @@ export default function BookingCard({
         </Button>
 
         <div className="flex items-start gap-2 p-3 bg-muted/50 rounded-lg">
-          <Info className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
+          <Info className="w-4 h-4 text-muted-foreground shrink-0" />
           <p className="text-xs text-muted-foreground">
             {locale === 'tr'
               ? 'Rezervasyonunuzu onaylamadan ücret alınmaz.'

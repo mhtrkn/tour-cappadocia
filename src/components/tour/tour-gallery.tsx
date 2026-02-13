@@ -33,8 +33,10 @@ export default function TourGallery({ images }: TourGalleryProps) {
           src={images[currentIndex].url}
           alt={images[currentIndex].alt}
           fill
-          className="object-cover"
           priority
+          quality={75}
+          loading="eager"
+          className="object-cover"
           sizes="(max-width: 768px) 100vw, 80vw"
         />
 
@@ -74,14 +76,15 @@ export default function TourGallery({ images }: TourGalleryProps) {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`relative h-20 rounded-lg overflow-hidden border-2 transition ${index === currentIndex
-                  ? 'border-primary'
-                  : 'border-transparent hover:border-gray-300'
+                ? 'border-primary'
+                : 'border-transparent hover:border-gray-300'
                 }`}
             >
               <Image
                 src={image.url}
                 alt={image.alt}
                 fill
+                loading="lazy"
                 className="object-cover"
                 sizes="150px"
               />

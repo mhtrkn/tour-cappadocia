@@ -1,16 +1,18 @@
 import JsonLd from '@/components/seo/JsonLd';
 
-import FAQSection from '@/components/faq/faq-section';
-import TourItem from '@/components/tour/tour-item';
+import ClientFAQ from '@/components/faq/client-faq';
 import { Button } from '@/components/ui/button';
 import { Link } from '@/i18n/routing';
 import { getFeaturedTours } from '@/lib/mock-data/helpers';
 import { Users } from 'lucide-react';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
-export const revalidate = 1800;
+const TourItem = dynamic(() => import('@/components/tour/tour-item'));
+
+export const revalidate = 3600;
 
 export async function generateMetadata({
   params
@@ -67,6 +69,12 @@ export default async function HomePage({
             src="/images/splash.jpg"
             alt="Cappadocia"
             fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
+            quality={65}
+            placeholder="blur"
+            blurDataURL='/images/splash-blur.jpg'
             className="object-cover object-center opacity-50 brightness-50"
           />
 
@@ -232,7 +240,7 @@ export default async function HomePage({
           </div>
         </section>
 
-        <FAQSection />
+        <ClientFAQ />
       </div>
     </>
   );

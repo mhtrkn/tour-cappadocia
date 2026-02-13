@@ -27,6 +27,7 @@ export default function Header() {
                 alt="Paphlagonia Tour Logo"
                 width={80}
                 height={80}
+                priority
                 className="object-contain mt-1 w-20 h-20"
               />
             </div>
