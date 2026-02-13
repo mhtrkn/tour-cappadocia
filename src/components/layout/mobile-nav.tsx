@@ -9,10 +9,13 @@ import { Button } from '../ui/button';
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
+  SheetTitle,
   SheetTrigger,
 } from '../ui/sheet';
 import CurrencySwitcher from './currency-switcher';
 import LanguageSwitcher from './language-switcher';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 interface NavItem {
   href: string;
@@ -30,12 +33,20 @@ export default function MobileNav({ navItems }: MobileNavProps) {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger>
+      <SheetTrigger asChild>
         <Button variant="ghost" size="icon" className="md:hidden">
           <TextAlignEnd className="h-6! w-6!" />
         </Button>
       </SheetTrigger>
       <SheetContent showCloseButton={false} side="right" className="w-full sm:w-80 p-0">
+        <VisuallyHidden>
+          <SheetTitle>Mobile Navigation Menu | Mobil Navigasyon Menü</SheetTitle>
+          <SheetDescription>
+            This panel allows you to navigate the site and change language or currency.
+            <br />
+            Bu panel, site içinde gezinmenizi ve dil veya para birimini değiştirmenizi sağlar.
+          </SheetDescription>
+        </VisuallyHidden>
         <div className="flex items-center justify-between px-4 border-b">
           <Link href={'/'} className="flex items-center" onClick={() => setOpen(false)}>
             <Image

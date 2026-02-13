@@ -42,7 +42,7 @@ export default async function ContactPage({
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
-              loading="eager"
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/set-state-in-effect */
 'use client';
 
@@ -12,7 +13,10 @@ import { Euro, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
+/* ---------------- TYPES ---------------- */
+
 type Currency = 'EUR' | 'TRY';
+type Locale = 'tr' | 'en';
 
 interface CurrencyInfo {
   code: Currency;
@@ -26,6 +30,8 @@ interface CurrencyInfo {
   flag2x?: string;
 }
 
+/* ---------------- DATA ---------------- */
+
 const currencies: Record<Currency, CurrencyInfo> = {
   EUR: {
     code: 'EUR',
@@ -35,8 +41,8 @@ const currencies: Record<Currency, CurrencyInfo> = {
     flag2x: 'https://flagcdn.com/w80/eu.png',
     names: {
       tr: 'Euro',
-      en: 'Euro'
-    }
+      en: 'Euro',
+    },
   },
   TRY: {
     code: 'TRY',
@@ -46,26 +52,43 @@ const currencies: Record<Currency, CurrencyInfo> = {
     flag2x: 'https://flagcdn.com/w80/tr.png',
     names: {
       tr: 'Türk Lirası',
-      en: 'Turkish Lira'
-    }
-  }
+      en: 'Turkish Lira',
+    },
+  },
 };
 
-const exchangeRates = {
+const exchangeRates: Record<Currency, number> = {
   EUR: 1,
-  TRY: 51.9
+  TRY: 51.9,
 };
 
-export default function CurrencySwitcher({ paramsLocale, mobileHiding }: { paramsLocale: string, mobileHiding?: boolean }) {
-  const [selectedCurrency, setSelectedCurrency] = useState<Currency>('EUR');
-  const [locale, setLocale] = useState(paramsLocale);
+/* ---------------- COMPONENT ---------------- */
+
+export default function CurrencySwitcher({
+  paramsLocale,
+  mobileHiding,
+}: {
+  paramsLocale: string;
+  mobileHiding?: boolean;
+}) {
+  const [selectedCurrency, setSelectedCurrency] =
+    useState<Currency>('EUR');
+
+  const [locale, setLocale] = useState<Locale>('en');
 
   useEffect(() => {
     const path = window.location.pathname;
-    const detectedLocale = path.startsWith('/tr') ? 'tr' : 'en';
+
+    const detectedLocale: Locale = path.startsWith('/tr')
+      ? 'tr'
+      : 'en';
+
     setLocale(detectedLocale);
 
-    const savedCurrency = localStorage.getItem('preferredCurrency') as Currency;
+    const savedCurrency = localStorage.getItem(
+      'preferredCurrency'
+    ) as Currency;
+
     if (savedCurrency && currencies[savedCurrency]) {
       setSelectedCurrency(savedCurrency);
     } else {
@@ -76,15 +99,18 @@ export default function CurrencySwitcher({ paramsLocale, mobileHiding }: { param
 
   const handleCurrencyChange = (currency: Currency) => {
     setSelectedCurrency(currency);
+
     localStorage.setItem('preferredCurrency', currency);
 
-    window.dispatchEvent(new CustomEvent('currencyChange', {
-      detail: {
-        currency,
-        symbol: currencies[currency].symbol,
-        rate: exchangeRates[currency]
-      }
-    }));
+    window.dispatchEvent(
+      new CustomEvent('currencyChange', {
+        detail: {
+          currency,
+          symbol: currencies[currency].symbol,
+          rate: exchangeRates[currency],
+        },
+      })
+    );
   };
 
   const currentCurrency = currencies[selectedCurrency];
@@ -95,25 +121,35 @@ export default function CurrencySwitcher({ paramsLocale, mobileHiding }: { param
         <Button
           variant="outline"
           size="sm"
-          className={`gap-2 mr-0 min-w-20 ${mobileHiding ? 'hidden md:flex' : 'flex flex-1'}`}
+          className={`gap-2 mr-0 min-w-20 ${mobileHiding ? 'hidden md:flex' : 'flex flex-1'
+            }`}
         >
           <span className="font-semibold text-base">
             {currentCurrency.symbol}
           </span>
+
           <span className="hidden sm:inline text-sm font-medium">
             {currentCurrency.code}
           </span>
         </Button>
       </DropdownMenuTrigger>
+
       <DropdownMenuContent align="end" className="min-w-50">
         <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">
-          {locale === 'tr' ? 'Para Birimi Seçin' : 'Select Currency'}
+          {locale === 'tr'
+            ? 'Para Birimi Seçin'
+            : 'Select Currency'}
         </div>
+
         {Object.values(currencies).map((currency) => (
           <DropdownMenuItem
             key={currency.code}
-            onClick={() => handleCurrencyChange(currency.code)}
-            className={`cursor-pointer ${selectedCurrency === currency.code ? 'bg-accent' : ''
+            onClick={() =>
+              handleCurrencyChange(currency.code)
+            }
+            className={`cursor-pointer ${selectedCurrency === currency.code
+              ? 'bg-accent'
+              : ''
               }`}
           >
             <div className="flex items-center justify-between w-full gap-3">
@@ -131,15 +167,19 @@ export default function CurrencySwitcher({ paramsLocale, mobileHiding }: { param
                     {currency.icon}
                   </div>
                 )}
+
                 <div className="flex flex-col">
                   <span className="font-medium text-sm">
                     {currency.code}
                   </span>
+
+                  {/* ✅ ARTIK HATA YOK */}
                   <span className="text-xs text-muted-foreground">
                     {currency.names[locale]}
                   </span>
                 </div>
               </div>
+
               <span className="font-bold text-base">
                 {currency.symbol}
               </span>
@@ -151,13 +191,20 @@ export default function CurrencySwitcher({ paramsLocale, mobileHiding }: { param
   );
 }
 
+/* ---------------- HOOK ---------------- */
+
 export function useCurrency() {
-  const [currency, setCurrency] = useState<Currency>('EUR');
+  const [currency, setCurrency] =
+    useState<Currency>('EUR');
+
   const [symbol, setSymbol] = useState('€');
   const [rate, setRate] = useState(1);
 
   useEffect(() => {
-    const savedCurrency = (localStorage.getItem('preferredCurrency') as Currency) || 'EUR';
+    const savedCurrency =
+      (localStorage.getItem(
+        'preferredCurrency'
+      ) as Currency) || 'EUR';
 
     if (!localStorage.getItem('preferredCurrency')) {
       localStorage.setItem('preferredCurrency', 'EUR');
@@ -167,15 +214,24 @@ export function useCurrency() {
     setSymbol(currencies[savedCurrency].symbol);
     setRate(exchangeRates[savedCurrency]);
 
-    const handleCurrencyChange = (event: CustomEvent) => {
+    const handleCurrencyChange = (
+      event: CustomEvent
+    ) => {
       setCurrency(event.detail.currency);
       setSymbol(event.detail.symbol);
       setRate(event.detail.rate);
     };
 
-    window.addEventListener('currencyChange', handleCurrencyChange as EventListener);
+    window.addEventListener(
+      'currencyChange',
+      handleCurrencyChange as EventListener
+    );
+
     return () => {
-      window.removeEventListener('currencyChange', handleCurrencyChange as EventListener);
+      window.removeEventListener(
+        'currencyChange',
+        handleCurrencyChange as EventListener
+      );
     };
   }, []);
 
@@ -186,7 +242,10 @@ export function useCurrency() {
       return `${symbol}${convertedPrice}`;
     }
 
-    const formatted = convertedPrice.toFixed(1).replace(/\.?0+$/, '');
+    const formatted = convertedPrice
+      .toFixed(1)
+      .replace(/\.?0+$/, '');
+
     return `${symbol}${formatted}`;
   };
 

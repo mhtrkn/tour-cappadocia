@@ -136,8 +136,8 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
 
               {/* Overview */}
               <div>
-                <p className="text-2xl font-bold mb-4">{t('overview')}</p>
-                <h2 className="text-muted-foreground leading-relaxed">
+                <p className="text-xl md:2xl font-bold mb-4">{t('overview')}</p>
+                <h2 className="text-sm md:text-base text-muted-foreground leading-relaxed">
                   {translation.description}
                 </h2>
               </div>
@@ -146,12 +146,12 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
 
               {/* Highlights */}
               <div>
-                <h3 className="text-2xl font-bold mb-4">{t('highlights')}</h3>
+                <h3 className="text-xl md:2xl font-bold mb-4">{t('highlights')}</h3>
                 <ul className="grid md:grid-cols-2 gap-3">
                   {translation.highlights.map((highlight, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <Check className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
-                      <span>{highlight}</span>
+                      <span className='text-sm md:text-base'>{highlight}</span>
                     </li>
                   ))}
                 </ul>
@@ -161,25 +161,25 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
 
               {/* Itinerary */}
               <div>
-                <h2 className="text-2xl font-bold mb-4">{t('itinerary')}</h2>
+                <h2 className="text-xl md:2xl font-bold mb-4">{t('itinerary')}</h2>
                 <div className="space-y-4">
                   {translation.itinerary.map((item, index) => (
                     <div key={index} className="flex gap-4">
                       <div className="shrink-0">
-                        <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary text-primary flex items-center justify-center font-semibold">
+                        <div className="text-sm md:text-base w-6 h-6 md:w-8 md:h-8 rounded-full bg-primary/10 border border-primary text-primary flex items-center justify-center font-semibold">
                           {index + 1}
                         </div>
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-1">
-                          <h3 className="font-semibold">{item.title}</h3>
+                          <h3 className="text-sm md:text-base font-semibold">{item.title}</h3>
                           {item.time && (
                             <span className="text-sm text-muted-foreground">
                               {item.time}
                             </span>
                           )}
                         </div>
-                        <p className="text-muted-foreground">{item.description}</p>
+                        <p className="text-sm md:text-base text-muted-foreground">{item.description}</p>
                       </div>
                     </div>
                   ))}
