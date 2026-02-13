@@ -311,5 +311,15 @@
       "step2": "Our team will contact you 24 hours before the tour",
       "step3": "Prepare for an unforgettable experience!"
     }
+  },
+  "notFound": {
+    "title": "Page Not Available",
+    "description": "The requested resource could not be found. It may have been moved, updated, or is no longer accessible.",
+    "homeButton": "Back to Home",
+    "backButton": "Go Back",
+    "popularPages": "Popular pages:",
+    "tours": "Tours",
+    "contact": "Contact",
+    "wishlist": "Wishlist"
   }
 }

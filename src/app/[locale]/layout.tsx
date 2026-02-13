@@ -14,7 +14,7 @@ import { notFound } from 'next/navigation';
 import '../globals.css';
 
 const kumbhSans = Kumbh_Sans({
-  subsets: ["latin"],
+  subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-kumbh-sans',
   display: 'swap',
@@ -32,7 +32,8 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.paphlagoniatour.com';
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || 'https://www.paphlagoniatour.com';
 
   return {
     title: t('title'),
@@ -40,8 +41,8 @@ export async function generateMetadata({
     alternates: {
       canonical: `${baseUrl}/${locale}`,
       languages: {
-        'en': `${baseUrl}/en`,
-        'tr': `${baseUrl}/tr`,
+        en: `${baseUrl}/en`,
+        tr: `${baseUrl}/tr`,
         'x-default': `${baseUrl}/en`,
       },
     },
@@ -55,7 +56,7 @@ export async function generateMetadata({
 
 export default async function LocaleLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
@@ -69,21 +70,17 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={kumbhSans.variable} suppressHydrationWarning>
-      <body className="font-sans antialiased theme-light">
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProviders>
-            <div className="flex flex-col min-h-screen">
-              <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
-            <Toaster richColors position='top-right' />
-            <CookieConsentModal />
-            <BackToTopButton />
-          </ThemeProviders>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <div className={`${kumbhSans.variable} flex flex-col min-h-screen`}>
+      <NextIntlClientProvider messages={messages}>
+        <ThemeProviders>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <Toaster richColors position="top-right" />
+          <CookieConsentModal />
+          <BackToTopButton />
+        </ThemeProviders>
+      </NextIntlClientProvider>
+    </div>
   );
 }

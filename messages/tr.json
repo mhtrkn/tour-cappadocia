@@ -311,5 +311,15 @@
       "step2": "Ekibimiz turdan 24 saat önce sizinle iletişime geçecek",
       "step3": "Unutulmaz bir deneyime hazır olun!"
     }
+  },
+  "notFound": {
+    "title": "Sayfaya Ulaşılamıyor",
+    "description": "Talep ettiğiniz içerik bulunamadı. Sistem güncellenmiş veya bağlantı geçerliliğini yitirmiş olabilir.",
+    "homeButton": "Ana Sayfaya Dön",
+    "backButton": "Geri Dön",
+    "popularPages": "Popüler sayfalar:",
+    "tours": "Turlar",
+    "contact": "İletişim",
+    "wishlist": "Favoriler"
   }
 }

@@ -28,14 +28,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
           {/* Brand */}
-          <div className="flex w-full items-center justify-center flex-col md:items-start md:justify-start space-y-4">
+          <div className="flex w-full items-center justify-center flex-col md:items-start md:justify-start">
             <Image
               src="/icons/logo.png"
               alt="Paphlagonia Tour Logo"
-              width={120}
-              height={120}
-              priority
-              className="object-contain drop-shadow-lg w-auto h-auto"
+              width={130}
+              height={130}
+              className="object-cover object-top drop-shadow-lg -mt-5"
             />
 
             <p className="text-sm text-100 font-medium">
