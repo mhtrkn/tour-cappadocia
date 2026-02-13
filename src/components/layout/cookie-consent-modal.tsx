@@ -40,7 +40,7 @@ export default function CookieConsent() {
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 flex items-end justify-center bg-black/25 backdrop-blur-[2px] sm:items-center"
         >
-          <Card className="absolute left-0 bottom-4 mx-4 w-full max-w-md rounded-2xl shadow-xl">
+          <Card className="absolute left-0 bottom-4 mx-4 w-auto md:w-full max-w-md rounded-2xl shadow-xl">
             <CardHeader className="flex flex-row items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                 <Cookie className="h-5 w-5" />
