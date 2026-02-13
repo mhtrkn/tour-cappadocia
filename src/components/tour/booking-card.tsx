@@ -232,7 +232,7 @@ export default function BookingCard({
           {locale === 'tr' ? 'Rezervasyon Yap' : 'Book Now'}
         </Button>
 
-        <div className="flex items-start gap-2 p-3 bg-muted/50 rounded-lg">
+        <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg">
           <Info className="w-4 h-4 text-muted-foreground shrink-0" />
           <p className="text-xs text-muted-foreground">
             {locale === 'tr'

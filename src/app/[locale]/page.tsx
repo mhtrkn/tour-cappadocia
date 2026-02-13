@@ -22,9 +22,20 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata.home' });
 
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://paphlagonia-tour.vercel.app';
+
   return {
     title: t('title'),
     description: t('description'),
+
+    alternates: {
+      canonical: `${baseUrl}/${locale}`,
+      languages: {
+        en: `${baseUrl}/en`,
+        tr: `${baseUrl}/tr`,
+        'x-default': `${baseUrl}/en`,
+      },
+    },
   };
 }
 
