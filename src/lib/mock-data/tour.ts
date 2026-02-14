@@ -6,33 +6,33 @@ export const tours: Tour[] = [
     slug: 'cappadocia-red-tour',
     category: 'cultural',
     difficulty: 'easy',
-    price: 70,
-    originalPrice: 80,
+    price: 35,
+    originalPrice: 35,
     duration: '7.5',
-    groupSize: { min: 1, max: 20 },
-    ageRestriction: { min: 6 },
+    groupSize: { min: 1, max: 18 },
+    ageRestriction: { min: 0 },
     rating: 4.9,
-    reviewCount: 342,
+    reviewCount: 124,
     featured: true,
     active: true,
     images: [
       {
-        url: 'https://www.paphlagoniatour.com/assets/upload/turfoto/cappadocia-red-tour16.jpg',
+        url: 'https://ertungaecir.com/wp-content/uploads/cappadocia-private-tours-5.jpg',
         alt: 'Cappadocia Red Tour',
         width: 1200,
-        height: 800,
+        height: 600,
       },
       {
-        url: 'https://images.unsplash.com/photo-1608211805656-f46ee1a39729?w=1200&h=800&fit=crop',
+        url: 'https://media.tacdn.com/media/attractions-splice-spp-720x480/15/e7/8d/c4.jpg',
         alt: 'Balloon ride sunrise view',
-        width: 1200,
-        height: 800,
+        width: 800,
+        height: 500,
       },
       {
-        url: 'https://images.unsplash.com/photo-1565008576549-57569a49371d?w=1200&h=800&fit=crop',
+        url: 'https://seattleballooning.com/wp-content/uploads/2025/01/How-a-hot-air-balloon-works-1024x768.jpg',
         alt: 'Multiple balloons in the sky',
-        width: 1200,
-        height: 800,
+        width: 1024,
+        height: 768,
       },
     ],
 
@@ -41,13 +41,13 @@ export const tours: Tour[] = [
         title: 'Kırmızı Tur Kapadokya',
         shortDescription: 'Kapadokya’nın en önemli tarihi ve doğal noktalarını yerel rehber eşliğinde keşfedin',
         description:
-          'Bu tam günlük Kapadokya Kırmızı Turunda Uçhisar, Paşabağları, Avanos, Göreme Açık Hava Müzesi, Aşk Vadisi ve Devrent Vadisi’ni keşfedeceksiniz. Profesyonel rehber eşliğinde bölgenin Hititlerden Hristiyanlığa uzanan zengin tarihini öğrenecek, peri bacaları arasında keyifli yürüyüşler yapacak ve Kapadokya’nın eşsiz atmosferini yakından deneyimleyeceksiniz.',
+          'Bu tam günlük Kapadokya Kırmızı Turunda Uçhisar, Paşabağları, Avanos, Zelve Açık Hava Müzesi, Aşk Vadisi ve Devrent Vadisi’ni keşfedeceksiniz. Profesyonel rehber eşliğinde bölgenin Hititlerden Hristiyanlığa uzanan zengin tarihini öğrenecek, peri bacaları arasında keyifli yürüyüşler yapacak ve Kapadokya’nın eşsiz atmosferini yakından deneyimleyeceksiniz.',
 
         highlights: [
           'Uçhisar Kalesi’nden panoramik manzara',
           'Paşabağları’nda keşiş hücreleri',
           'Avanos’ta çömlek yapımı gösterisi',
-          'Göreme Açık Hava Müzesi ziyareti',
+          'Zelve Açık Hava Müzesi ziyareti',
           'Aşk Vadisi ve Devrent Vadisi fotoğraf molaları',
         ],
 
@@ -73,7 +73,7 @@ export const tours: Tour[] = [
             time: '12:30',
           },
           {
-            title: 'Göreme Açık Hava Müzesi',
+            title: 'Zelve Açık Hava Müzesi',
             description: 'Kilise ve fresklerin keşfi',
             time: '14:00',
           },
@@ -108,7 +108,7 @@ export const tours: Tour[] = [
           'Hava koşullarına göre program değişebilir',
           'Yürüyüş içeren bir turdur',
           'Şapka ve güneş kremi tavsiye edilir',
-          '6 yaş altı çocuklar için uygun değildir',
+          'Her yaş grubu için uygundur',
         ],
 
         metaTitle: 'Kapadokya Red Tour | En Popüler Günlük Tur',
@@ -126,13 +126,13 @@ export const tours: Tour[] = [
         title: 'Red Tour Cappadocia',
         shortDescription: 'Discover the highlights of Cappadocia with a professional local guide',
         description:
-          'On this full-day Cappadocia Red Tour, you will explore Uçhisar Castle, Paşabağları, Avanos, Göreme Open Air Museum, Love Valley, and Devrent Valley. With a professional guide, you will learn about the region’s rich history from the Hittites to early Christianity and enjoy walking among fairy chimneys and unique landscapes.',
+          'On this full-day Cappadocia Red Tour, you will explore Uçhisar Castle, Paşabağları, Avanos, Zelve Open Air Museum, Love Valley, and Devrent Valley. With a professional guide, you will learn about the region’s rich history from the Hittites to early Christianity and enjoy walking among fairy chimneys and unique landscapes.',
 
         highlights: [
           'Panoramic views from Uçhisar Castle',
           'Monk cells in Paşabağları',
           'Pottery demonstration in Avanos',
-          'Visit to Göreme Open Air Museum',
+          'Visit to Zelve Open Air Museum',
           'Photo stops at Love and Devrent Valleys',
         ],
 
@@ -158,7 +158,7 @@ export const tours: Tour[] = [
             time: '12:30',
           },
           {
-            title: 'Göreme Open Air Museum',
+            title: 'Zelve Open Air Museum',
             description: 'Explore churches and frescoes',
             time: '14:00',
           },
@@ -193,7 +193,7 @@ export const tours: Tour[] = [
           'Tour program may change due to weather',
           'Includes walking activities',
           'Bring hat and sunscreen',
-          'Not suitable for children under 6',
+          'Suitable for all age groups',
         ],
 
         metaTitle: 'Cappadocia Red Tour | Best Daily Tour',
@@ -213,58 +213,58 @@ export const tours: Tour[] = [
     slug: 'cappadocia-green-tour',
     category: 'nature',
     difficulty: 'easy',
-    price: 80,
-    originalPrice: 80,
+    price: 55,
+    originalPrice: 55,
     duration: '8',
     groupSize: { min: 1, max: 15 },
-    ageRestriction: { min: 6 },
-    rating: 4.8,
-    reviewCount: 287,
+    ageRestriction: { min: 0 },
+    rating: 4.9,
+    reviewCount: 183,
     featured: true,
     active: true,
 
     images: [
       {
-        url: 'https://acenta360.fra1.cdn.digitaloceanspaces.com/67f4db51743a9.jpg',
+        url: 'https://img.freepik.com/free-photo/beautiful-shot-lake-near-high-rocky-mountains-cloudy-sky-norway_181624-6856.jpg?semt=ais_user_personalization&w=740&q=80',
         alt: 'Ihlara Valley Cappadocia',
-        width: 1200,
-        height: 800,
+        width: 800,
+        height: 500,
       },
       {
-        url: 'https://images.unsplash.com/photo-1600962815726-457c46eb3f6f?w=1200&h=800&fit=crop',
+        url: 'https://relentlessroaming.com/wp-content/uploads/2024/02/PXL_20221028_100833855-1-min-scaled.jpg',
         alt: 'Derinkuyu Underground City',
         width: 1200,
-        height: 800,
+        height: 900,
       },
       {
-        url: 'https://images.unsplash.com/photo-1580136607993-baa37cfd7bd8?w=1200&h=800&fit=crop',
+        url: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/4f/75/1f/selime-turchia.jpg?w=900&h=500&s=1',
         alt: 'Selime Monastery Cappadocia',
-        width: 1200,
-        height: 800,
+        width: 900,
+        height: 500,
       },
     ],
 
     translations: {
       tr: {
-        title: 'Yeşil Tur Kapadokya - Küçük Grup & Alışverişsiz',
+        title: 'Lüks Yeşil Tur Kapadokya - Küçük Grup',
         shortDescription:
           'Ihlara Vadisi, Derinkuyu Yeraltı Şehri ve Selime Manastırı’nı kapsayan doğa ve tarih dolu tam günlük tur',
 
         description:
-          'Kapadokya Yeşil Tur ile bölgenin en etkileyici doğal ve tarihi alanlarını keşfedin. Göreme Panorama, Derinkuyu Yeraltı Şehri, Ihlara Vadisi yürüyüşü, Melendiz Nehri kıyısında öğle yemeği ve Selime Manastırı ziyaretleri ile unutulmaz bir deneyim yaşayacaksınız. Küçük grup ve alışverişsiz konsepti sayesinde daha konforlu ve kaliteli bir tur sunulmaktadır.',
+          'Kapadokya Yeşil Tur ile bölgenin en etkileyici doğal ve tarihi alanlarını keşfedin. Göreme Panorama, Derinkuyu Yeraltı Şehri, Ihlara Vadisi yürüyüşü, Melendiz Nehri kıyısında öğle yemeği ve Selime Manastırı ziyaretleri ile unutulmaz bir deneyim yaşayacaksınız. Küçük grup konsepti sayesinde daha konforlu ve kaliteli bir tur sunulmaktadır.',
 
         highlights: [
           'Göreme Panorama’dan eşsiz manzara',
           'Derinkuyu Yeraltı Şehri keşfi',
           'Ihlara Vadisi’nde doğa yürüyüşü',
-          'Nehir kenarında öğle yemeği',
+          'Yerel restoranlarda öğle yemeği',
           'Selime Kaya Manastırı ziyareti',
           'Yerel ürünler ve kahve tadımı',
         ],
 
         itinerary: [
           {
-            title: 'Otel Alımı',
+            title: 'Otelden Alım',
             description: 'Sabah otelinizden alınış',
             time: '09:00',
           },
@@ -274,36 +274,47 @@ export const tours: Tour[] = [
             time: '09:30',
           },
           {
-            title: 'Derinkuyu Yeraltı Şehri',
-            description: 'Yeraltı şehri ziyareti',
-            time: '10:30',
+            title: 'Güvercinlik Vadisi',
+            description: 'Güvercinlik Vadisi’nde yürüyüş ve fotoğraf molası',
+            time: '10:00',
+          },
+          {
+            title: 'Oniks Atölyesi',
+            description: 'Doğal taş işleme atölyesi ziyareti',
+            time: '10:45',
+          },
+          {
+            title: 'Yeraltı Şehri (Kaymaklı / Derinkuyu)',
+            description: 'Yeraltı şehri gezisi',
+            time: '11:45',
           },
           {
             title: 'Ihlara Vadisi',
             description: '3,5 km doğa yürüyüşü',
-            time: '12:00',
+            time: '13:00',
           },
           {
             title: 'Öğle Yemeği',
-            description: 'Melendiz Nehri kıyısında yemek',
-            time: '13:30',
+            description: 'Yerel restoranlarda yemek',
+            time: '14:30',
           },
           {
             title: 'Selime Manastırı',
             description: 'Kaya manastırı gezisi',
-            time: '14:30',
-          },
-          {
-            title: 'Yerel Pazar & Kahve Molası',
-            description: 'Yöresel ürünler ve tadım',
             time: '15:30',
           },
           {
-            title: 'Otel Dönüşü',
+            title: 'Yerel Tadım & Kahve Molası',
+            description: 'Yöresel ürünler tadımı ve kahve molası',
+            time: '16:15',
+          },
+          {
+            title: 'Otele Dönüş',
             description: 'Otele transfer',
             time: '17:30',
           },
         ],
+
 
         included: [
           'Otel alım ve bırakma',
@@ -325,7 +336,7 @@ export const tours: Tour[] = [
           'Yeraltı şehri klostrofobisi olanlar için uygun değildir',
           'Hava koşullarına göre program değişebilir',
           'Şapka ve güneş kremi önerilir',
-          '6 yaş altı çocuklar için uygun değildir',
+          'Her yaş grubu için uygundur',
         ],
 
         metaTitle:
@@ -335,27 +346,28 @@ export const tours: Tour[] = [
           'Kapadokya Green Tour ile Ihlara Vadisi, Derinkuyu Yeraltı Şehri ve Selime Manastırı’nı keşfedin. Küçük grup, rehberli ve öğle yemekli tam günlük tur.',
 
         metaKeywords: [
-          'kapadokya green tour',
+          'kapadokya lüks green tour',
           'ıhlara vadisi turu',
           'derinkuyu yeraltı şehri',
           'kapadokya doğa turu',
           'kapadokya günlük tur',
+          'lüks green tour'
         ],
       },
 
       en: {
-        title: 'Green Tour Cappadocia – Small Group & No Shopping',
+        title: 'Deluxe Green Tour - Small Group & Original Green Tour',
         shortDescription:
           'Explore Ihlara Valley, Derinkuyu Underground City and Selime Monastery in one full-day tour',
 
         description:
-          'Join the Cappadocia Green Tour and discover the most impressive natural and historical sites of the region. Visit Göreme Panorama, explore Derinkuyu Underground City, walk through Ihlara Valley, enjoy lunch by the Melendiz River and explore Selime Rock Monastery. This small-group, no-shopping tour offers a comfortable and authentic experience.',
+          'Join the Cappadocia Green Tour and discover the most impressive natural and historical sites of the region. Visit Göreme Panorama, explore Derinkuyu Underground City, walk through Ihlara Valley, enjoy lunch by the Melendiz River and explore Selime Rock Monastery. This small-group, tour offers a comfortable and authentic experience.',
 
         highlights: [
           'Panoramic views from Göreme View Point',
           'Explore Derinkuyu Underground City',
           'Hiking in Ihlara Valley',
-          'Lunch by the Melendiz River',
+          'Lunch by the local restourant',
           'Visit Selime Rock Monastery',
           'Local products and coffee tasting',
         ],
@@ -372,29 +384,39 @@ export const tours: Tour[] = [
             time: '09:30',
           },
           {
-            title: 'Derinkuyu Underground City',
+            title: 'Pigeon Valley',
+            description: 'Walk and photo stop at Pigeon Valley',
+            time: '10:00',
+          },
+          {
+            title: 'Onyx Workshop',
+            description: 'Visit local onyx stone workshop',
+            time: '10:45',
+          },
+          {
+            title: 'Underground City (Kaymaklı / Derinkuyu)',
             description: 'Explore underground tunnels and rooms',
-            time: '10:30',
+            time: '11:45',
           },
           {
             title: 'Ihlara Valley',
             description: '3.5 km hiking tour',
-            time: '12:00',
+            time: '13:00',
           },
           {
             title: 'Lunch',
-            description: 'Lunch by Melendiz River',
-            time: '13:30',
+            description: 'Lunch at local restaurant',
+            time: '14:30',
           },
           {
             title: 'Selime Monastery',
             description: 'Visit rock-cut monastery',
-            time: '14:30',
+            time: '15:30',
           },
           {
-            title: 'Local Market & Coffee Break',
-            description: 'Taste local products',
-            time: '15:30',
+            title: 'Local Tasting & Coffee Break',
+            description: 'Taste local products and coffee break',
+            time: '16:15',
           },
           {
             title: 'Hotel Return',
@@ -403,16 +425,17 @@ export const tours: Tour[] = [
           },
         ],
 
+
         included: [
           'Hotel pick-up and drop-off',
           'Professional English-speaking guide',
           'Transportation with air-conditioned vehicle',
           'Lunch',
           'Local tasting experience',
+          'Entrance fees',
         ],
 
         notIncluded: [
-          'Entrance fees',
           'Personal expenses',
           'Drinks',
           'Tips',
@@ -423,21 +446,22 @@ export const tours: Tour[] = [
           'Not suitable for people with claustrophobia',
           'Tour schedule may change due to weather',
           'Bring sunscreen and hat',
-          'Not suitable for children under 6',
+          'Suitable for all age groups',
         ],
 
         metaTitle:
-          'Cappadocia Green Tour | Ihlara Valley & Derinkuyu Underground City',
+          'Cappadocia Deluxe Green Tour | Ihlara Valley & Derinkuyu Underground City',
 
         metaDescription:
           'Discover Ihlara Valley, Derinkuyu Underground City and Selime Monastery on the Cappadocia Green Tour. Small group, guided full-day tour with lunch included.',
 
         metaKeywords: [
-          'cappadocia green tour',
+          'cappadocia deluxe green tour',
           'ihlára valley tour',
           'derinkuyu underground city',
           'cappadocia nature tour',
           'daily tour cappadocia',
+          'deluxe green tour'
         ],
       },
     },
@@ -937,13 +961,13 @@ export const tours: Tour[] = [
         included: [
           'Kayseri’den gidiş-dönüş transfer',
           'Minivan ile ulaşım',
+          'Müze giriş ücretleri',
           'Profesyonel rehber',
           'Öğle yemeği',
           'Seramik atölyesi ziyareti',
         ],
 
         notIncluded: [
-          'Müze giriş ücretleri',
           'İçecekler',
           'Kişisel harcamalar',
           'Bahşişler',
@@ -979,12 +1003,12 @@ export const tours: Tour[] = [
           'Discover the highlights of Cappadocia with a comfortable transfer from Kayseri',
 
         description:
-          'Join the daily Cappadocia tour from Kayseri and explore Uçhisar Castle, Göreme Open Air Museum, Love Valley and Paşabağları. Enjoy a comfortable minivan transfer, professional guiding and lunch in Avanos for a complete Cappadocia experience.',
+          'Join the daily Cappadocia tour from Kayseri and explore Uçhisar Castle, Zelve Open Air Museum, Love Valley and Paşabağları. Enjoy a comfortable minivan transfer, professional guiding and lunch in Avanos for a complete Cappadocia experience.',
 
         highlights: [
           'Round-trip transfer from Kayseri',
           'Panoramic views at Uçhisar Castle',
-          'Visit Göreme Open Air Museum',
+          'Visit Zelve Open Air Museum',
           'Photo stop at Love Valley',
           'Explore Paşabağları',
           'Ceramic workshop in Avanos',
@@ -1007,7 +1031,7 @@ export const tours: Tour[] = [
             time: '10:30',
           },
           {
-            title: 'Göreme Open Air Museum',
+            title: 'Zelve Open Air Museum',
             description: 'Explore churches and frescoes',
             time: '11:30',
           },

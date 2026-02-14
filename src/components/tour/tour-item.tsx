@@ -19,7 +19,7 @@ function TourItem({ tour }: { tour: Tour }) {
     >
       <div className="border rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 h-full bg-white">
         {/* Image */}
-        <div className="relative w-full h-44 md:h-64 overflow-hidden">
+        <div className="relative w-full h-44 md:h-60 overflow-hidden">
           <Image
             src={tour.images[0].url}
             alt={tour.images[0].alt}

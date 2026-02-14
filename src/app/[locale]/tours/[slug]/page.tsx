@@ -116,15 +116,6 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
             <div className="lg:col-span-2 space-y-8">
               {/* Header */}
               <div>
-                <div className="flex items-center gap-2 mb-3">
-                  <Badge variant="secondary" className="capitalize border border-primary bg-secondary/50 text-secondary-foreground">
-                    {tour.category}
-                  </Badge>
-                  <Badge variant="outline" className="capitalize">
-                    {tour.difficulty}
-                  </Badge>
-                </div>
-
                 <h1 className="text-2xl md:text-4xl font-bold mb-4">
                   {translation.title}
                 </h1>
@@ -143,6 +134,9 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
                     <Users className="h-4 w-4" />
                     <span>Max {tour.groupSize.max} {t('people')}</span>
                   </div>
+                  <Badge variant={"outline"} className="capitalize text-secondary-foreground">
+                    {tour.category}
+                  </Badge>
                 </div>
               </div>
 
@@ -188,11 +182,6 @@ export default async function TourDetailPage({ params }: TourDetailPageProps) {
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-1">
                           <h3 className="text-sm md:text-base font-semibold">{item.title}</h3>
-                          {item.time && (
-                            <span className="text-sm text-muted-foreground">
-                              {item.time}
-                            </span>
-                          )}
                         </div>
                         <p className="text-sm md:text-base text-muted-foreground">{item.description}</p>
                       </div>

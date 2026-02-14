@@ -26,6 +26,36 @@ const nextConfig: NextConfig = {
         hostname: 'flagcdn.com',
         pathname: "/**",
       },
+      {
+        protocol: 'https',
+        hostname: 'img.freepik.com',
+        pathname: "/**",
+      },
+      {
+        protocol: 'https',
+        hostname: 'relentlessroaming.com',
+        pathname: "/**",
+      },
+      {
+        protocol: 'https',
+        hostname: 'dynamic-media-cdn.tripadvisor.com',
+        pathname: "/**",
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.tacdn.com',
+        pathname: "/**",
+      },
+      {
+        protocol: 'https',
+        hostname: 'ertungaecir.com',
+        pathname: "/**",
+      },
+      {
+        protocol: 'https',
+        hostname: 'seattleballooning.com',
+        pathname: "/**",
+      },
     ],
     formats: ['image/avif', 'image/webp'],
   },

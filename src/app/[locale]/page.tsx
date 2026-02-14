@@ -9,6 +9,8 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import ReviewsShowcase from '@/components/reviews/reviews-showcase';
+import { reviews } from '@/lib/mock-data/reviews';
 
 const TourItem = dynamic(() => import('@/components/tour/tour-item'));
 
@@ -230,7 +232,7 @@ export default async function HomePage({
             </div>
 
             {/* Stats or Trust Indicators */}
-            <div className="mt-20 mb-10 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="mt-20 mb-10 grid grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto">
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">10K+</div>
                 <div className="text-sm text-muted-foreground">Mutlu Müşteri</div>
@@ -240,16 +242,18 @@ export default async function HomePage({
                 <div className="text-sm text-muted-foreground">Profesyonel Rehber</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">4.9★</div>
-                <div className="text-sm text-muted-foreground">Ortalama Puan</div>
-              </div>
-              <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">24/7</div>
                 <div className="text-sm text-muted-foreground">Destek</div>
               </div>
             </div>
           </div>
         </section>
+
+        {/* Reviews Showcase */}
+        <ReviewsShowcase
+          reviews={reviews}
+          locale={locale as 'en' | 'tr'}
+        />
 
         <ClientFAQ />
       </div>

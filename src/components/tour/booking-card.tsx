@@ -15,6 +15,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { PriceDisplay } from '../layout/price-display';
 import { useRouter } from '@/i18n/routing';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface BookingCardProps {
   tourSlug: string;
@@ -122,126 +123,136 @@ export default function BookingCard({
   };
 
   return (
-    <Card className="sticky top-28">
-      <CardHeader>
-        <div className="flex items-center justify-between">
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-primary">
-              <PriceDisplay amount={price} />
-            </span>
-            {originalPrice && originalPrice > price && (
-              <span className="text-lg text-muted-foreground line-through">
-                <PriceDisplay amount={originalPrice} />
-              </span>
-            )}
-          </div>
-
-          <Button onClick={toggleLike} variant="ghost" size="sm">
-            <Heart
-              className={`h-5! w-5! transition-all duration-300 ${isLiked
-                ? 'fill-primary text-primary scale-110'
-                : 'text-primary hover:scale-110'
-                }`}
-            />
-          </Button>
-        </div>
-      </CardHeader>
-
-      <CardContent className="space-y-4">
-        {/* Tour Info */}
-        <div className="space-y-3 pb-4 border-b">
-          <div className="flex items-center gap-3 text-sm">
-            <Clock className="h-5 w-5 text-muted-foreground" />
-            <span>{duration} {locale === 'tr' ? 'saat' : 'hours'}</span>
-          </div>
-          <div className="flex items-center gap-3 text-sm">
-            <Users className="h-5 w-5 text-muted-foreground" />
-            <span>
-              {locale === 'tr'
-                ? `${groupSize.min}-${groupSize.max} kişi`
-                : `${groupSize.min}-${groupSize.max} people`}
-            </span>
-          </div>
-        </div>
-
-        {/* Date Picker */}
-        <div className="space-y-2">
-          <Label htmlFor="date">
-            {locale === 'tr' ? 'Tarih Seçin' : 'Select Date'}
-          </Label>
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button
-                variant="outline"
-                className={cn(
-                  'w-full flex items-center justify-start text-left font-normal h-11! bg-transparent!',
-                  !date && 'text-muted-foreground'
+    <AnimatePresence>
+      <motion.div
+        key={"booking-card"}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -50 }}
+        transition={{ duration: 0.3 }}
+        className="sticky top-28">
+        <Card>
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <div className="flex items-baseline gap-2">
+                <span className="text-3xl font-bold text-primary">
+                  <PriceDisplay amount={price} />
+                </span>
+                {originalPrice && originalPrice > price && (
+                  <span className="text-lg text-muted-foreground line-through">
+                    <PriceDisplay amount={originalPrice} />
+                  </span>
                 )}
-              >
-                <CalendarIcon className="mr-2 h-4 w-4" />
-                {date ? (
-                  format(date, 'PPP', { locale: dateLocale })
-                ) : (
-                  <span>{locale === 'tr' ? 'Bir tarih seçin' : 'Pick a date'}</span>
-                )}
+              </div>
+
+              <Button onClick={toggleLike} variant="ghost" size="sm">
+                <Heart
+                  className={`h-5! w-5! transition-all duration-300 ${isLiked
+                    ? 'fill-primary text-primary scale-110'
+                    : 'text-primary hover:scale-110'
+                    }`}
+                />
               </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0" align="start">
-              <Calendar
-                mode="single"
-                selected={date}
-                onSelect={setDate}
-                disabled={(date) => date < new Date()}
-                initialFocus
-                locale={dateLocale}
-              />
-            </PopoverContent>
-          </Popover>
-        </div>
+            </div>
+          </CardHeader>
 
-        {/* Adults Counter */}
-        <div className="space-y-2">
-          <Label>
-            {locale === 'tr' ? 'Yetişkin Sayısı' : 'Number of Adults'}
-          </Label>
-          <div className="flex items-center justify-between border rounded-lg px-3 h-11">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => handleAdultsChange(-1)}
-              disabled={adults <= groupSize.min}
-            >
-              <Minus className="h-4 w-4" />
-            </Button>
-            <span className="font-semibold text-lg">{adults}</span>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => handleAdultsChange(1)}
-              disabled={adults >= groupSize.max}
-            >
-              <Plus className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-        <Button
-          className="w-full h-11 flex items-center justify-center"
-          size="lg"
-          onClick={handleBooking}
-        >
-          {locale === 'tr' ? 'Rezervasyon Yap' : 'Book Now'}
-        </Button>
+          <CardContent className="space-y-4">
+            {/* Tour Info */}
+            <div className="space-y-3 pb-4 border-b">
+              <div className="flex items-center gap-3 text-sm">
+                <Clock className="h-5 w-5 text-muted-foreground" />
+                <span>{duration} {locale === 'tr' ? 'saat' : 'hours'}</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm">
+                <Users className="h-5 w-5 text-muted-foreground" />
+                <span>
+                  {locale === 'tr'
+                    ? `${groupSize.min}-${groupSize.max} kişi`
+                    : `${groupSize.min}-${groupSize.max} people`}
+                </span>
+              </div>
+            </div>
 
-        <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg">
-          <Info className="w-4 h-4 text-muted-foreground shrink-0" />
-          <p className="text-xs text-muted-foreground">
-            {locale === 'tr'
-              ? 'Rezervasyonunuzu onaylamadan ücret alınmaz.'
-              : "No charge until confirmation."
-            }
-          </p>
-        </div>
-      </CardContent>
-    </Card>
+            {/* Date Picker */}
+            <div className="space-y-2">
+              <Label htmlFor="date">
+                {locale === 'tr' ? 'Tarih Seçin' : 'Select Date'}
+              </Label>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className={cn(
+                      'w-full flex items-center justify-start text-left font-normal h-11! bg-transparent!',
+                      !date && 'text-muted-foreground'
+                    )}
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    {date ? (
+                      format(date, 'PPP', { locale: dateLocale })
+                    ) : (
+                      <span>{locale === 'tr' ? 'Bir tarih seçin' : 'Pick a date'}</span>
+                    )}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={date}
+                    onSelect={setDate}
+                    disabled={(date) => date < new Date()}
+                    initialFocus
+                    locale={dateLocale}
+                  />
+                </PopoverContent>
+              </Popover>
+            </div>
+
+            {/* Adults Counter */}
+            <div className="space-y-2">
+              <Label>
+                {locale === 'tr' ? 'Yetişkin Sayısı' : 'Number of Adults'}
+              </Label>
+              <div className="flex items-center justify-between border rounded-lg px-3 h-11">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => handleAdultsChange(-1)}
+                  disabled={adults <= groupSize.min}
+                >
+                  <Minus className="h-4 w-4" />
+                </Button>
+                <span className="font-semibold text-lg">{adults}</span>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => handleAdultsChange(1)}
+                  disabled={adults >= groupSize.max}
+                >
+                  <Plus className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+            <Button
+              className="w-full h-11 flex items-center justify-center"
+              size="lg"
+              onClick={handleBooking}
+            >
+              {locale === 'tr' ? 'Rezervasyon Yap' : 'Book Now'}
+            </Button>
+
+            <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg">
+              <Info className="w-4 h-4 text-muted-foreground shrink-0" />
+              <p className="text-xs text-muted-foreground">
+                {locale === 'tr'
+                  ? 'Rezervasyonunuzu onaylamadan ücret alınmaz.'
+                  : "No charge until confirmation."
+                }
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </AnimatePresence>
   );
 }
